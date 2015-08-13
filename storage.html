@@ -1,10 +1,32 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿﻿
+<!--
+Version     Author          Date
+REV.01      Steven Liang    2015-08-12
+-->
+<!DOCTYPE html>
+<html class="zh-cn currencyJPY" lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+    <!-- Video use end -->
+    <link href="C:/Users/Administrator/Documents/video-center_files/corecss.css?v=20150813043734" rel="stylesheet" type="text/css">
+    <link href="C:/Users/Administrator/Documents/video-center_files/corecss2.css?v=20150813043734" rel="stylesheet" type="text/css">
+    <script src="C:/Users/Administrator/Documents/video-center_files/corejs.js?v=20150813043734" type="text/javascript"></script>
+    <title></title>
+    <meta name="description" content="Windows Azure 视频中心，迅速掌握Windows Azure使用方法" />
+
+    <link href="C:/Users/Administrator/Documents/video-center_files/azuremediaplayer.min.css" rel="stylesheet">
+    <script src="C:/Users/Administrator/Documents/video-center_files/azuremediaplayer.min.js"></script>
+    <script>
+        amp.options.flashSS.swf = "http://amp.azure.net/libs/amp/1.1.1/techs/StrobeMediaPlayback.2.0.swf"
+        amp.options.flashSS.plugin = "http://amp.azure.net/libs/amp/1.1.1/techs/MSAdaptiveStreamingPlugin-osmf2.0.swf"
+        amp.options.silverlightSS.xap = "http://amp.azure.net/libs/amp/1.1.1/techs/SmoothStreamingPlayer.xap"
+    </script>
+    <!-- Video use end -->
+
+
+    <title></title>
     <script type="text/javascript">
-        function show(c_Str) {
+        function show(c_Str)
+        {   
             ul = document.getElementById("nav_list");
             for (var i = 0; i < ul.childNodes.length; i++) {
                 if (c_Str + "_header" == ul.childNodes[i].id) {
@@ -26,78 +48,78 @@
         }
 
         $(document).ready(function () {
-        $(".banner_close").click(function () {
-            var dom = $(".banner_close").parent();
-            $(dom).removeClass("banner_content").addClass("content_hide");
-        });
-        $(".content_title").click(function () {
-
-            var dom = $(".banner_close").parent();
-            $(dom).removeClass("content_hide").addClass("banner_content");
-            $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
-            $(this).parent().removeClass("grey_content").addClass("blue_content");
-            $(".triangle-up").css("display", "none");
-            $(this).find(".triangle-up").css("display", "block");
-            var strhref = $(this).attr('href');
-            var domID = strhref.substring(1, (strhref.length));
-            fetchdata(domID);
-            var secCount = $("section").length;
-            $("#page_body section").removeClass("content_show").addClass("content_hide");
-            $("#page_body section").each(function () {
-                if ($(this).attr('data-value') == domID) {
-                    $(this).removeClass("content_hide").addClass("content_show");
-
-                    previousScrollTop = 0;
-                    onscroll();
-                }
+            $(".banner_close").click(function () {
+                var dom = $(".banner_close").parent();
+                $(dom).removeClass("banner_content").addClass("content_hide");
             });
-        });
-        var previousScrollTop = 0;
-        $(window).on('scroll', onscroll);
+            $(".content_title").click(function () {
 
-        $(window).on('resize', function (evt) {
-            var width = 0.16 * $('.content').width();
-            $('.left_content').css({
-                'width': width,
-            })
-        });
-        function onscroll(evt) {
-            var scrollTop = $(this).scrollTop();
-            var scrollHeight = $(document).height();
-            var windowHeight = $(this).height();
-            var top = $(window).scrollTop();
-            var leftHeigth = $('.left_content').height();
-            if (Math.abs(top - previousScrollTop) < 20) return; // ie
-            var width = 0.16 * $('.content').width();
-            //(top > $('footer').offset().top - $(window).height())
-            if ((scrollTop + leftHeigth + $("footer").height() + $(".banner_content").height()) >= (scrollHeight)) {
-                // footer show up
+                var dom = $(".banner_close").parent();
+                $(dom).removeClass("content_hide").addClass("banner_content");
+                $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
+                $(this).parent().removeClass("grey_content").addClass("blue_content");
+                $(".triangle-up").css("display", "none");
+                $(this).find(".triangle-up").css("display", "block");
+                var strhref = $(this).attr('href');
+                var domID = strhref.substring(1, (strhref.length));
+                fetchdata(domID);
+                var secCount = $("section").length;
+                $("#page_body section").removeClass("content_show").addClass("content_hide");
+                $("#page_body section").each(function () {
+                    if ($(this).attr('data-value') == domID) {
+                        $(this).removeClass("content_hide").addClass("content_show");
+
+                        previousScrollTop = 0;
+                        onscroll();
+                    }
+                });
+            });
+            var previousScrollTop = 0;
+            $(window).on('scroll', onscroll);
+
+            $(window).on('resize', function (evt) {
+                var width = 0.16 * $('.content').width();
                 $('.left_content').css({
-                    'position': 'absolute',
-                    'bottom': 0,
-                    'top': 'auto',
-                })
-            }
-            else {
-                // scroll up-->
-                $('.left_content').css({
-                    'position': 'fixed',
-                    'top': '108px',
-                    'bottom': 'auto',
                     'width': width,
                 })
+            });
+            function onscroll(evt) {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                var windowHeight = $(this).height();
+                var top = $(window).scrollTop();
+                var leftHeigth = $('.left_content').height();
+                if (Math.abs(top - previousScrollTop) < 20) return; // ie
+                var width = 0.16 * $('.content').width();
+                //(top > $('footer').offset().top - $(window).height())
+                if ((scrollTop + leftHeigth + $("footer").height() + $(".banner_content").height()) >= (scrollHeight)) {
+                    // footer show up
+                    $('.left_content').css({
+                        'position': 'absolute',
+                        'bottom': 0,
+                        'top': 'auto',
+                    })
+                }
+                else {
+                    // scroll up-->
+                    $('.left_content').css({
+                        'position': 'fixed',
+                        'top': '108px',
+                        'bottom': 'auto',
+                        'width': width,
+                    })
+                }
+                previousScrollTop = top;
             }
-            previousScrollTop = top;
+        });
+        //数据抓取
+        function fetchdata(vel) {
+            var locaUrl = window.location.href;
+            if (locaUrl.indexOf("#") > 0)
+                locaUrl = locaUrl.split("#")[0].toString() + "?" + vel;
+            //alert(locaUrl);
+            $.get(locaUrl);
         }
-    });
-     //数据抓取
-    function fetchdata(vel) {
-        var locaUrl = window.location.href;
-        if (locaUrl.indexOf("#") > 0)
-            locaUrl = locaUrl.split("#")[0].toString() + "?" + vel;
-        //alert(locaUrl);
-        $.get(locaUrl);
-    }
     </script>
     <style>
         .right_content_center h2 {
@@ -668,8 +690,8 @@
             }
 
                 /*.nav_li_submenu {
-                margin-left: 20px;
-            } */
+            margin-left: 20px;
+        } */
 
                 .left_ul_content > a {
                     font-weight: 400;
@@ -707,7 +729,7 @@
                         list-style: none;
                         padding: 0 15px 10px 20px;
                     }
-                    /* the most inner link style */
+                        /* the most inner link style */
                         .left_ul_content > li > ul > li > a {
                             font-size: 12px;
                             line-height: 1.2em;
@@ -718,7 +740,7 @@
                             margin-left: -20px;
                             text-decoration: none;
                         }
-                        /* the initial style of class-item */
+                    /* the initial style of class-item */
                     .left_ul_content > li > a:before {
                         transition: .2s;
                         background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAHCAYAAAArkDztAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAElJREFUeNpiCAgISGDAApg1NDTOA7EDED+8cePGA5gEI1DHfySFC4C4ccOGDQ/QJUDgAxBPZGLAAVjQ+HCjYBIHoAIHYCoAAgwA+4sZshXM1Q0AAAAASUVORK5CYII=');
@@ -733,13 +755,13 @@
                     }
 
                     /* rotate background image after click */
-        .left_ul_content > li.active > a:before{
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            -o-transform: rotate(90deg);
-            transform: rotate(90deg);
-        }
+                    .left_ul_content > li.active > a:before {
+                        -webkit-transform: rotate(90deg);
+                        -moz-transform: rotate(90deg);
+                        -ms-transform: rotate(90deg);
+                        -o-transform: rotate(90deg);
+                        transform: rotate(90deg);
+                    }
             /* REV.01 ADD END */
 
             /*header-web 部分*/
@@ -897,20 +919,20 @@
             }
         }
     </style>
-
 </head>
 <body id="top">
     <div class="main_content" id='serviceCenter'>
         <div class="content">
             <div class='white-background'></div>
-            <div id="" class="left_content">
+            <!--left 左侧导航-->
+            <div  id="" class="left_content">
                 <ul id="nav_list" style="border:none;" class="left_ul_content">
                     <a id="side_nav_services_virtual-machines" style="margin-top:35px;margin-bottom:10px; font-size:20px;">
                         存储
                     </a>
-                    <li id="description_header" class="active" onclick=show("description")>
+                    <li id="description2_header" class="active" onclick=show("description2")>
                         <a>概述</a>
-                        <ul id="description" style="display: block">
+                        <ul id="description2" style="display: block">
                             <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-introduction/"> 存储器简介 </a> </li>
                             <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-getting-started-guide/"> 只需 5 分钟即可试用存储器 </a> </li>
                             <li class=""> <a href="/zh-cn/pricing/details/storage/"> Azure 存储器定价 </a> </li>
@@ -938,7 +960,7 @@
                         </ul>
                     </li>
                     <li id="design_header" class="" onclick=show("design")>
-                        <a >针对云进行设计</a>
+                        <a>针对云进行设计</a>
                         <ul id="design" style="display: none">
                             <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-scalability-targets/"> 存储器可伸缩性和性能目标 </a> </li>
                             <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-performance-checklist/"> 性能和可伸缩性清单 </a> </li>
@@ -1018,8 +1040,11 @@
                             <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-migration-to-premium-storage/"> 迁移到高级存储器 </a> </li>
                         </ul>
                     </li>
+                    <!-- REV.01 MOD END -->
+
                 </ul>
             </div>
+            <!--header 右侧-->
             <div class="right_content_header">
                 <div class="right_content_dis">
                     <h1 style="line-height:27px;margin-bottom:0px;font-weight:400;">
@@ -1037,66 +1062,21 @@
                     </div>
                 </div>
                 <div class="right_content_select">
-                    <div class="select_space blue_content">
-                        <a class="content_title" id="home_storage_cs" href="#features">
-                            <div class="content_Item_title">
-                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_feature.png" />
-                                功能
+                    <div class="video-field">
+                        <div class="video-item">
+                            <div class="video-image">
+                                <a class="_storage-video-popup" style=" background: url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/CDN/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86CDN.png') no-repeat;"
+                                href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/680ca107-f2ac-4139-b246-91b71d4a889c/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86CDN.ism/Manifest">
+                                <div class="play-btn">
+                                    <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
+                                </div>
+                                </a>
                             </div>
-                            <div class="content_Item_content">高伸缩性</div>
-                            <div class="content_Item_content">持久稳定</div>
-                            <div class="content_Item_content">高安全性</div>
-                            <span class="triangle-up" style="margin-top:32px;"></span>
-                        </a>
-                    </div>
-                    <div class="grey_content block_space">
-                        <a class="content_title" id="home_storage_price" href="#price">
-                            <div class="content_Item_title">
-                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_price.png" />
-                                价格
-                            </div>
-                            <div class="content_Item_content">
-                                四种分类
-                            </div>
-                            <div class="content_Item_content">
-                                三个冗余级别选择
-                            </div>
-                            <div class="content_Item_content">
-                                <strong class="Item_strong">￥0.33 </strong>
-                                <span style="font-size:10px;">/GB/月起</span>
-                            </div>
-                            <span class="triangle-up" style="margin-top:32px;"></span>
-                        </a>
-                    </div>
-                    <div class="grey_content block_space">
-                        <a class="content_title" id="home_storage_case" href="#case">
-                            <div class="content_Item_title">
-                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_case.png" />
-                                案例
-                            </div>
-                            <div class="content_Item_content">
-                                互联网： <span class="Item_case" style="background: #FFF334; color: black; ">algoblu</span>
-                            </div>
-                            <div class="content_Item_content" style="margin-left:15px;margin-top:20px;">
-                                教&nbsp;&nbsp;育 ： <span class="Item_case" style="background: #DF412C; color: #fff; ">AdMaster</span>
-                            </div>
-                            <span class="triangle-up" style="margin-top:47px;"></span>
-                        </a>
-                    </div>
-                    <div class="grey_content block_space">
-                        <a id="home_stor_doc" href="/documentation/services/storage/" target="_blank">
-                            <div class="content_Item_title">
-                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_course.png" />
-                                课程
-                                <img class="right_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/external-link_grey_17X17.png" />
-                            </div>
-                            <div class="content_Item_content">云存储工具介绍</div>
-                            <div class="content_Item_content">如何计划和开发云存储</div>
-                            <div class="content_Item_content">如何创建和管理存储账户</div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <script src="C:/Users/Administrator/Documents/video-center_files/videocenter.js"></script>
             <div class="right_content" id="page_body">
                 <!--website 功能-->
                 <div class="right_content_senction">
@@ -1169,7 +1149,6 @@
                             <a id="price_detail_page_calculator_storage">
                                 <span class="calculator-tab selector">使用价格估算器</span>
                             </a>
-
                         </div>
                         <style>
                             .calculator-detail-selector {
@@ -1288,7 +1267,9 @@
                                 }
                             })
                         </script>
+
                         <div class="right_content_pricing">
+
                             <script>
                                 $(".right_content_pricing").show();
                                 $("#calculator").hide();
@@ -1714,40 +1695,37 @@
                     </section>
                 </div>
             </div>
-            </div>
-        <script>
-    function onload() {
-        var strUrl = window.location.href;
-        $(".left_ul_content>li>a").each(function () {
-            var strID = $(this).attr("id").split('_')[3];
-            if (strUrl.indexOf(strID) >= 0) {
-                $(this).addClass("nav_select");
-            }
-        });
-        if (strUrl.indexOf("#") > 0) {
-            var secID = strUrl.split("#")[1].toString();
-            $(".content_title").each(function () {
-                var strhref = $(this).attr('href');
-                if (strhref.indexOf(secID) > 0) {
-                    fetchdata(secID);
-                    $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
-                    $(this).parent().removeClass("grey_content").addClass("blue_content");
-
-                }
-            });
-            $("section").each(function () {
-                if ($(this).attr('data-value') == secID) {
-                    $("#page_body section").removeClass("content_show").addClass("content_hide");
-                    $(this).removeClass("content_hide").addClass("content_show");
-                }
-            });
-        };
-    }
-    onload();
-        </script>
-
         </div>
-    
+        <script>
+            function onload() {
+                var strUrl = window.location.href;
+                $(".left_ul_content>li>a").each(function () {
+                    var strID = $(this).attr("id").split('_')[3];
+                    if (strUrl.indexOf(strID) >= 0) {
+                        $(this).addClass("nav_select");
+                    }
+                });
+                if (strUrl.indexOf("#") > 0) {
+                    var secID = strUrl.split("#")[1].toString();
+                    $(".content_title").each(function () {
+                        var strhref = $(this).attr('href');
+                        if (strhref.indexOf(secID) > 0) {
+                            fetchdata(secID);
+                            $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
+                            $(this).parent().removeClass("grey_content").addClass("blue_content");
 
-    </body>
+                        }
+                    });
+                    $("section").each(function () {
+                        if ($(this).attr('data-value') == secID) {
+                            $("#page_body section").removeClass("content_show").addClass("content_hide");
+                            $(this).removeClass("content_hide").addClass("content_show");
+                        }
+                    });
+                };
+            }
+            onload();
+        </script>
+    </div>
+</body>
 </html>
