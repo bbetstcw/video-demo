@@ -1,0 +1,2017 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+    <script type="text/javascript">
+    function show(c_Str) {
+        ul = document.getElementById("nav_list");
+        for (var i = 0; i < ul.childNodes.length; i++) {
+            if (c_Str + "_header" == ul.childNodes[i].id) {
+                ul.childNodes[i].className = "active";
+            }
+            else {
+                ul.childNodes[i].className = "";
+            }
+        }
+
+        if (document.all(c_Str).style.display == 'none') {
+            document.all(c_Str).style.display = 'block';
+        }
+        else {
+            document.all(c_Str).style.display = 'none';
+            document.getElementById(c_Str + "_header").className = "";
+        }
+
+    }
+
+    $(document).ready(function () {
+        $(".banner_close").click(function () {
+            var dom = $(".banner_close").parent();
+            $(dom).removeClass("banner_content").addClass("content_hide");
+        });
+        $(".content_title").click(function () {
+
+            var dom = $(".banner_close").parent();
+            $(dom).removeClass("content_hide").addClass("banner_content");
+            $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
+            $(this).parent().removeClass("grey_content").addClass("blue_content");
+            $(".triangle-up").css("display", "none");
+            $(this).find(".triangle-up").css("display", "block");
+            var strhref = $(this).attr('href');
+            var domID = strhref.substring(1, (strhref.length));
+            fetchdata(domID);
+            var secCount = $("section").length;
+            $("#page_body section").removeClass("content_show").addClass("content_hide");
+            $("#page_body section").each(function () {
+                if ($(this).attr('data-value') == domID) {
+                    $(this).removeClass("content_hide").addClass("content_show");
+
+                    previousScrollTop = 0;
+                    onscroll();
+                }
+            });
+        });
+        var previousScrollTop = 0;
+        $(window).on('scroll', onscroll);
+
+        $(window).on('resize', function (evt) {
+            var width = 0.16 * $('.content').width();
+            $('.left_content').css({
+                'width': width,
+            })
+        });
+        function onscroll(evt) {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var top = $(window).scrollTop();
+            var leftHeigth = $('.left_content').height();
+            if (Math.abs(top - previousScrollTop) < 20) return; // ie
+            var width = 0.16 * $('.content').width();
+            //(top > $('footer').offset().top - $(window).height())
+            if ((scrollTop + leftHeigth + $("footer").height() + $(".banner_content").height()) >= (scrollHeight)) {
+                // footer show up
+                $('.left_content').css({
+                    'position': 'absolute',
+                    'bottom': 0,
+                    'top': 'auto',
+                })
+            }
+            else {
+                // scroll up-->
+                $('.left_content').css({
+                    'position': 'fixed',
+                    'top': '108px',
+                    'bottom': 'auto',
+                    'width': width,
+                })
+            }
+            previousScrollTop = top;
+        }
+    });
+    //数据抓取
+    function fetchdata(vel) {
+        var locaUrl = window.location.href;
+        if (locaUrl.indexOf("#") > 0)
+            locaUrl = locaUrl.split("#")[0].toString() + "?" + vel;
+        //alert(locaUrl);
+        $.get(locaUrl);
+    }
+    </script>
+
+    <style>
+        .right_content_center h2 {
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .right_content_center h3 {
+            margin-top: 45px;
+            font-weight: 600;
+        }
+
+        .ul-style p {
+            font-size: 16px;
+        }
+        /*main-content*/
+        .main-container {
+            background-color: #f8f8f8;
+        }
+
+        #serviceCenter {
+            width: 100%;
+            position: relative;
+            background-color: #f8f8f8;
+        }
+
+        footer {
+            Border-top: medium solid #ccc;
+        }
+
+        .content {
+            width: 100%;
+            min-width: 960px;
+            max-width: 1250px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /*left-content*/
+        .left_content {
+            position: absolute;
+            width: 16%;
+            display: inline-block;
+            vertical-align: top;
+            background-color: #f8f8f8;
+            overflow: hidden;
+        }
+        /*right-content*/
+        .right_content {
+            margin-left: 16%;
+            width: 84%;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 369px;
+            position: relative;
+            background-color: #ffffff;
+        }
+
+
+        #serviceCenter .right_content_header {
+            position: absolute;
+            min-width: 805px;
+            top: 0;
+            left: 16%;
+            right: calc(50% - 50vw + 9px);
+            height: 369px;
+            background-repeat: no-repeat;
+            background-color: #E3F4ff;
+            background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/virtual_machine.png);
+            overflow: hidden;
+        }
+
+
+        .right_content_senction {
+            height: 100%;
+            background-color: white;
+        }
+
+        .header_content {
+            font-size: 14px;
+            color: #404040;
+            line-height: 1.5;
+            width: 730px;
+            height: 42px;
+        }
+        /*div 白色背景*/
+        .white-background {
+            position: absolute;
+            background: white;
+            top: 0;
+            left: 16%;
+            right: calc(50% - 50vw + 9px);
+            bottom: 0;
+        }
+        /*ul-导航*/
+        .left_ul_content > li > a {
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px 10px 20px;
+            text-transform: capitalize;
+            font-size: 14px;
+            line-height: 20px;
+            height: 20px;
+            color: #555555;
+            position: relative;
+        }
+
+        .left_ul_content > li > ul > li > a:hover {
+            color: #969696;
+        }
+
+        .left_ul_content {
+            list-style: none;
+            padding: 0px;
+            border: none;
+            margin: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav_li_submenu {
+            font-size: 20px;
+            color: #5c5c5c;
+            <!-- padding-left: 30px; -->
+            margin-top: 10px;
+            margin-bottom: 15px;
+            /* height: 28px; */
+            line-height: 28px;
+        }
+
+        /*header  文字部分*/
+        .right_content_dis {
+            padding-top: 50px;
+            margin-left: 6.4%;
+            margin-bottom: 45px;
+        }
+
+        .rigth_content_title {
+            font-size: 40px;
+            color: #404040;
+        }
+
+        .rigth_content_subtitle {
+            font-size: 24px;
+            margin-left: 10px;
+            color: #404040;
+        }
+
+        .btn_style {
+            display: block;
+            font-size: 16px;
+            width: 155px;
+            height: 40px;
+            background-color: #ff3d00;
+            text-align: center;
+            padding: 7px;
+            box-sizing: border-box;
+            margin-right: 25px;
+        }
+
+            .btn_style:hover {
+                background-color: #fa6434;
+            }
+        /*header-ul 方块*/
+        .right_content_select {
+            height: 175px;
+            width: 100%;
+        }
+
+        .select_space {
+            margin-left: 1.2%;
+        }
+
+        .block_space {
+            margin-left: 0.8%;
+        }
+
+        .grey_content {
+            background-color: #ffffff;
+            float: left;
+            width: 23%;
+            height: 175px;
+        }
+
+            .grey_content a {
+                width: 23%;
+                height: 175px;
+                line-height: 1.5;
+                color: #4a4a4a;
+                font-size: 12px;
+            }
+
+            .grey_content:hover {
+                float: left;
+                background-color: #ccebff;
+            }
+
+                .grey_content:hover .triangle-up {
+                    Display: none;
+                }
+
+        .blue_content {
+            background-color: #b3e1ff;
+            float: left;
+            width: 23%;
+            height: 175px;
+        }
+
+            .blue_content .triangle-up {
+                display: block;
+            }
+
+
+            .blue_content a {
+                width: 23%;
+                height: 175px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: #4a4a4a;
+            }
+
+        .content_show {
+            display: block;
+        }
+
+        .nav_select {
+            color: #5c5c5c;
+            background-color: #DBDBDB;
+        }
+
+        .content_hide {
+            display: none;
+        }
+        /*header-ul 方块内部*/
+        .content_Item_title {
+            font-size: 20px;
+            color: #000000;
+            text-align: center;
+            padding-top: 25px;
+        }
+
+            .content_Item_title .left_img {
+                width: 20px;
+                height: 20px;
+                padding-top: 10px;
+            }
+
+            .content_Item_title .right_img {
+                width: 14px;
+                height: 14px;
+                margin-left: 0px;
+                padding-top: 10px;
+            }
+
+        .content_Item_content {
+            font-size: 12px;
+            color: #4a4a4a;
+            height: 15px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+            .content_Item_content .Item_strong {
+                font-size: 14px;
+                color: #000000;
+            }
+
+            .content_Item_content .Item_preview {
+                padding: 3px;
+                background-color: rgb(0,160,253);
+                color: white;
+                font-size: 12px;
+                margin-left: 3px;
+                border-radius: 3px;
+            }
+
+            .content_Item_content .Item_case {
+                width: 64px;
+                height: 20px;
+                font-size: 14px;
+                color: #000000;
+                padding: 1px 4px;
+            }
+
+        .triangle-up {
+            display: none;
+            height: 15px;
+            width: 30px;
+            margin-top: 27px;
+            margin: 0 auto;
+            background-repeat: no-repeat;
+            background-image: url('http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangule_.png');
+        }
+        /*bannner*/
+        .banner_content {
+            margin-top: 60px;
+            width: 100%;
+            max-width: 1064px;
+            height: 70px;
+            font-size: 20px;
+            color: #fff;
+            font-weight: 600;
+            background-color: #33a4fb;
+            margin-left: 8%;
+            min-width: 700px;
+            float: right;
+        }
+
+        .banner_content_distance {
+            float: left;
+            margin-left: 5.6%;
+            padding-top: 22px;
+        }
+
+        .banner_content .banner_content_link {
+            width: 66px;
+            font-size: 16px;
+            background-color: #ff3d00;
+            color: #fff;
+            padding: 8px 45px;
+            margin-left: 3.2%;
+        }
+
+            .banner_content .banner_content_link:hover {
+                Background-color: #fa6434;
+            }
+
+        .banner_content .large_span {
+            font-size: 30px;
+        }
+
+        .banner_close {
+            float: right;
+            margin-top: -40px;
+            margin-right: 10px;
+        }
+
+        .banner_content .Item_span {
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: white;
+            color: rgb(0,160,253);
+            font-size: 18px;
+            margin: 5px;
+            border-radius: 3px;
+        }
+        /*content*/
+
+        .right_content_center {
+            margin-left: 5.6%;
+            margin-right: 7.6%;
+            max-width: 910px;
+        }
+
+        .right_content_pricing {
+            margin: 0px;
+            padding-left: 5.6%;
+            padding-right: 7.6%;
+            margin-top: 50px;
+        }
+        /*pricing  价格*/
+        .pricingpage {
+            margin: 0 5%;
+        }
+
+            .pricingpage .feature_section p {
+                font-size: 14px;
+                color: #505050;
+            }
+
+        .wa-content {
+            margin: 0 5%;
+        }
+
+        .faqpage {
+            width: 100%;
+        }
+
+        .price_section {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #fff;
+            margin-bottom: 50px;
+            margin-top: 30px;
+        }
+
+            .price_section .section_title {
+                font-size: 18px;
+                line-height: 25px;
+                margin: 10px 5%;
+            }
+
+            .price_section .section_info {
+                font-size: 12px;
+                color: #969696;
+                margin-left: 5%;
+                background-color: white;
+            }
+
+        .pricingpage .price_section {
+            background-color: white;
+        }
+
+        .price_section table {
+            background-color: #fff;
+            border-top: 2px solid #c9c9c9;
+            border-bottom: 2px solid #c9c9c9;
+            border-spacing: 0;
+            border-collapse: collapse;
+            width: 90%;
+            text-align: center;
+            line-height: 1.2em;
+            color: #505050;
+            margin-left: 5%;
+            margin-bottom: 30px;
+        }
+
+        .price_section th {
+            font-size: 11px;
+            padding: 10px;
+            color: #505050;
+        }
+
+        .price_section td {
+            border-top: 1px solid #c9c9c9;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 10px;
+            color: #505050;
+        }
+
+        .left_align {
+            text-align: left;
+        }
+
+        .price_section p {
+            font-size: 14px;
+            color: #505050;
+            margin-left: 5%;
+            width: 90%;
+        }
+
+        .feature_section .section_title {
+            font-size: 30px;
+            line-height: normal;
+            font-weight: 100;
+            margin-bottom: 20px;
+        }
+
+        .price_content_dis {
+            margin-left: 4%;
+            padding-top: 10px;
+            float: left;
+        }
+
+
+        /*case  案例*/
+        .case-list {
+            padding: 0px;
+            display: block;
+            list-style: none;
+            margin-left: 60px;
+        }
+
+            .case-list .single-case {
+                display: inline-block;
+                width: 45%;
+                height: 350px;
+                background: #FDFDFD;
+                border: 1px solid #CDCDCD;
+                padding: 20px 18px;
+                box-sizing: border-box;
+                margin: 1%;
+                overflow: hidden;
+                vertical-align: top;
+                float: left;
+            }
+
+                .case-list .single-case img {
+                    width: 42%;
+                    height: 64px;
+                    margin: 0px 18px 20px 0px;
+                    float: left;
+                }
+
+                .case-list .single-case .info {
+                    display: inline-block;
+                    float: left;
+                    font-size: 13px;
+                    color: #000000;
+                    line-height: 22px;
+                }
+
+                    .case-list .single-case .info a {
+                        text-decoration: none;
+                        color: #00A0FF;
+                        font-size: 13px;
+                    }
+
+                .case-list .single-case label {
+                    font-size: 13px;
+                    line-height: 125%;
+                    color: #555555;
+                    display: inline;
+                }
+
+                .case-list .single-case .disp {
+                    margin-top: 84px;
+                    margin-bottom: 15px;
+                    font-size: 13px;
+                    line-height: 22px;
+                }
+
+                .case-list .single-case .services {
+                    font-size: 13px;
+                    margin-bottom: 10px;
+                }
+
+                    .case-list .single-case .services .services-list {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: inline;
+                    }
+
+                    .case-list .single-case .services li {
+                        display: inline;
+                    }
+
+                        .case-list .single-case .services li a {
+                            text-decoration: none;
+                            color: #00A0FF;
+                            font-size: 13px;
+                        }
+
+                .case-list .single-case .detail {
+                    font-size: 13px;
+                    line-height: 22px;
+                    color: #555;
+                }
+
+            .case-list .arrow-right {
+                display: inline-block;
+                background: url("http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/icon_link-arrow.png");
+                width: 4px;
+                height: 8px;
+                margin-left: 5px;
+                background-repeat: no-repeat;
+            }
+
+        .mysql-style {
+            display: block;
+            font-size: 14px;
+            text-transform: none;
+        }
+        /*1440 设计*/
+        @media(min-width:1250px) {
+            /*left 左侧导航*/
+            /*ul-导航*/
+            .mysql-style {
+                display: inline;
+                font-size: 10px;
+                text-transform: none;
+            }
+
+            .left_ul_content {
+                min-width: 180px;
+                margin-left: 0px;
+            }
+
+                /*.nav_li_submenu {
+                margin-left: 20px;
+            } */
+
+                .left_ul_content > a {
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 1.2em;
+                    color: #505050;
+                    display: block;
+                    padding: 14px 15px 12px;
+                }
+
+                    .left_ul_content > a:hover {
+                        color: #969696;
+                    }
+
+                /* REV.01 ADD START */
+                .left_ul_content > li.active {
+                    background-color: #e6f7fd;
+                    border-left-color: #00abec;
+                }
+
+                .left_ul_content > li {
+                    border-bottom: 1px solid #fff;
+                    border-left: 3px solid #eee;
+                }
+
+                    .left_ul_content > li:first-child {
+                        border-top: 1px solid #fff;
+                    }
+
+                .left_ul_content > li {
+                    margin: 0px;
+                }
+               
+                    .left_ul_content > li > ul {
+                        list-style: none;
+                        padding: 0 15px 10px 20px;
+                    }
+                     /* the most inner link style */
+                        .left_ul_content > li > ul > li > a {
+                            font-size: 12px;
+                            line-height: 1.2em;
+                            color: #505050;
+                            display: inline-block;
+                            margin-left: 0;
+                            padding: 3px 0px 3px 20px;
+                            margin-left: -20px;
+                            text-decoration: none;
+                        }
+                        /* the initial style of class-item */
+                    .left_ul_content > li > a:before {
+                        transition: .2s;
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAHCAYAAAArkDztAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAElJREFUeNpiCAgISGDAApg1NDTOA7EDED+8cePGA5gEI1DHfySFC4C4ccOGDQ/QJUDgAxBPZGLAAVjQ+HCjYBIHoAIHYCoAAgwA+4sZshXM1Q0AAAAASUVORK5CYII=');
+                        background-repeat: no-repeat;
+                        content: "";
+                        display: block;
+                        height: 7px;
+                        left: 7px;
+                        position: absolute;
+                        top: 15px;
+                        width: 6px;
+                    }
+
+                    /* rotate background image after click */
+        .left_ul_content > li.active > a:before{
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+            /* REV.01 ADD END */
+
+            /*header-web 部分*/
+            .right_content_dis {
+                padding-top: 50px;
+                margin-left: 75px;
+                margin-bottom: 45px;
+            }
+            /*header-ul 部分*/
+            .header_content {
+            }
+
+            .right_content_select {
+                height: 175px;
+                width: 1050px;
+            }
+
+            .select_space {
+                margin-left: 20px;
+            }
+
+            .block_space {
+                margin-left: 10px;
+            }
+
+            .grey_content {
+                width: 250px;
+                background-color: #ffffff;
+                float: left;
+                height: 175px;
+            }
+
+                .grey_content a {
+                    display: block;
+                    width: 250px;
+                    height: 175px;
+                    line-height: 1.5;
+                    color: #4a4a4a;
+                    font-size: 12px;
+                }
+
+                .grey_content:hover {
+                    float: left;
+                    background-color: #ccebff;
+                }
+
+            .blue_content {
+                width: 250px;
+                background-color: #b3e1ff;
+                float: left;
+                height: 175px;
+            }
+
+                .blue_content a {
+                    display: block;
+                    width: 250px;
+                    height: 175px;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: #4a4a4a;
+                }
+            /*content*/
+            .right_content_center {
+                margin-left: 70px;
+                margin-right: 70px;
+            }
+
+            .right_content_pricing {
+                padding-left: 25px;
+                padding-right: 70px;
+            }
+
+            .right_content_case {
+            }
+            /*pricing 价格*/
+            .pricingpage {
+                margin: 0 50px;
+            }
+
+            .wa-content {
+                margin: 0 50px;
+            }
+
+            .price_content_dis {
+                margin-left: 100px;
+            }
+
+            .price_section .section_title {
+                margin: 10px 50px;
+            }
+
+            .price_section table {
+                width: 810px;
+                margin-left: 50px;
+            }
+
+            .price_section p {
+                margin-left: 50px;
+                width: 810px;
+            }
+
+            .price_section .section_info {
+                margin-left: 50px;
+            }
+            /*case 案例*/
+            .case-list {
+                padding: 0px;
+                display: block;
+                list-style: none;
+            }
+
+                .case-list .single-case {
+                    width: 465px;
+                    height: 350px;
+                    padding: 20px 18px;
+                    margin: 8px;
+                }
+
+                    .case-list .single-case img {
+                        width: 184px;
+                        height: 64px;
+                        margin: 0px 10px 20px 0px;
+                        float: left;
+                    }
+
+            .banner_content_distance {
+                margin-left: 100px;
+            }
+
+            .banner_content .banner_content_link {
+                margin-left: 40px;
+            }
+        }
+        /*960px 设计*/
+        @media(max-width:960px) {
+            /*content 限制*/
+            .right_content {
+                min-width: 806px;
+            }
+
+            .right_content_header {
+                min-width: 805px;
+            }
+
+            .right_content_senction {
+                min-width: 805px;
+            }
+
+            .right_content_select {
+                min-width: 805px;
+            }
+
+            .banner_content {
+                min-width: 805px;
+            }
+        }
+    </style>
+
+    
+
+</head>
+<body>
+    <div class="main_content" id='serviceCenter'>
+        <div class="content">
+            <div class='white-background'></div>
+            <div id="" class="left_content">
+                <ul id="nav_list" style="border:none;" class="left_ul_content">
+                    <a id="side_nav_services_virtual-machines" style="margin-top:35px;margin-bottom:10px; font-size:20px;">SQL Database</a>
+                    <li id="overview_header" class="active" onclick="show('overview')">
+                        <a>概述</a>
+                        <ul id="overview" style="display: block">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-technical-overview/">什么是 SQL 数据库？</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas/">在 VM 中比较 SQL 数据库 和 SQL</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-service-tiers/">服务层</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-v12-whats-new/">V12 中有哪些新增功能？</a></li>
+                        </ul>
+                    </li>
+                    <li id="get_start_header" class="" onclick="show('get_start')">
+                        <a>入门</a>
+                        <ul id="get_start" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-get-started/">创建你的第一个云数据库</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-portal/">创建弹性数据库</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-to-database/">连接 SSMS</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-query/">连接和查询 C#</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-excel/">连接到 Excel</a></li>
+                        </ul>
+                    </li>
+                    <li id="saas_solution_header" class="" onclick="show('saas_solution')">
+                        <a>SaaS 开发人员解决方案</a>
+                        <ul id="saas_solution" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool/">借助弹性数据库应对爆炸性增长</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-guidance/">定价和性能考虑</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-portal/">创建弹性池以开始使用</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-jobs-overview/">借助弹性作业简化管理</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-reference/">弹性数据库池参考</a></li>
+                            <li class=""><a href="/zh-cn/documentation/learning-paths/sql-database-elastic-scale/">弹性数据库工具</a></li>
+                        </ul>
+                    </li>
+                    <li id="management_header" class="" onclick="show('management')">
+                        <a>
+                            管理
+                        </a>
+                        <ul id="management" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-manage-overview/">概述</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-manage-portal/">使用 Azure 管理门户</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-manage-azure-ssms/">使用 SSMS 和 SSDT</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-command-line-tools/">使用 Powershell</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/automation-manage-sql-database/">使用 Azure 自动化</a></li>
+                        </ul>
+                    </li>
+                    <li id="development_header" class="" onclick="show('development')">
+                        <a>开发</a>
+                        <ul id="development" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-central-recommendations/">概述</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-quick-start-client-code-samples/">快速启动代码示例索引</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-libraries/">连接性库</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-dotnet-simple/">.NET</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-java-simple-windows/">Java</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-nodejs-simple-windows/">Node.js</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-php-retry-windows/">PHP</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-python-simple-windows/">Python</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-ruby-simple-linux/">Ruby</a></li>
+                        </ul>
+                    </li>
+                    <li id="move_header" class="" onclick="show('move')">
+                        <a>
+                            迁移
+                        </a>
+                        <ul id="move" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-cloud-migrate/">概述</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-migrate-ssms/">使用 SSMS</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-migration-wizard/">使用 Azure 迁移向导</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-migrate-visualstudio-ssdt/">使用 Visual Studio</a></li>
+                        </ul>
+                    </li>
+                    <li id="functionality_header" class="" onclick="show('functionality')">
+                        <a>
+                            性能和扩展
+                        </a>
+                        <ul id="functionality" style="display: none">
+                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn369873.aspx">概述：性能指南</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-scale-up/">扩展和缩减</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-scale-get-started/">向外扩展和向内扩展</a></li>
+                        </ul>
+                    </li>
+                    <li id="security_header" class="" onclick="show('security')">
+                        <a>
+                            安全性
+                        </a>
+                        <ul id="security" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security/">概述</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#connection-security">连接安全性</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#authentication">身份验证</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#authorization">授权</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#encryption">加密</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-auditing-get-started/">审核</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#compliance">合规</a></li>
+                        </ul>
+                    </li>
+                    <li id="continous_header" class="" onclick="show('continous')">
+                            <a>
+                                业务连续性
+                            </a>
+                        <ul id="continous" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-business-continuity/">概述</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-business-continuity-design/">设计注意事项</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-disaster-recovery/">在中断期间恢复</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-user-error-recovery/">从用户错误中恢复</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-disaster-recovery-drills/">灾难恢复练习</a></li>
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-bcdr-faq/">常见问题</a></li>
+                        </ul>
+                    </li>
+                    <li id="troubleshoot_header" class="" onclick="show('troubleshoot')">
+                            <a>
+                                监视和故障排除
+                            </a>
+                        <ul id="troubleshoot" style="display: none">
+                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connectivity-issues/">连接性问题</a></li>
+                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn338081.aspx">资源问题</a></li>
+                            <li class=""><a href="https://msdn.microsoft.com/library/azure/ff394114.aspx">监视服务器和数据库实例</a></li>
+                        </ul>
+                    </li>
+                    <li id="references_header" class="" onclick="show('references')">
+                        <a>
+                            参考
+                        </a>
+                        <ul id="references" style="display: none">
+                            <li class=""><a href="https://msdn.microsoft.com/library/azure/ee336281.aspx">处理 SQL</a></li>
+                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn546726.aspx">Powershell cmdlet</a></li>
+                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn505719.aspx">REST API</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                    </div>
+            <div class="right_content_header">
+                <div class="right_content_dis">
+                    <h1 style="line-height:27px;margin-bottom:0px;font-weight:400;">
+                        <a class="anchor" id="sql-database-trial"></a>
+                        <span class="rigth_content_title">SQL 数据库 </span>
+                        <span class="rigth_content_subtitle"></span>
+                    </h1>
+                    <div style="margin-top:20px;">
+                        <div style="float: left;">
+                            <a class="btn_style" id="home_sql_trial" style="color:white;" href="/pricing/1rmb-trial/" target="_blank">我要试用</a>
+                        </div>
+                        <div class="header_content">
+                            可以存储大量的数据、可以在云端 SQL 数据库与本地 SQL Server 或其他 SQL 数据库实例之间创建和安排定期同步。
+                        </div>
+                    </div>
+                </div>
+                <div class="right_content_select">
+                    <div class="select_space blue_content">
+                        <a class="content_title" id="home_sql_cs" href="#features" data-value="#page_body_website">
+                            <div class="content_Item_title">
+                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_feature.png" />
+                                功能
+                            </div>
+                            <div class="content_Item_content">支持弹性扩展</div>
+                            <div class="content_Item_content">支持熟悉的工具和平台</div>
+                            <div class="content_Item_content">支持创新设计</div>
+                            <span class="triangle-up" style="margin-top: 32px; display: block;"></span>
+                        </a>
+                    </div>
+                    <div class="block_space grey_content">
+                        <a class="content_title" id="home_sql_price" href="#price">
+                            <div class="content_Item_title">
+                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_price.png" />
+                                价格
+                            </div>
+                            <div class="content_Item_content">
+                                两种服务类别
+                            </div>
+                            <div class="content_Item_content">
+                                Web版|企业版：
+                                <strong class="Item_strong"> ¥33.50 </strong>
+                                <span style="font-size:10px;">/月起</span>
+                            </div>
+                            <div class="content_Item_content">
+                                基本|标准|高级：
+                                <strong class="Item_strong"> ¥1.40</strong>
+                                <span style="font-size:10px;">/天起</span>
+                            </div>
+                            <span class="triangle-up" style="margin-top: 32px; display: none;"></span>
+                        </a>
+                    </div>
+                    <div class="grey_content block_space">
+                        <a class="content_title" id="home_sql_case" href="#case">
+                            <div class="content_Item_title">
+                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_case.png" />
+                                案例
+                            </div>
+                            <div class="content_Item_content" style="margin-left:-47px;">
+                                多媒体：
+                                <span class="Item_case" style="background:#33a4fb;color:#fff;">PPTV</span>
+                            </div>
+                            <div class="content_Item_content" style="margin-top:20px;">
+                                车联网：
+                                <span class="Item_case" style="background: #0D0C11; color: white;">QorosQloud</span>
+                            </div>
+                            <span class="triangle-up" style="margin-top: 47px; display: none;"></span>
+                        </a>
+                    </div>
+                    <div class="grey_content block_space">
+                        <a id="home_sql_doc" href="/documentation/services/sql-databases" target="_blank">
+                            <div class="content_Item_title">
+                                <img class="left_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/service_center_course.png" />
+                                课程
+                                <img class="right_img" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/external-link_grey_17X17.png" />
+                            </div>
+                            <div class="content_Item_content">配置防火墙</div>
+                            <div class="content_Item_content">如何开发和部署</div>
+                            <div class="content_Item_content">如何管理</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right_content" id="page_body">
+                <!--功能-->
+                <div class="right_content_senction">
+                    <section class="content_show" style="padding-top:60px; clear:none; max-width:1050px;" data-value="features">
+                        <div class="right_content_center">
+                            <div style="clear:both;">
+                                <h2><a class="anchor" id="sql-database-serviceDatabase"></a>一种以服务方式提供的关系型数据库，让您轻松获得第 1 层功能</h2>
+                                <ul class="ul-style">
+                                    <li>
+                                        <p align="left">可扩展到数千个数据库</p>
+                                    </li>
+                                    <li>
+                                        <p align="left">缩放自如可预测的性能</p>
+                                    </li>
+                                    <li>
+                                        <p align="left">通过副本和运行时服务级别协议提供可用性保障</p>
+                                    </li>
+                                    <li>
+                                        <p align="left">通过恢复和地域复制保护数据</p>
+                                    </li>
+                                    <li>
+                                        <p align="left">类似可编程 DBA 的功能，实现高效开发运营</p>
+                                    </li>
+                                    <li>
+                                        <p align="left">可自行管理，几乎无需人工维护</p>
+                                    </li>
+                                </ul>
+                                <h3><a class="anchor" id="sql_database_SaaS"></a>构建支持大规模的 SaaS 应用程序</h3>
+                                <p>构建软件即服务 (SaaS) 应用程序的开发人员可利用 SQL 数据库提供灵活性以支持爆炸性增长和盈利的商业模型。对于具有不可预测的数据库资源消耗的工作负载，弹性数据库模型可使您在一组数据库之间均分要利用的资源，无需超量配置数据库以满足峰值需求，反之，您可以使用弹性数据库池来让成百或成千的数据库利用您控制预算内的资源。借助可跨数据库组控制价格和性能的购买模型，您可以推动成本效益。</p>
+                                <h3><a class="anchor" id="sql_database_ManageDatabase"></a>轻松管理大量数据库</h3>
+                                <p>当您扩展到数以千计的数据库时，简单的管理任务也会变得复杂，这是爆炸性增长带来的挑战。随着业务不断增长，SaaS 开发人员将花费大量时间编写复杂逻辑以应对这些架构变化以及其他管理运营问题。使用弹性数据库，生活变得更轻松。您选取一个脚本，将它作为作业提交，Azure SQL 数据库将完成跨多个数据库执行脚本的剩余工作。弹性数据库池可以简化跨许多数据库缩放的应用程序的生成和管理，因此，生成针对单个数据库或上千数据库的应用程序就和使用熟悉的 T-SQL 和 ADO.NET 编程模型一样轻松。您还可以运行集中式查询操作，例如跨多个数据库的报告和数据提取、返回单个统一结果集。</p>
+                                <h3><a class="anchor" id="sql-database-elastic_expansion"></a>支持弹性扩展，提供更可预测的性能</h3>
+                                <p>在 Windows Azure 强大功能的支持下，高吞吐量应用程序可以在上千个数据库之间灵活地扩展。新增的 SQL 数据库服务级别使应用程序能够轻松地在每个数据库上扩展或收缩，获得可预测的性能。Windows Azure SQL 数据库的弹性扩展预览版可简化应用程序的开发与管理，并可在大量数据库之间横向扩展。</p>
+                                <p>Flavorous 使用支持大规模扩展的混合架构连接内部与云端环境，应对暂时的峰值负载，开拓新业务。</p>
+                                <h3><a class="anchor" id="sql-database-continuity"></a>加强关键应用程序的业务连续性</h3>
+                                <p>通过内建的副功能，以及数据库层面所提供的 99.99%* 服务级别协议（由 世纪互联 支持），对数据可用性更放心。使用不同服务级别内建的连续性选项，可获得更好的应用程序连续性，面对灾难性事件获得妥善保护。SQL 数据库高级版提供了主动地域复制功能，可以让你在任何 Windows Azure 区域创建多达 4 个可读辅助副本，并控制在何时何处进行故障转移。通过自助式还原可更好地对“不利条件下的恢复”加以控制，客户可以从可用的数据备份副本控制数据还原的全过程。在高级版中，SQL 数据库最多可将备份副本保存 35 天，供您随时进行恢复。</p>
+                                <p>* 99.99% 运行时间服务级别协议仅适用于基本、标准和高级服务级别。SQL 数据库 Web 版和企业版提供 99.9% 的运行时间服务级别协议。</p>
+                                <p>通过部署灾难恢复解决方案和地域冗余，MYOB 可以根据需要扩展到数千个数据库。</p>
+                                <h3><a class="anchor" id="sql-database-selfManage"></a>服务可自行管理，几乎无需人工维护</h3>
+                                <p>SQL 数据库服务中包含自动软件修补功能，你无需进行任何基础结构维护。同时，内置的系统副本功能可帮你提供固有的数据保护，有保障的数据库持续运行时间和系统稳定性，让开发人员和架构师无忧使用。旧计算机发生故障时，系统副本会自动转移到系统配置的新计算机。</p>
+                                <p>Pottermore 将自己的应用程序迁移到 Windows Azure 平台即服务，省略了管理和维护虚拟机的繁重工作。</p>
+                                <h3><a class="anchor" id="sql-database-management_tools"></a>支持熟悉的工具和平台，提高工作效率</h3>
+                                <p>通过可编程 API 驱动开发运营任务（如向外扩展或业务连续性），在扩展到成百上千个数据库的同时简化管理工作。SQL 数据库提供了很多管理工具，如 REST API、PowerShell、支持 HTML5 的 Windows Azure 管理门户，以及 SQL Server Management Studio，此外还支持常见的平台与技术（包括 .NET、Java、PHP、Ruby on Rails 和 Node.js）。通过与 Visual Studio 集成，可以进行无缝在线/离线开发，并在本地应用程序和针对云设计的应用程序上进行开发。通过支持 DAC 框架（允许在本地和云之间迁移），可将现有应用程序扩展到云。</p>
+                                <p>Samsung 针对全球性 SmartTV 业务简化开发工作，成本降低 80%。SQL 数据库高级版支持数千用户同时上网注册市面上领先的 SmartTV 服务。</p>
+                                <h3><a class="anchor" id="sql-database-certification"></a>支持合规相关任务</h3>
+                                <p>SQL Database 已通过主要云审核机构的验证，该验证是已包含 Windows Azure ，合规认证和 HIPAA BAA、ISO/IEC 27001:2005、FedRAMP 及欧盟标准条款等审批认证中。</p>
+                                <p>“SQL [Database] 中的防火墙和安全配置非常棒。我们的云服务现在和我们内部数据中心里的服务一样安全。”</p>
+                                <p>BetOnSoft 首席软件架构师蒂凡•戈温德</p>
+                                <h3><a class="anchor" id="sql-database-service_level"></a>搭配使用不同级别服务，支持创新式设计</h3>
+                                <p>SQL 数据库提供了多种不同级别的服务，可支持不同类型的数据库工作负载（从轻型到重型），你可以根据应用程序设计需要更改自己所用的服务级别，或搭配使用不同级别。借助 Windows Azure 的强大功能，你可以根据独特、现代的应用程序设计需求将 Windows Azure 服务与 SQL 数据库搭配使用，以降低成本、提高资源效率，开拓新的业务机遇。</p>
+                                <h3><a class="anchor" id="sql-database-moreInfo"></a>了解更多</h3>
+                                <p><a id="feature_SQL_Database_docs" href="http://msdn.microsoft.com/library/azure/ee336279.aspx" target="_blank" rel="nofollow">Windows Azure SQL 数据库文档库 </a></p>
+                                <p><a id="feature_SQL_Database_guide" href="http://msdn.microsoft.com/library/azure/ee336282.aspx" target="_blank" rel="nofollow">有关连接到 Windows Azure SQL 的指南</a></p>
+                                <p><a id="feature_SQL_Database_moreinfomation" href="http://go.microsoft.com/fwlink/?linkid=395278&amp;clcid=0x409" target="_blank" rel="nofollow">了解使用 Windows Azure SQL 数据库确保业务连续性的更多信息</a></p>
+                                <p><a id="sql_database_SaaSDetail" href="/zh-cn/documentation/articles/sql-database-elastic-pool" target="_blank">了解有关创建弹性数据库池的详细信息</a></p>
+                                <p><a id="sql_database_ADODetail" href="/documentation/articles/sql-database-elastic-scale-documentation-map" target="_blank">了解有关使用弹性数据库工具的详细信息</a></p>
+                            </div>
+                        </div>
+                        <div class="banner_content">
+                            <div>
+                                <div class="banner_content_distance">
+                                    <span>想立即试用 SQL 数据库服务？</span>
+                                    <span class="large_span">1</span>元
+                                    <span class="large_span">1</span>个月
+                                    <span style="padding-left:20px;"> 先体验后购买</span>
+                                </div>
+                                <div style="padding-top: 22px;">
+                                    <a class="banner_content_link" id="sql_1rmb" href="/pricing/1rmb-trial/" target="_blank"><span style="color:white;">我要试用</span></a>
+                                </div>
+                            </div>
+                            <a class="banner_close" id="home_sql_banner" href="javascript:void(0)">
+                                <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/close_white.png" />
+                            </a>
+                        </div>
+                    </section>
+                </div>
+                <!--pricing 价格-->
+                <div class="right_content_senction">
+                    <section class="content_hide" style="padding-top: 45px; clear: none; max-width: 1050px; " data-value="price">
+                        <div class="calculator-detail-selector">
+                            <a id="price_detail_page_text_sql_database">
+                                <span class="detail-tab selector active-selector">查看详细价格列表</span>
+                            </a>
+                            <a id="price_detail_page_calculator_sql_database">
+                                <span class="calculator-tab selector">使用价格估算器</span>
+                            </a>
+                        </div>
+                        <style>
+                            .calculator-detail-selector {
+                                margin-left: 315px;
+                            }
+
+                                .calculator-detail-selector .selector {
+                                    font-size: 16px;
+                                    color: #777;
+                                    margin-bottom: 10px;
+                                    width: 200px;
+                                    border-bottom: 2px solid #eee;
+                                    text-align: center;
+                                    padding: 0 20px 10px 50px;
+                                }
+
+                                .calculator-detail-selector .detail-tab {
+                                    margin-left: 20px;
+                                    background: url("http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/pricing_20X20.png") 20px 0 no-repeat;
+                                }
+
+                                .calculator-detail-selector .calculator-tab {
+                                    background: url("http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/calculator_20X20.png") 20px 0 no-repeat;
+                                }
+
+                                .calculator-detail-selector .detail-tab.active-selector {
+                                    margin-left: 20px;
+                                    background: url("http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/pricing_hover_20X20.png") 20px 0 no-repeat;
+                                }
+
+                                .calculator-detail-selector .calculator-tab.active-selector {
+                                    background: url("http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/calculator_hover_20X20.png") 20px 0 no-repeat;
+                                }
+
+                                .calculator-detail-selector .active-selector {
+                                    color: #000;
+                                    border-bottom: 2px solid #b3e1ff;
+                                }
+
+                                .calculator-detail-selector .selector:hover {
+                                    cursor: pointer;
+                                    border-bottom: 2px solid #b3e1ff;
+                                }
+
+                            #calculator .related-service {
+                                margin: 35px 0 15px 75px;
+                                font-size: 14px;
+                            }
+
+                                #calculator .related-service .icon {
+                                    display: inline-block;
+                                    width: 20px;
+                                    height: 20px;
+                                    background: url(//wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/angledoubleup.png);
+                                    background-size: contain;
+                                    vertical-align: middle;
+                                    margin-right: 5px;
+                                    transition: all linear 0.4s;
+                                }
+
+                                #calculator .related-service.active .icon {
+                                    transform: rotate3d(1,0,0, 180deg);
+                                    transition: all linear 0.4s;
+                                }
+
+                            #calculator .service {
+                                padding-left: 75px;
+                                box-sizing: border-box;
+                            }
+
+                            #calculator .related {
+                                background-color: azure;
+                            }
+
+                            #calculator .text {
+                                margin: 0;
+                                padding: 30px 0 0 75px;
+                                box-sizing: border-box;
+                                width: 980px;
+                            }
+                        </style>
+                        <div id="calculator" style="display: none;"><div class="service" data-service="sql-database-basic-standard-and-premium"><h2 class="cal_temp_name">SQL数据库 (基本、标准和高级)</h2><div class="cal_temp_type"><h3>选择类型 </h3><div class="right_box"><span class="type" data-service="SQL数据库__基本_标准和高级_" data-type="基本"><a id="caltemp_type_SQL数据库__基本_标准和高级__基本"><input name="CalTemp_type_SQL数据库 (基本、标准和高级)" id="CalTemp_type_SQL数据库__基本_标准和高级__基本" type="radio" checked="checked" /><label for="CalTemp_type_SQL数据库__基本_标准和高级__基本">基本</label></a></span><span class="type" data-service="SQL数据库__基本_标准和高级_" data-type="标准"><a id="caltemp_type_SQL数据库__基本_标准和高级__标准"><input name="CalTemp_type_SQL数据库 (基本、标准和高级)" id="CalTemp_type_SQL数据库__基本_标准和高级__标准" type="radio" /><label for="CalTemp_type_SQL数据库__基本_标准和高级__标准">标准</label></a></span><span class="type" data-service="SQL数据库__基本_标准和高级_" data-type="高级"><a id="caltemp_type_SQL数据库__基本_标准和高级__高级"><input name="CalTemp_type_SQL数据库 (基本、标准和高级)" id="CalTemp_type_SQL数据库__基本_标准和高级__高级" type="radio" /><label for="CalTemp_type_SQL数据库__基本_标准和高级__高级">高级</label></a></span></div></div><div class="feature fixed_feature" id="SQL数据库__基本_标准和高级__基本_default_feature" data-service="SQL数据库__基本_标准和高级_" data-type="基本" data-feature="default"><div class="cal_temp_noConf price_config" data-count="0" data-price="43">数据库大小限制2GB</div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_SQL数据库__基本_标准和高级__基本_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="5000"></div><img class="plus" id="caltemp_count_plus_SQL数据库__基本_标准和高级__基本_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive multi_sizes_feature" id="SQL数据库__基本_标准和高级__标准_default_feature" data-service="SQL数据库__基本_标准和高级_" data-type="标准" data-feature="default"><div class="config price_config cal_temp_size" data-count="0" data-price="130"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="S0"><a id="caltemp_size_SQL数据库__基本_标准和高级__标准_default_S0_数据库大小限制250GB"><input name="CalTemp_size_SQL数据库__基本_标准和高级__标准_default" id="CalTemp_size_SQL数据库__基本_标准和高级__标准_default_S0" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="130" data-count="0" /><label id="caltemp_size_SQL数据库 (基本、标准和高级)_标准_S0_数据库大小限制250GB" for="CalTemp_size_SQL数据库__基本_标准和高级__标准_default_S0">S0</label><div class="description">数据库大小限制250GB</div></a></div><div class="size" data-size="S1"><a id="caltemp_size_SQL数据库__基本_标准和高级__标准_default_S1_数据库大小限制250GB"><input name="CalTemp_size_SQL数据库__基本_标准和高级__标准_default" id="CalTemp_size_SQL数据库__基本_标准和高级__标准_default_S1" type="radio" data-price-tier="-2" data-price-per-tier="260" data-count="0" /><label id="caltemp_size_SQL数据库 (基本、标准和高级)_标准_S1_数据库大小限制250GB" for="CalTemp_size_SQL数据库__基本_标准和高级__标准_default_S1">S1</label><div class="description">数据库大小限制250GB</div></a></div><div class="size" data-size="S2"><a id="caltemp_size_SQL数据库__基本_标准和高级__标准_default_S2_数据库大小限制250GB"><input name="CalTemp_size_SQL数据库__基本_标准和高级__标准_default" id="CalTemp_size_SQL数据库__基本_标准和高级__标准_default_S2" type="radio" data-price-tier="-2" data-price-per-tier="651" data-count="0" /><label id="caltemp_size_SQL数据库 (基本、标准和高级)_标准_S2_数据库大小限制250GB" for="CalTemp_size_SQL数据库__基本_标准和高级__标准_default_S2">S2</label><div class="description">数据库大小限制250GB</div></a></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_SQL数据库__基本_标准和高级__标准_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="1000"></div><img class="plus" id="caltemp_count_plus_SQL数据库__基本_标准和高级__标准_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div><div class="feature inactive multi_sizes_feature" id="SQL数据库__基本_标准和高级__高级_default_feature" data-service="SQL数据库__基本_标准和高级_" data-type="高级" data-feature="default"><div class="config price_config cal_temp_size" data-count="0" data-price="4030"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="P1"><a id="caltemp_size_SQL数据库__基本_标准和高级__高级_default_P1_数据库大小限制500GB"><input name="CalTemp_size_SQL数据库__基本_标准和高级__高级_default" id="CalTemp_size_SQL数据库__基本_标准和高级__高级_default_P1" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="4030" data-count="0" /><label id="caltemp_size_SQL数据库 (基本、标准和高级)_高级_P1_数据库大小限制500GB" for="CalTemp_size_SQL数据库__基本_标准和高级__高级_default_P1">P1</label><div class="description">数据库大小限制500GB</div></a></div><div class="size" data-size="P2"><a id="caltemp_size_SQL数据库__基本_标准和高级__高级_default_P2_数据库大小限制500GB"><input name="CalTemp_size_SQL数据库__基本_标准和高级__高级_default" id="CalTemp_size_SQL数据库__基本_标准和高级__高级_default_P2" type="radio" data-price-tier="-2" data-price-per-tier="8060" data-count="0" /><label id="caltemp_size_SQL数据库 (基本、标准和高级)_高级_P2_数据库大小限制500GB" for="CalTemp_size_SQL数据库__基本_标准和高级__高级_default_P2">P2</label><div class="description">数据库大小限制500GB</div></a></div><div class="size" data-size="P3"><a id="caltemp_size_SQL数据库__基本_标准和高级__高级_default_P3_数据库大小限制500GB"><input name="CalTemp_size_SQL数据库__基本_标准和高级__高级_default" id="CalTemp_size_SQL数据库__基本_标准和高级__高级_default_P3" type="radio" data-price-tier="-2" data-price-per-tier="32240" data-count="0" /><label id="caltemp_size_SQL数据库 (基本、标准和高级)_高级_P3_数据库大小限制500GB" for="CalTemp_size_SQL数据库__基本_标准和高级__高级_default_P3">P3</label><div class="description">数据库大小限制500GB</div></a></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_SQL数据库__基本_标准和高级__高级_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="10"></div><img class="plus" id="caltemp_count_plus_SQL数据库__基本_标准和高级__高级_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div></div><div class="service" data-service="database-web-and-business"><h2 class="cal_temp_name">SQL数据库 (适合web和企业)</h2><div class="feature database_feature" id="SQL数据库__适合web和企业__default_default_feature" data-service="SQL数据库__适合web和企业_" data-type="default" data-feature="default"><div class="cal_temp_slider config" data-price-tier="0,100,101,200" data-price-per-tier="0.12,0.24" data-total-price="0"><h3>选择配置</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_sqlDatabase_SQL数据库__适合web和企业__default_default"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="200" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2" style="margin-left: calc(0px + 1%);">40</div><div class="lbl3" style="margin-left: calc(0px + 1%);">95</div><div class="lbl4" style="margin-left: calc(0px + 1%);">150</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">MB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于0MB和1024MB, 1GB和150GB之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_SQL数据库__适合web和企业__default_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_SQL数据库__适合web和企业__default_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div></div><div class="service" data-service="data-transfer"><h2 class="cal_temp_name">数据流量(传入和传出数据中心)</h2><div class="feature slider_feature" id="数据流量_传入和传出数据中心__default_default_feature" data-service="数据流量_传入和传出数据中心_" data-type="default" data-feature="default"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="0.9" data-total-price="0"><h3>选择配置</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_数据流量_传入和传出数据中心__default_default"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="2000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">667</div><div class="lbl3">1333</div><div class="lbl4">2000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">2000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_数据流量_传入和传出数据中心__default_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_数据流量_传入和传出数据中心__default_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div></div><div class="service" data-service="support"><h2 class="cal_temp_name">支持</h2><ul class="cal_temp_support"><li>计费和订阅管理</li><li>服务仪表板</li><li>Web事件提交</li><li>中断/修复不受限制</li><li>电话支持</li><li>ICP备案支持</li></ul><div class="cal_temp_free">免费</div></div><div class="related-service active"><a class="icon" href="#"></a><a class="hint" href="#">显示您可能会用到的相关服务推荐</a></div><div class="service related hide" data-service="storage"><h2 class="cal_temp_name">存储</h2><div class="cal_temp_type"><h3>选择类型 </h3><div class="right_box"><span class="type" data-service="存储" data-type="本地冗余"><a id="caltemp_type_存储_本地冗余"><input name="CalTemp_type_存储" id="CalTemp_type_存储_本地冗余" type="radio" checked="checked" /><label for="CalTemp_type_存储_本地冗余">本地冗余</label></a></span><span class="type" data-service="存储" data-type="异地冗余"><a id="caltemp_type_存储_异地冗余"><input name="CalTemp_type_存储" id="CalTemp_type_存储_异地冗余" type="radio" /><label for="CalTemp_type_存储_异地冗余">异地冗余</label></a></span><span class="type" data-service="存储" data-type="只读访问跨地域冗余"><a id="caltemp_type_存储_只读访问跨地域冗余"><input name="CalTemp_type_存储" id="CalTemp_type_存储_只读访问跨地域冗余" type="radio" /><label for="CalTemp_type_存储_只读访问跨地域冗余">只读访问跨地域冗余</label></a></span></div></div><div class="feature slider_feature" id="存储_本地冗余_块blob_feature" data-service="存储" data-type="本地冗余" data-feature="块blob"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="0.41,0.37,0.33" data-total-price="0"><h3>块blob</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_本地冗余_块blob"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_本地冗余_块blob" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_本地冗余_块blob" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature slider_feature" id="存储_本地冗余_页blob和磁盘_feature" data-service="存储" data-type="本地冗余" data-feature="页blob和磁盘"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="0.96,0.76,0.72" data-total-price="0"><h3>页blob和磁盘</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_本地冗余_页blob和磁盘"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_本地冗余_页blob和磁盘" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_本地冗余_页blob和磁盘" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature slider_feature" id="存储_本地冗余_表和队列_feature" data-service="存储" data-type="本地冗余" data-feature="表和队列"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="0.96,0.76,0.72" data-total-price="0"><h3>表和队列</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_本地冗余_表和队列"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_本地冗余_表和队列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_本地冗余_表和队列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature slider_feature" id="存储_本地冗余_Azure_file_文件_feature" data-service="存储" data-type="本地冗余" data-feature="Azure_file_文件"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="0.94" data-total-price="0"><h3>Azure file/文件</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_本地冗余_Azure_file_文件"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_本地冗余_Azure_file_文件" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_本地冗余_Azure_file_文件" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature slider_feature" id="存储_本地冗余_存储事务数_feature" data-service="存储" data-type="本地冗余" data-feature="存储事务数"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="3" data-total-price="0"><h3>存储事务数</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_本地冗余_存储事务数"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="10000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">3333</div><div class="lbl3">6667</div><div class="lbl4">10000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">十万</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">10000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_本地冗余_存储事务数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_本地冗余_存储事务数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_异地冗余_块blob_feature" data-service="存储" data-type="异地冗余" data-feature="块blob"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="0.82,0.74,0.66" data-total-price="0"><h3>块blob</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_异地冗余_块blob"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_异地冗余_块blob" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_异地冗余_块blob" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_异地冗余_页blob和磁盘_feature" data-service="存储" data-type="异地冗余" data-feature="页blob和磁盘"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="1.28,1.08,1.0" data-total-price="0"><h3>页blob和磁盘</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_异地冗余_页blob和磁盘"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_异地冗余_页blob和磁盘" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_异地冗余_页blob和磁盘" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_异地冗余_表和队列_feature" data-service="存储" data-type="异地冗余" data-feature="表和队列"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="1.28,1.08,1.0" data-total-price="0"><h3>表和队列</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_异地冗余_表和队列"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_异地冗余_表和队列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_异地冗余_表和队列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_异地冗余_Azure_file_文件_feature" data-service="存储" data-type="异地冗余" data-feature="Azure_file_文件"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="1.18" data-total-price="0"><h3>Azure file/文件</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_异地冗余_Azure_file_文件"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_异地冗余_Azure_file_文件" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_异地冗余_Azure_file_文件" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_异地冗余_存储事务数_feature" data-service="存储" data-type="异地冗余" data-feature="存储事务数"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="3" data-total-price="0"><h3>存储事务数</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_异地冗余_存储事务数"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="10000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">3333</div><div class="lbl3">6667</div><div class="lbl4">10000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">十万</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">10000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_异地冗余_存储事务数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_异地冗余_存储事务数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_只读访问跨地域冗余_块blob_feature" data-service="存储" data-type="只读访问跨地域冗余" data-feature="块blob"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="1.04,0.94,0.83" data-total-price="0"><h3>块blob</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_只读访问跨地域冗余_块blob"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_只读访问跨地域冗余_块blob" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_只读访问跨地域冗余_块blob" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_只读访问跨地域冗余_页blob和磁盘_feature" data-service="存储" data-type="只读访问跨地域冗余" data-feature="页blob和磁盘"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="1.63,1.37,1.27" data-total-price="0"><h3>页blob和磁盘</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_只读访问跨地域冗余_页blob和磁盘"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_只读访问跨地域冗余_页blob和磁盘" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_只读访问跨地域冗余_页blob和磁盘" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_只读访问跨地域冗余_表和队列_feature" data-service="存储" data-type="只读访问跨地域冗余" data-feature="表和队列"><div class="cal_temp_slider config" data-price-tier="0,1024,1025,51200,51201,512000" data-price-per-tier="1.63,1.37,1.27" data-total-price="0"><h3>表和队列</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_只读访问跨地域冗余_表和队列"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">6667</div><div class="lbl3">13333</div><div class="lbl4">20000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">GB</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_只读访问跨地域冗余_表和队列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_只读访问跨地域冗余_表和队列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature inactive slider_feature" id="存储_只读访问跨地域冗余_存储事务数_feature" data-service="存储" data-type="只读访问跨地域冗余" data-feature="存储事务数"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="3" data-total-price="0"><h3>存储事务数</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_存储_只读访问跨地域冗余_存储事务数"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="10000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">3333</div><div class="lbl3">6667</div><div class="lbl4">10000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">十万</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">10000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_存储_只读访问跨地域冗余_存储事务数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_存储_只读访问跨地域冗余_存储事务数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div></div><div class="service related hide" data-service="virtual-machines-linux"><h2 class="cal_temp_name">Linux 虚拟机</h2><div class="cal_temp_type"><h3>选择类型 </h3><div class="right_box"><span class="type" data-service="Linux_虚拟机" data-type="基本"><a id="caltemp_type_Linux_虚拟机_基本"><input name="CalTemp_type_Linux 虚拟机" id="CalTemp_type_Linux_虚拟机_基本" type="radio" checked="checked" /><label for="CalTemp_type_Linux_虚拟机_基本">基本</label></a></span><span class="type" data-service="Linux_虚拟机" data-type="标准"><a id="caltemp_type_Linux_虚拟机_标准"><input name="CalTemp_type_Linux 虚拟机" id="CalTemp_type_Linux_虚拟机_标准" type="radio" /><label for="CalTemp_type_Linux_虚拟机_标准">标准</label></a></span></div></div><div class="feature multi_sizes_feature" id="Linux_虚拟机_基本_default_feature" data-service="Linux_虚拟机" data-type="基本" data-feature="default"><div class="config price_config cal_temp_size" data-count="0" data-price="0.12"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="XS"><a id="caltemp_size_Linux_虚拟机_基本_default_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_"><input name="CalTemp_size_Linux_虚拟机_基本_default" id="CalTemp_size_Linux_虚拟机_基本_default_XS" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="0.12" data-count="0" /><label id="caltemp_size_Linux 虚拟机_基本_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_" for="CalTemp_size_Linux_虚拟机_基本_default_XS">XS</label><div class="description">超小型虚拟机 (1GHz CPU、768MB RAM)</div></a></div><div class="size" data-size="S"><a id="caltemp_size_Linux_虚拟机_基本_default_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_基本_default" id="CalTemp_size_Linux_虚拟机_基本_default_S" type="radio" data-price-tier="-2" data-price-per-tier="0.44" data-count="0" /><label id="caltemp_size_Linux 虚拟机_基本_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_" for="CalTemp_size_Linux_虚拟机_基本_default_S">S</label><div class="description">小型虚拟机 (1.6GHz CPU、1.75GB RAM)</div></a></div><div class="size" data-size="M"><a id="caltemp_size_Linux_虚拟机_基本_default_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_基本_default" id="CalTemp_size_Linux_虚拟机_基本_default_M" type="radio" data-price-tier="-2" data-price-per-tier="0.88" data-count="0" /><label id="caltemp_size_Linux 虚拟机_基本_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_" for="CalTemp_size_Linux_虚拟机_基本_default_M">M</label><div class="description">中型虚拟机 (2 x 1.6GHz CPU、3.5GB RAM)</div></a></div><div class="size" data-size="L"><a id="caltemp_size_Linux_虚拟机_基本_default_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_基本_default" id="CalTemp_size_Linux_虚拟机_基本_default_L" type="radio" data-price-tier="-2" data-price-per-tier="1.76" data-count="0" /><label id="caltemp_size_Linux 虚拟机_基本_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_" for="CalTemp_size_Linux_虚拟机_基本_default_L">L</label><div class="description">大型虚拟机(4 x 1.6GHz CPU，7GB RAM)</div></a></div><div class="size" data-size="XL"><a id="caltemp_size_Linux_虚拟机_基本_default_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_基本_default" id="CalTemp_size_Linux_虚拟机_基本_default_XL" type="radio" data-price-tier="-2" data-price-per-tier="3.52" data-count="0" /><label id="caltemp_size_Linux 虚拟机_基本_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_" for="CalTemp_size_Linux_虚拟机_基本_default_XL">XL</label><div class="description">超大型虚拟机(8 x 1.6GHz CPU，14GB RAM)</div></a></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Linux_虚拟机_基本_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Linux_虚拟机_基本_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">台</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">0.12</span>/小时 X <span class="HourNum">744</span>小时</div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div><div class="feature inactive multi_sizes_feature" id="Linux_虚拟机_标准_D系列_feature" data-service="Linux_虚拟机" data-type="标准" data-feature="D系列"><div class="config price_config cal_temp_size" data-count="0" data-price="1.52"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="D1"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D1_单核_3_5_GB_RAM_50_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D1" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="1.52" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D1_单核_3_5_GB_RAM_50_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D1">D1</label><div class="description">单核，3.5 GB RAM，50 GB SSD</div></a></div><div class="size" data-size="D2"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D2_双核_7_GB_RAM_100_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D2" type="radio" data-price-tier="-2" data-price-per-tier="3.04" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D2_双核_7_GB_RAM_100_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D2">D2</label><div class="description">双核，7 GB RAM，100 GB SSD</div></a></div><div class="size" data-size="D3"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D3_4_核_14_GB_RAM_200_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D3" type="radio" data-price-tier="-2" data-price-per-tier="6.08" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D3_4_核_14_GB_RAM_200_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D3">D3</label><div class="description">4 核，14 GB RAM，200 GB SSD</div></a></div><div class="size" data-size="D4"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D4_8_核_28_GB_RAM_400_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D4" type="radio" data-price-tier="-2" data-price-per-tier="12.16" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D4_8_核_28_GB_RAM_400_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D4">D4</label><div class="description">8 核，28 GB RAM，400 GB SSD</div></a></div><div class="size" data-size="D11"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D11_双核_14_GB_RAM_100_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D11" type="radio" data-price-tier="-2" data-price-per-tier="3.5" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D11_双核_14_GB_RAM_100_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D11">D11</label><div class="description">双核，14 GB RAM，100 GB SSD</div></a></div><div class="size" data-size="D12"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D12_4_核_28_GB_RAM_200_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D12" type="radio" data-price-tier="-2" data-price-per-tier="7" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D12_4_核_28_GB_RAM_200_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D12">D12</label><div class="description">4 核，28 GB RAM，200 GB SSD</div></a></div><div class="size" data-size="D13"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D13_8_核_56_GB_RAM_400_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D13" type="radio" data-price-tier="-2" data-price-per-tier="12.6" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D13_8_核_56_GB_RAM_400_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D13">D13</label><div class="description">8 核，56 GB RAM，400 GB SSD</div></a></div><div class="size" data-size="D14"><a id="caltemp_size_Linux_虚拟机_标准_D系列_D14_16_核_112_GB_RAM_800_GB_SSD"><input name="CalTemp_size_Linux_虚拟机_标准_D系列" id="CalTemp_size_Linux_虚拟机_标准_D系列_D14" type="radio" data-price-tier="-2" data-price-per-tier="22.65" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_D14_16_核_112_GB_RAM_800_GB_SSD" for="CalTemp_size_Linux_虚拟机_标准_D系列_D14">D14</label><div class="description">16 核，112 GB RAM，800 GB SSD</div></a></div><div class="feature_name">D系列</div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Linux_虚拟机_标准_D系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Linux_虚拟机_标准_D系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">台</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">1.52</span>/小时 X <span class="HourNum">744</span>小时</div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div><div class="feature inactive multi_sizes_feature" id="Linux_虚拟机_标准_A系列_feature" data-service="Linux_虚拟机" data-type="标准" data-feature="A系列"><div class="config price_config cal_temp_size" data-count="0" data-price="0.15"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="XS"><a id="caltemp_size_Linux_虚拟机_标准_A系列_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_XS" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="0.15" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_XS">XS</label><div class="description">超小型虚拟机 (1GHz CPU、768MB RAM)</div></a></div><div class="size" data-size="S"><a id="caltemp_size_Linux_虚拟机_标准_A系列_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_S" type="radio" data-price-tier="-2" data-price-per-tier="0.55" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_S">S</label><div class="description">小型虚拟机 (1.6GHz CPU、1.75GB RAM)</div></a></div><div class="size" data-size="M"><a id="caltemp_size_Linux_虚拟机_标准_A系列_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_M" type="radio" data-price-tier="-2" data-price-per-tier="1.1" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_M">M</label><div class="description">中型虚拟机 (2 x 1.6GHz CPU、3.5GB RAM)</div></a></div><div class="size" data-size="L"><a id="caltemp_size_Linux_虚拟机_标准_A系列_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_L" type="radio" data-price-tier="-2" data-price-per-tier="2.2" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_L">L</label><div class="description">大型虚拟机(4 x 1.6GHz CPU，7GB RAM)</div></a></div><div class="size" data-size="XL"><a id="caltemp_size_Linux_虚拟机_标准_A系列_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_XL" type="radio" data-price-tier="-2" data-price-per-tier="4.4" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_XL">XL</label><div class="description">超大型虚拟机(8 x 1.6GHz CPU，14GB RAM)</div></a></div><div class="size" data-size="A5"><a id="caltemp_size_Linux_虚拟机_标准_A系列_A5_内存密集型虚拟机__2_x_1_6GHz_CPU_14GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_A5" type="radio" data-price-tier="-2" data-price-per-tier="2.18" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_A5_内存密集型虚拟机__2_x_1_6GHz_CPU_14GB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_A5">A5</label><div class="description">内存密集型虚拟机 (2 x 1.6GHz CPU、14GB RAM)</div></a></div><div class="size" data-size="A6"><a id="caltemp_size_Linux_虚拟机_标准_A系列_A6_内存密集型虚拟机__4_x_1_6GHz_CPU__28GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_A6" type="radio" data-price-tier="-2" data-price-per-tier="4.36" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_A6_内存密集型虚拟机__4_x_1_6GHz_CPU__28GB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_A6">A6</label><div class="description">内存密集型虚拟机 (4 x 1.6GHz CPU, 28GB RAM)</div></a></div><div class="size" data-size="A7"><a id="caltemp_size_Linux_虚拟机_标准_A系列_A7_内存密集型虚拟机__8_x_1_6GHz_CPU_56GB_RAM_"><input name="CalTemp_size_Linux_虚拟机_标准_A系列" id="CalTemp_size_Linux_虚拟机_标准_A系列_A7" type="radio" data-price-tier="-2" data-price-per-tier="8.72" data-count="0" /><label id="caltemp_size_Linux 虚拟机_标准_A7_内存密集型虚拟机__8_x_1_6GHz_CPU_56GB_RAM_" for="CalTemp_size_Linux_虚拟机_标准_A系列_A7">A7</label><div class="description">内存密集型虚拟机 (8 x 1.6GHz CPU、56GB RAM)</div></a></div><div class="feature_name">A系列</div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Linux_虚拟机_标准_A系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Linux_虚拟机_标准_A系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">台</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">0.15</span>/小时 X <span class="HourNum">744</span>小时</div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div></div><div class="service related hide" data-service="traffic-manager"><h2 class="cal_temp_name">Traffic Manager</h2><div class="feature slider_feature" id="Traffic_Manager_default_DNS查询_feature" data-service="Traffic_Manager" data-type="default" data-feature="DNS查询"><div class="cal_temp_slider config" data-price-tier="0,1000,1001,2000" data-price-per-tier="4.8,2.4" data-total-price="0"><h3>DNS查询</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_Traffic_Manager_default_DNS查询"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="2000" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">667</div><div class="lbl3">1333</div><div class="lbl4">2000</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">百万</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">2000</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Traffic_Manager_default_DNS查询" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Traffic_Manager_default_DNS查询" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature slider_feature" id="Traffic_Manager_default_运行状况检查_Azure终结点数_feature" data-service="Traffic_Manager" data-type="default" data-feature="运行状况检查_Azure终结点数"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="3.2" data-total-price="0"><h3>运行状况检查-Azure终结点数</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_Traffic_Manager_default_运行状况检查_Azure终结点数"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">7</div><div class="lbl3">13</div><div class="lbl4">20</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">个</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Traffic_Manager_default_运行状况检查_Azure终结点数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Traffic_Manager_default_运行状况检查_Azure终结点数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div><div class="feature slider_feature" id="Traffic_Manager_default_运行状况检查_外部终结点数_feature" data-service="Traffic_Manager" data-type="default" data-feature="运行状况检查_外部终结点数"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="4.8" data-total-price="0"><h3>运行状况检查-外部终结点数</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_Traffic_Manager_default_运行状况检查_外部终结点数"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="20" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">7</div><div class="lbl3">13</div><div class="lbl4">20</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">个</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">20</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Traffic_Manager_default_运行状况检查_外部终结点数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Traffic_Manager_default_运行状况检查_外部终结点数" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="monthly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div></div></div></div><div class="service related hide" data-service="virtual-machines-windows"><h2 class="cal_temp_name">Windows 虚拟机</h2><div class="cal_temp_type"><h3>选择类型 </h3><div class="right_box"><span class="type" data-service="Windows_虚拟机" data-type="基本"><a id="caltemp_type_Windows_虚拟机_基本"><input name="CalTemp_type_Windows 虚拟机" id="CalTemp_type_Windows_虚拟机_基本" type="radio" checked="checked" /><label for="CalTemp_type_Windows_虚拟机_基本">基本</label></a></span><span class="type" data-service="Windows_虚拟机" data-type="标准"><a id="caltemp_type_Windows_虚拟机_标准"><input name="CalTemp_type_Windows 虚拟机" id="CalTemp_type_Windows_虚拟机_标准" type="radio" /><label for="CalTemp_type_Windows_虚拟机_标准">标准</label></a></span></div></div><div class="feature multi_sizes_feature" id="Windows_虚拟机_基本_default_feature" data-service="Windows_虚拟机" data-type="基本" data-feature="default"><div class="config price_config cal_temp_size" data-count="0" data-price="0.12"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="XS"><a id="caltemp_size_Windows_虚拟机_基本_default_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_"><input name="CalTemp_size_Windows_虚拟机_基本_default" id="CalTemp_size_Windows_虚拟机_基本_default_XS" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="0.12" data-count="0" /><label id="caltemp_size_Windows 虚拟机_基本_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_" for="CalTemp_size_Windows_虚拟机_基本_default_XS">XS</label><div class="description">超小型虚拟机 (1GHz CPU、768MB RAM)</div></a></div><div class="size" data-size="S"><a id="caltemp_size_Windows_虚拟机_基本_default_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_基本_default" id="CalTemp_size_Windows_虚拟机_基本_default_S" type="radio" data-price-tier="-2" data-price-per-tier="0.55" data-count="0" /><label id="caltemp_size_Windows 虚拟机_基本_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_" for="CalTemp_size_Windows_虚拟机_基本_default_S">S</label><div class="description">小型虚拟机 (1.6GHz CPU、1.75GB RAM)</div></a></div><div class="size" data-size="M"><a id="caltemp_size_Windows_虚拟机_基本_default_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_基本_default" id="CalTemp_size_Windows_虚拟机_基本_default_M" type="radio" data-price-tier="-2" data-price-per-tier="1.1" data-count="0" /><label id="caltemp_size_Windows 虚拟机_基本_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_" for="CalTemp_size_Windows_虚拟机_基本_default_M">M</label><div class="description">中型虚拟机 (2 x 1.6GHz CPU、3.5GB RAM)</div></a></div><div class="size" data-size="L"><a id="caltemp_size_Windows_虚拟机_基本_default_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_基本_default" id="CalTemp_size_Windows_虚拟机_基本_default_L" type="radio" data-price-tier="-2" data-price-per-tier="2.2" data-count="0" /><label id="caltemp_size_Windows 虚拟机_基本_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_" for="CalTemp_size_Windows_虚拟机_基本_default_L">L</label><div class="description">大型虚拟机(4 x 1.6GHz CPU，7GB RAM)</div></a></div><div class="size" data-size="XL"><a id="caltemp_size_Windows_虚拟机_基本_default_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_基本_default" id="CalTemp_size_Windows_虚拟机_基本_default_XL" type="radio" data-price-tier="-2" data-price-per-tier="4.4" data-count="0" /><label id="caltemp_size_Windows 虚拟机_基本_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_" for="CalTemp_size_Windows_虚拟机_基本_default_XL">XL</label><div class="description">超大型虚拟机(8 x 1.6GHz CPU，14GB RAM)</div></a></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Windows_虚拟机_基本_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Windows_虚拟机_基本_default" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">台</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">0.12</span>/小时 X <span class="HourNum">744</span>小时</div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div><div class="feature inactive multi_sizes_feature" id="Windows_虚拟机_标准_D系列_feature" data-service="Windows_虚拟机" data-type="标准" data-feature="D系列"><div class="config price_config cal_temp_size" data-count="0" data-price="1.65"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="D1"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D1_单核_3_5_GB_RAM_50_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D1" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="1.65" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D1_单核_3_5_GB_RAM_50_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D1">D1</label><div class="description">单核，3.5 GB RAM，50 GB SSD</div></a></div><div class="size" data-size="D2"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D2_双核_7_GB_RAM_100_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D2" type="radio" data-price-tier="-2" data-price-per-tier="3.3" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D2_双核_7_GB_RAM_100_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D2">D2</label><div class="description">双核，7 GB RAM，100 GB SSD</div></a></div><div class="size" data-size="D3"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D3_4_核_14_GB_RAM_200_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D3" type="radio" data-price-tier="-2" data-price-per-tier="6.6" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D3_4_核_14_GB_RAM_200_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D3">D3</label><div class="description">4 核，14 GB RAM，200 GB SSD</div></a></div><div class="size" data-size="D4"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D4_8_核_28_GB_RAM_400_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D4" type="radio" data-price-tier="-2" data-price-per-tier="13.2" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D4_8_核_28_GB_RAM_400_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D4">D4</label><div class="description">8 核，28 GB RAM，400 GB SSD</div></a></div><div class="size" data-size="D11"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D11_双核_14_GB_RAM_100_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D11" type="radio" data-price-tier="-2" data-price-per-tier="3.8" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D11_双核_14_GB_RAM_100_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D11">D11</label><div class="description">双核，14 GB RAM，100 GB SSD</div></a></div><div class="size" data-size="D12"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D12_4_核_28_GB_RAM_200_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D12" type="radio" data-price-tier="-2" data-price-per-tier="7.6" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D12_4_核_28_GB_RAM_200_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D12">D12</label><div class="description">4 核，28 GB RAM，200 GB SSD</div></a></div><div class="size" data-size="D13"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D13_8_核_56_GB_RAM_400_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D13" type="radio" data-price-tier="-2" data-price-per-tier="13.68" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D13_8_核_56_GB_RAM_400_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D13">D13</label><div class="description">8 核，56 GB RAM，400 GB SSD</div></a></div><div class="size" data-size="D14"><a id="caltemp_size_Windows_虚拟机_标准_D系列_D14_16_核_112_GB_RAM_800_GB_SSD"><input name="CalTemp_size_Windows_虚拟机_标准_D系列" id="CalTemp_size_Windows_虚拟机_标准_D系列_D14" type="radio" data-price-tier="-2" data-price-per-tier="24.62" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_D14_16_核_112_GB_RAM_800_GB_SSD" for="CalTemp_size_Windows_虚拟机_标准_D系列_D14">D14</label><div class="description">16 核，112 GB RAM，800 GB SSD</div></a></div><div class="feature_name">D系列</div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Windows_虚拟机_标准_D系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Windows_虚拟机_标准_D系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">台</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">1.65</span>/小时 X <span class="HourNum">744</span>小时</div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div><div class="feature inactive multi_sizes_feature" id="Windows_虚拟机_标准_A系列_feature" data-service="Windows_虚拟机" data-type="标准" data-feature="A系列"><div class="config price_config cal_temp_size" data-count="0" data-price="0.15"><h3>配置等级 </h3><div class="right_box"><div class="size" data-size="XS"><a id="caltemp_size_Windows_虚拟机_标准_A系列_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_XS" type="radio" checked="checked" data-price-tier="-2" data-price-per-tier="0.15" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_XS_超小型虚拟机__1GHz_CPU_768MB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_XS">XS</label><div class="description">超小型虚拟机 (1GHz CPU、768MB RAM)</div></a></div><div class="size" data-size="S"><a id="caltemp_size_Windows_虚拟机_标准_A系列_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_S" type="radio" data-price-tier="-2" data-price-per-tier="0.68" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_S_小型虚拟机__1_6GHz_CPU_1_75GB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_S">S</label><div class="description">小型虚拟机 (1.6GHz CPU、1.75GB RAM)</div></a></div><div class="size" data-size="M"><a id="caltemp_size_Windows_虚拟机_标准_A系列_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_M" type="radio" data-price-tier="-2" data-price-per-tier="1.36" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_M_中型虚拟机__2_x_1_6GHz_CPU_3_5GB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_M">M</label><div class="description">中型虚拟机 (2 x 1.6GHz CPU、3.5GB RAM)</div></a></div><div class="size" data-size="L"><a id="caltemp_size_Windows_虚拟机_标准_A系列_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_L" type="radio" data-price-tier="-2" data-price-per-tier="2.72" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_L_大型虚拟机_4_x_1_6GHz_CPU_7GB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_L">L</label><div class="description">大型虚拟机(4 x 1.6GHz CPU，7GB RAM)</div></a></div><div class="size" data-size="XL"><a id="caltemp_size_Windows_虚拟机_标准_A系列_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_XL" type="radio" data-price-tier="-2" data-price-per-tier="5.44" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_XL_超大型虚拟机_8_x_1_6GHz_CPU_14GB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_XL">XL</label><div class="description">超大型虚拟机(8 x 1.6GHz CPU，14GB RAM)</div></a></div><div class="size" data-size="A5"><a id="caltemp_size_Windows_虚拟机_标准_A系列_A5_内存密集型虚拟机__2_x_1_6GHz_CPU_14GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_A5" type="radio" data-price-tier="-2" data-price-per-tier="2.3" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_A5_内存密集型虚拟机__2_x_1_6GHz_CPU_14GB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_A5">A5</label><div class="description">内存密集型虚拟机 (2 x 1.6GHz CPU、14GB RAM)</div></a></div><div class="size" data-size="A6"><a id="caltemp_size_Windows_虚拟机_标准_A系列_A6_内存密集型虚拟机__4_x_1_6GHz_CPU__28GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_A6" type="radio" data-price-tier="-2" data-price-per-tier="4.6" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_A6_内存密集型虚拟机__4_x_1_6GHz_CPU__28GB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_A6">A6</label><div class="description">内存密集型虚拟机 (4 x 1.6GHz CPU, 28GB RAM)</div></a></div><div class="size" data-size="A7"><a id="caltemp_size_Windows_虚拟机_标准_A系列_A7_内存密集型虚拟机__8_x_1_6GHz_CPU_56GB_RAM_"><input name="CalTemp_size_Windows_虚拟机_标准_A系列" id="CalTemp_size_Windows_虚拟机_标准_A系列_A7" type="radio" data-price-tier="-2" data-price-per-tier="9.2" data-count="0" /><label id="caltemp_size_Windows 虚拟机_标准_A7_内存密集型虚拟机__8_x_1_6GHz_CPU_56GB_RAM_" for="CalTemp_size_Windows_虚拟机_标准_A系列_A7">A7</label><div class="description">内存密集型虚拟机 (8 x 1.6GHz CPU、56GB RAM)</div></a></div><div class="feature_name">A系列</div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_Windows_虚拟机_标准_A系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_Windows_虚拟机_标准_A系列" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">台</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">0.15</span>/小时 X <span class="HourNum">744</span>小时</div></div><div class="cal_temp_prompt inactive"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" /><span>改变配置及对应数量将自动添加另一选择</span></div></div></div><div class="service related hide" data-service="hdinsight"><h2 class="cal_temp_name">HDInsight</h2><div class="feature slider_feature" id="HDInsight_default_计算节点_A4实例包括2个头节点_feature" data-service="HDInsight" data-type="default" data-feature="计算节点_A4实例包括2个头节点"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="5.44" data-total-price="0"><h3>计算节点-A4实例包括2个头节点</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_HDInsight_default_计算节点_A4实例包括2个头节点"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="25" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">8</div><div class="lbl3">17</div><div class="lbl4">25</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">个</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">25</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_HDInsight_default_计算节点_A4实例包括2个头节点" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_HDInsight_default_计算节点_A4实例包括2个头节点" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">5.44</span>/小时 X <span class="HourNum">744</span>小时</div></div></div><div class="feature slider_feature" id="HDInsight_default_计算节点_A3实例包括2个头节点_feature" data-service="HDInsight" data-type="default" data-feature="计算节点_A3实例包括2个头节点"><div class="cal_temp_slider config" data-price-tier="-1" data-price-per-tier="2.72" data-total-price="0"><h3>计算节点-A3实例包括2个头节点</h3><div class="size slider right_box"><div class="group1"><a id="caltemp_slider_HDInsight_default_计算节点_A3实例包括2个头节点"><div class="slider-div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="25" data-tier="-1" data-step="1"><div class="dividends"><div class="div1" style="left: 33.333%;"></div><div class="div2" style="left: 66.666%;"></div></div><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></span></div></a><div class="labels"><div class="lbl1">0</div><div class="lbl2">8</div><div class="lbl3">17</div><div class="lbl4">25</div></div></div><div class="output"><input class="input" pattern="[0-9]{1,9}" value="0" data-rangeok="ok" /><span class="unit">个</span><div class="ErrorMessage"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/information.png" />请输入一个介于<span class="lower">0</span>和<span class="upper">25</span>之间的整数。</div></div></div></div><div class="cal_temp_count"><img class="minus" id="caltemp_count_minus_HDInsight_default_计算节点_A3实例包括2个头节点" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_minus.png" /><input class="digit" pattern="[0-9]{1,9}" value="0" data-range="ok" /><div class="ErrorMessage" data-min="0" data-max="20"></div><img class="plus" id="caltemp_count_plus_HDInsight_default_计算节点_A3实例包括2个头节点" src="http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/img/pricing_cal_plus.png" /><div class="unit">个</div></div><div class="hourly-price-temp"><div class="cal_temp_totalPrice">￥<span class="num">0.00</span><span class="Unit">/月</span></div><div class="cal_temp_priceHourly">￥<span class="num">2.72</span>/小时 X <span class="HourNum">744</span>小时</div></div></div></div></div>
+                        <script>
+                            CalculatorUIRenderer.AddService("sql-database-basic-standard-and-premium");
+                            CalculatorUIRenderer.AddService("database-web-and-business");
+                            CalculatorUIRenderer.AddService("data-transfer");
+                            CalculatorUIRenderer.AddService("support");
+                            // related services
+                            var relatedServices = ['storage', 'virtual-machines-linux', 'traffic-manager', 'virtual-machines-windows', 'hdinsight'];
+                            $("#calculator").append('<div class="related-service active">' +
+                              '<a class="icon" href="#"></a>' +
+                              '<a class="hint" href="#">显示您可能会用到的相关服务推荐</a>' +
+                            '</div>');
+                            CalculatorUIRenderer.AddService("storage"),
+                            CalculatorUIRenderer.AddService("virtual-machines-linux"),
+                            CalculatorUIRenderer.AddService("traffic-manager"),
+                            CalculatorUIRenderer.AddService("virtual-machines-windows"),
+                            CalculatorUIRenderer.AddService("hdinsight"),
+                            CalculatorUIRenderer.PostProcess();
+
+                            $("#calculator .service").each(function () {
+                                if (_(relatedServices).indexOf($(this).data('service')) != -1) {
+                                    $(this).addClass('related hide');
+                                }
+                            })
+
+                            $("#calculator .related-service a").on('click', function (evt) {
+                                evt.preventDefault();
+                                $('#calculator .related').toggleClass('hide');
+                                $('#calculator .related-service').toggleClass('active');
+                                if ($('#calculator .related-service').hasClass('active')) {
+                                    $('#calculator .related-service .hint').text("显示所有推荐的相关服务");
+                                } else {
+                                    $('#calculator .related-service .hint').text("隐藏所有推荐的相关服务");
+                                }
+                            })
+                        </script>
+                        <div class="right_content_pricing">
+                            <script>
+                                $(".right_content_pricing").show();
+                                $("#calculator").hide();
+                                $(".calculator-detail-selector .selector").click(function () {
+                                    $(".calculator-detail-selector .selector").removeClass("active-selector");
+                                    $(this).addClass("active-selector");
+                                });
+                                $(".calculator-detail-selector .calculator-tab").click(function () {
+                                    $(".right_content_pricing").hide();
+                                    $("#calculator").show();
+                                });
+                                $(".calculator-detail-selector .detail-tab").click(function () {
+                                    $(".right_content_pricing").show();
+                                    $("#calculator").hide();
+                                });
+                            </script>
+                            <div class="pricingpage">
+                                <p>包含任务关键型功能的关系数据库即服务。</p>
+                                <p>SQL 数据库是一种关系数据库即服务产品/服务，包含任务关键型功能。它支持现有 SQL Server 库和 API，可让你重复使用代码和脚本。只需几秒钟你即可在 Azure 上构建一个 SQL 数据库，而无需自己管理虚拟机或基础结构。SQL 数据库提供可预测的性能保证和行业领先的 99.99% 的可用性服务级别协议。</p>
+                                <p>SQL 数据库提供内置数据支持，能够为任何时长最多 35 天的事务进行数据的时点还原。此外，你还可自动复制到你选择的其他 Azure 区域。这可让你轻松实现针对你的业务需求设计的灾难恢复策略。</p>
+                            </div>
+                            <style>
+                                .wa-tabsBlock {
+                                    border-bottom: 1px solid #dedede;
+                                    border-top: 1px solid #dedede;
+                                    margin: 0;
+                                    padding: 10px 0;
+                                }
+
+                                .wa-seltab {
+                                    background: #00abec;
+                                    color: #fff;
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    padding: 2px 8px;
+                                    cursor: pointer;
+                                }
+
+                                    .wa-seltab:hover {
+                                        background: #00abec;
+                                        color: #fff;
+                                    }
+
+                                .wa-tab {
+                                    background: #969696;
+                                    color: #fff;
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    padding: 2px 8px;
+                                    cursor: pointer;
+                                }
+
+                                    .wa-tab:hover {
+                                        background: #00abec;
+                                        color: #fff;
+                                    }
+
+                                .watab-hide {
+                                    display: none;
+                                }
+                            </style>
+                            <div class="pricingpage">
+                                <h3 style="margin-top: 20px;">
+                                    <a class="anchor" id="home_author_sql_database"></a>
+                                    定价详细信息
+                                </h3>
+                                <div class="wa-tabsBlock">
+                                    <div class="btn-wa-tab">
+                                        <a class="wa-seltab" id="home_single_database">单个数据库</a>
+                                        <a class="wa-tab" id="home_elastic_database">弹性数据库</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-select-database">
+                                <div class="watab-database" data-value="home_single_database">
+                                    <div class="pricingpage" style="margin-top: 30px;">
+                                        <span class="section_title" style="font-size:18px;">单个数据库模型</span>
+                                        <p>单个数据库是在性能需求可预测时，针对工作负载优化的完全孤立的数据库。你可以在“基本”、“标准”和“高级”服务级别缩小或扩大单个数据库，以保留你的应用程序需要的资源数量。</p>
+                                        <span class="section_title" style="font-size:18px;">服务级别</span>
+                                        <p>SQL 数据库提供基本版、标准版和高级版。客户还可继续使用我们较早的 <a id="pricing_sql_web" style="color:#00a8d9;" href="/pricing/details/web-database/">Web 版和企业版</a>。</p>
+                                        <p><a id="pricing_sql_dn" style="color: #00a8d9;" href="http://msdn.microsoft.com/zh-cn/library/azure/dn741336.aspx" rel="nofollow">了解更多</a>有关如何选择服务级别和性能级别的信息。</p>
+                                    </div>
+                                    <div class="price_section" style="padding-top:0px;">
+                                        <table style="margin-bottom: 30px;" border="0">
+                                            <thead>
+                                                <tr><th></th><th class="left_align">基本</th><th class="left_align">标准</th><th class="left_align">高级</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left_align">运行时间服务级别协议</td>
+                                                    <td class="left_align">99.99%</td>
+                                                    <td class="left_align">99.99%</td>
+                                                    <td class="left_align">99.99%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">数据库大小限制</td>
+                                                    <td class="left_align">2 GB</td>
+                                                    <td class="left_align">250 GB</td>
+                                                    <td class="left_align">500 GB</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">时点还原<br />（自助还原）</td>
+                                                    <td class="left_align">7天内的任何点</td>
+                                                    <td class="left_align">14天内的任何点</td>
+                                                    <td class="left_align">35天内的任何点</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">灾难恢复</td>
+                                                    <td class="left_align">地域还原<br /> 还原到任何Azure区域</td>
+                                                    <td class="left_align">标准异地复制<br /> 脱机辅助数据库</td>
+                                                    <td class="left_align">活动异地复制<br /> 最多有4个联机（可读）辅助数据库</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align"><a id="pricing_sql_ms" style="color: #00a8d9;" href="https://msdn.microsoft.com/zh-cn/library/azure/dn741336.aspx" rel="nofollow">数据库吞吐量单位</a></td>
+                                                    <td class="left_align">5 DTU</td>
+                                                    <td class="left_align">S0：10 DTU<br /> S1：20 DTU<br /> S2：50 DTU<br />S3：100 DTU</td>
+                                                    <td class="left_align">P1：100 DTU<br /> P2：200 DTU<br /> P3：800 DTU</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">效能目标</td>
+                                                    <td class="left_align">每小时事务处理速度</td>
+                                                    <td class="left_align">每分钟事务处理速度</td>
+                                                    <td class="left_align">每秒事务处理速度</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="section_info">并非所有的灾难恢复功能现今均有提供。欲知更多详情，请浏览 <a id="SQL_Database_hh" style="color: #00a8d9;" href="http://msdn.microsoft.com/zh-cn/library/azure/hh852669.aspx" rel="nofollow">“灾难恢复”</a>文档页。</div>
+
+                                        <div class="section_title" style="margin-top:30px;">基本级别</div>
+                                        <p>设计用于具有轻型事务工作负荷的应用程序。“基本”级别的性能目标提供可预测的每小时事务速率。</p>
+                                        <div class="section_info">*以下价格均为含税价格。</div>
+                                        <div class="section_info">*每月价格的估算基于每个月 744 小时的使用量。</div>
+                                        <table style="margin-bottom: 30px;" border="0">
+                                            <thead>
+                                                <tr><th></th><th class="left_align">数据库吞吐量单位</th><th class="left_align">数据库大小</th><th class="left_align">时点还原<br />（自助还原）</th><th class="left_align">价格</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left_align">B</td>
+                                                    <td class="left_align">5 DTU</td>
+                                                    <td class="left_align">2 GB</td>
+                                                    <td class="left_align">7天</td>
+                                                    <td class="left_align">¥1.40/天<br />（~¥43/月）</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="section_title">标准级别</div>
+                                        <p>标准级别适用于事务型工作负载。它提供中级性能和内置业务连续性功能，包括时点恢复。“标准”级别的性能目标提供可预测的每分钟事务速率。</p>
+                                        <div class="section_info">*以下价格均为含税价格。</div>
+                                        <div class="section_info">*每月价格的估算基于每个月 744 小时的使用量。</div>
+                                        <table id="vm_bz" style="margin-bottom: 30px;" border="0">
+                                            <thead>
+                                                <tr><th></th><th class="left_align">数据库吞吐量单位</th><th class="left_align">数据库大小</th><th class="left_align">时点还原<br />（自助还原）</th><th class="left_align">价格</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left_align">S0</td>
+                                                    <td class="left_align">10 DTU</td>
+                                                    <td class="left_align">250 GB</td>
+                                                    <td class="left_align">14天内的任何点</td>
+                                                    <td class="left_align">¥4.20/天<br />（~¥130/月）</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">S1</td>
+                                                    <td class="left_align">20 DTU</td>
+                                                    <td class="left_align">250 GB</td>
+                                                    <td class="left_align">14天内的任何点</td>
+                                                    <td class="left_align">¥8.40/天<br />（~¥260/月）</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">S2</td>
+                                                    <td class="left_align">50 DTU</td>
+                                                    <td class="left_align">250 GB</td>
+                                                    <td class="left_align">14天内的任何点</td>
+                                                    <td class="left_align">¥21.00/天<br />（~¥651/月）</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">S3</td>
+                                                    <td class="left_align">100 DTU</td>
+                                                    <td class="left_align">250 GB</td>
+                                                    <td class="left_align">14天内的任何点</td>
+                                                    <td class="left_align">¥42.00/天<br />（~¥1,302/月）</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="section_info">从 12 月 31 日开始，S0 大小的使用费将作为 S1 大小的费用部分出现在你的账单上。 </div>
+                                        <div class="section_title" style="margin-top:30px;">高级级别</div>
+                                        <div class="section_info">*以下价格均为含税价格。</div>
+                                        <div class="section_info">*每月价格的估算基于每个月 744 小时的使用量。</div>
+                                        <table style="margin-bottom: 30px;" border="0">
+                                            <thead>
+                                                <tr><th></th><th class="left_align">数据库吞吐量单位</th><th class="left_align">数据库大小</th><th class="left_align">时点还原<br />（自助还原）</th><th class="left_align">价格</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left_align">P1</td>
+                                                    <td class="left_align">100 DTU</td>
+                                                    <td class="left_align">500 GB</td>
+                                                    <td class="left_align">35天</td>
+                                                    <td class="left_align">¥130.00/天<br />（~¥4,030/月）</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">P2</td>
+                                                    <td class="left_align">200 DTU</td>
+                                                    <td class="left_align">500 GB</td>
+                                                    <td class="left_align">35天</td>
+                                                    <td class="left_align">¥260.00/天<br />（~¥8,060/月）</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">P3</td>
+                                                    <td class="left_align">800 DTU</td>
+                                                    <td class="left_align">500 GB</td>
+                                                    <td class="left_align">35天</td>
+                                                    <td class="left_align">¥1040.00/天<br />（~¥32,240/月）</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="watab-database watab-hide" data-value="home_elastic_database">
+                                    <div class="pricingpage" style="padding-top:0px;margin-top:30px;">
+                                        <h3>
+                                            <a class="anchor" id="sql-database_model"></a>
+                                            弹性数据库模型
+                                            <span><sup style="color: #a5ce00;">预览版</sup></span>
+                                        </h3>
+                                        <p>构建软件即服务 (SaaS) 应用程序的开发人员可利用 SQL 数据库提供灵活性以支持爆炸性增长和盈利的商业模型。对于具有不可预测的数据库资源消耗的工作负载，弹性数据库模型可使你能够在一组数据库之间均分要利用的资源，无需超量配置数据库以满足峰值需求。反之，你可以使用弹性数据库池来让成百或成千的数据库利用你控制预算内的资源。在服务级别范围内（例如，“标准”级别为 0-100 个 eDTU），弹性数据库可以在弹性数据库池内自动缩放，因此，你无需主动管理单个数据库的性能。</p>
+                                        <p>弹性数据库模型目前提供预览版。下面的价格包含了 50% 的预览版折扣。了解关于<a id="home_price_sql_pool" style="color:#00a8d9;" href="/zh-cn/documentation/articles/sql-database-elastic-pool" target="_blank">弹性数据库池</a>的详细信息，深入了解关于<a id="home_price_sql_introduction" style="color:#00a8d9;" href="/zh-cn/documentation/articles/sql-database-elastic-scale-introduction" target="_blank">弹性数据库工具</a>的信息，然后<a id="home_price_sql_startrd" style="color:#00a8d9;" href="/zh-cn/documentation/articles/sql-database-elastic-scale-get-started" target="_blank">开始使用示例应用程序</a>。</p>
+                                    </div>
+                                    <div class="price_section" style="padding-top:0px;margin-top:0px;">
+                                        <h3 class="section_title" style="margin-top:30px;">
+                                            <a class="anchor" id="sql-database_elastic"></a>
+                                            标准弹性
+                                        </h3>
+                                        <div class="section_info">*以下价格均为含税价格。</div>
+                                        <div class="section_info">*每月价格的估算基于每个月 744 小时的使用量。</div>
+                                        <table style="margin-bottom: 30px;" border="0">
+                                            <thead>
+                                                <tr><th class="left_align" style="width:50%;">弹性数据库池</th><th class="left_align"></th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left_align">每个池的 eDTU 个数范围</td>
+                                                    <td class="left_align">200-1200 个 eDTU</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">每个池的存储量范围</td>
+                                                    <td class="left_align">200-1200 GB</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">每个池的最多数据库数量</td>
+                                                    <td class="left_align">100 个 DB</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">eDTU 成本（每个 eDTU 包括 1 GB 存储）</td>
+                                                    <td class="left_align">￥0.039/小时 （约 ￥29.02/月）</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="section_info">*以下价格均为含税价格。</div>
+                                        <div class="section_info">*每月价格的估算基于每个月 744 小时的使用量。</div>
+                                        <table style="margin-bottom: 30px;" border="0">
+                                            <thead>
+                                                <tr><th class="left_align" style="width:50%;">弹性数据库</th><th class="left_align"></th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left_align">每个数据库的最多 DTU 个数</td>
+                                                    <td class="left_align">最多 100 个 eDTU</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">每个数据库的最多存储量</td>
+                                                    <td class="left_align">最多 250 GB</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left_align">每个数据库的费用</td>
+                                                    <td class="left_align">￥0.021/小时（约 ￥15.62/月）</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--常见问题-->
+                            <div class="wa-content">
+                                <h3><a class="anchor" id="sql-database-common_quation" style="margin:20px 0px;"></a>常见问题</h3>
+                                <div class="faqpage">
+                                    <h3 style="margin:20px 0px;"><a class="anchor" id="home_sql-database_question"></a>SQL 数据库</h3>
+                                    <div class="question">
+                                        <a id="home_sql_database_question1" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>我是否可以将现有数据导入或迁移到 Azure SQL 数据库？ </a>
+                                        <div class="answer">
+                                            <p>可以。使用常见的工具和开发框架，我们保证可以轻松将现有 SQL Server 应用程序的数据层和数据库数据迁移到 Azure SQL 数据库，并提供各种功能强大的工具，几乎可以适应任何场景。请参阅 <a id="home_sql-database_migrate" style="color: #00a8d9;" href="/zh-cn/documentation/articles/sql-database-cloud-migrate" target="_blank">SQL 数据库迁移概述</a>获取相关选项和其他信息。</p>
+                                        </div>
+                                    </div>
+                                    <h3 style="margin:20px 0px;"><a class="anchor" id="home_single_sql-database_question"></a>单个数据库</h3>
+                                    <div class="question">
+                                        <a id="SQL_Database_question1" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>“基本”、“标准”和“高级”级别数据库的使用情况如何体现在我的账单上？ </a>
+                                        <div class="answer">
+                                            <p> 对于“基本”、“标准”和“高级”级别，我们基于版本和性能级别提供统一的可预测日费率对你收费。实际使用量是每小时按比例计算的，因此你的账单可能会显示天的分数形式。例如，如果某个数据库在一个月内存在了 12 小时，则你的账单将显示 0.5 天的使用量并按 0.5 天计费。此外，性能级别（例如“基本”、S1 和 P2）会在账单中进一步细分，以便你更方便地了解在一个月中你在每个性能级别上使用数据库的天数。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question2" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>如果我的数据库活跃时间不足一个小时如何计费？  </a>
+                                        <div class="answer">
+                                            <p>将针对数据库存在的每个小时向你收费，不考虑其使用量，也不考虑其活跃时间是否不到一小时，将使用该小时内应用的最高费率。例如，如果你创建了一个数据 库，5 分钟后删除了它，则将按该数据库存在 1 小时收费。如果你创建了一个基本数据库并立即将其升级为标准版 S1，则第一小时将按标准版 S1 费率收费。如果你删除了一个数据库，之后使用相同名称创建了另一数据库，在该小时内将对两个独立数据库分别收费。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question3" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 我如何设置单个“基本”、“标准”或“高级”数据库？  </a>
+                                        <div class="answer">
+                                            <p> 可以在任意服务器上创建“基本”、“标准”和“高级”数据库。你可以在任何两个版本之间进行数据库的升级或降级，而无需使数据库脱机。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question4" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 更改单个数据库的服务级别或性能级别需要多长时间？ </a>
+                                        <div class="answer">
+                                            <p> 更改数据库的服务级别可能需要在内部复制数据库。当在“标准”版或“高级”版之间切换或更改“标准”或“高级”数据库的性能级别时，可能进行这样的复制。如果进行复制，可能需要几分钟至几小时的时间，具体取决于数据库的大小。如果你在创建数据库后立即更改它的版本或性能级别，则与升级已填充数据的数据库相比，升级速度将更快。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question5" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 什么是单个数据库吞吐量单位 (DTU)？  </a>
+                                        <div class="answer">
+                                            <p> SQL 数据库引入了数据库吞吐量单位 (DTU)，以便为客户提供预测性更强的性能体验。DTU 代表数据库引擎的性能，是一个合并了 CPU、内存以及读取和写入速率的度量单位。此度量单位可以帮助客户评估“基本”、“标准”和“高级”数据库提供的六个 SQL 数据库性能级别（基本、S1、S2、P1、P2 和 P3）的相对性能。有关详细信息，请访问 MSDN 上的<a id="pricing_sql_fun5" style="color: #00a8d9;" href="http://msdn.microsoft.com/zh-cn/library/azure/dn741336.aspx" rel="nofollow">性能指南</a>。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question6" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 更改单个数据库的版本或性能级别后多久计费费率会发生相应变化？  </a>
+                                        <div class="answer">
+                                            <p> “基本”、“标准”和“高级”数据库基于小时内采用的最高版本和性能级别按小时计费。更改版本或性能级别后，新费率在更改完成后立即生效。例如，如果你在晚上 10:00 将数据库从“基本”版升级到“高级”版，并且升级过程在第二天下午 1:00 完成，则将仅从升级完成的那一小时开始按“高级”版费率向你收费。如果你在上午 11:00 将数据库从“高级”版降级到“标准”或“基本”版，并且降级在 14:00:00 完成，则在当天直到在 14:00:00 点降级完成时将按“高级”版费率对数据库收费，然后将按“标准”或“基本”版费率对数据库收费。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question7" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 如何更改单个“标准”或“高级”数据库的性能级别？  </a>
+                                        <div class="answer">
+                                            <p> 在 Azure 管理门户中，可使用数据库“缩放”选项卡在你修改“标准”或“高级”数据库性能需求时设置性能级别。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question8" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>   可以按何种频率更改单个数据库的版本或性能级别？</a>
+                                        <div class="answer">
+                                            <p> 更改数据库的版本或性能级别是需要周密思考、慎重对待的操作。在 24 小时内，最多允许更改数据库的版本或性能级别 4 次。在 Web 和企业版之间切换不在此限制之列。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question9" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>每小时、每分钟和每秒的事务速率对于性能目标意味着什么？ </a>
+                                        <div class="answer">
+                                            <p>每种性能级别被设计为相对上一级别性能逐渐提高。每小时、每分钟和每秒速率定义了客户的应用程序和吞吐量需求所要求的一种精度级别。例如，“基本”级别设计 用于需要每小时处理一定事务数的应用程序。“标准”级别设计用于性能要求更高的应用程序，此时指定每分钟处理一定事务数比较合适。“高级”级别针对大多数 关键任务吞吐量设计，其中支持大量并发事务要求使用每秒事务数表示速率。通过使用小时、分钟和秒，客户可以快速了解哪个级别（如“基本”）最符合自己吞吐量的要求。了解有关<a id="pricing_sql_fwl" style="color: #00a8d9;" href="http://go.microsoft.com/fwlink/?linkid=395276&amp;clcid=0x409" rel="nofollow">SQL 数据库性能目标</a> 的更多信息。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question10" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>标准异地复制的成本是多少？   </a>
+                                        <div class="answer">
+                                            <p>标准异地复制是由世纪互联管理的选择加入的异地复制功能。选择加入一个数据库后，将会在同一地理区域内至少 500 英里外的预配对 Azure 区域中创建一个辅助数据库。选择加入标准异地复制会创建与主数据库性能级别相同的脱机辅助数据库，收取的费用是主数据库的 75%；例如，如果你的主数据库的性能级别为 S2，收费为每月¥651，则你的 S2 脱机辅助数据库的收费将为每月 ￥488.25，总计每月 ￥1,139.25。主数据库和脱机辅助数据库之间的异地复制产生的流量费用包含在脱机辅助数据库的费用内。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question11" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>活动异地复制的成本是多少？   </a>
+                                        <div class="answer">
+                                            <p>活动异地复制是由客户管理的选择加入的异地复制功能。你可选择在任何 Azure 区域中创建最多 4 个联机（可读）辅助数据库。你将按照与主数据库相同的费率为创建的活动异地复制辅助数据库付费；例如，如果你的主数据库的性能级别为 P1，收费为每月 ¥4,030，则你的 P1 可读辅助数据库的收费将为每月 ¥4,030  ，总计每月 ￥8,060。主数据库和联机辅助数据库之间的异地复制产生的流量费用包含在联机辅助数据库的费用内。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question12" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 利用审核功能将对我们的账单产生什么影响？    </a>
+                                        <div class="answer">
+                                            <p> 审核功能是 SQL 数据库服务的内置功能，无需另行付费，“基本”、“标准”和“高级”版均提供此功能。但是，为了存储审核日志，审核功能会利用你指定的 Azure 存储账户。表格和队列的 Azure 存储费率将取决于你的审核日志的大小。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question13" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 	如果我使用自动导出，是否将额外向我收费？     </a>
+                                        <div class="answer">
+                                            <p> 许多客户都使用自动导出来定期创建数据库的逻辑备份。“基本”、“标准”和“高级”版数据库都具有对时点还原的内置支持，在许多情况下降低了使用自动导出的 需求。自动导出在同一服务级别中创建数据库的副本。此附加数据库在导出操作持续期间一直存在并且在它存在时按普通的小时费率收费。取决于你导出数据库的频 率和数据库的大小（数据库越大，复制和导出所需的时间越长），你可以显著提高被导出的数据库的成本效益。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question14" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> Azure SQL 数据库代表我管理什么？   	 </a>
+                                        <div class="answer">
+                                            <p> 作为一种关系数据库服务，Azure SQL 数据库避免了管理本地关系数据库和硬件的成本和涉及的复杂性。作为该服务的一部分，我们取得、设置和管理物理硬件，安装所需的软件和修补程序并通过 2 个本地副本维护一个高可用性级别，而不会导致任何额外的成本。  </p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question15" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 我何时应使用 Azure SQL 数据库而不是虚拟机中的 SQL Server？  	 </a>
+                                        <div class="answer">
+                                            <p>如果您有现有应用程序或工作负荷，只想利用并移到云，虚拟机中的 SQL Server 是获得云的好处的最简单方式。如果您想更新和生成在云中运行的新关系应用程序或将本地应用程序扩展到云，SQL 数据库是最佳的长期解决方案。  </p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question17" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>是否有维护时间段，在 Windows 计划的软件维护期间我的数据库实例是否可用？	  	 </a>
+                                        <div class="answer">
+                                            <p>通过 SQL 数据库内置的高可用性技术，客户不会因为常规软件维护而发生停机。  </p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question18" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span>我是否要启用备份还是让系统自动备份？  	 </a>
+                                        <div class="answer">
+                                            <p>Azure SQL 数据库会自动备份。“基本”、“标准”和“高级”版数据库支持时点还原，这允许在保留期（“基本”版为 7 天，“标准”版为 14 天，“高级”版为 35 天）内进行数据库的自助还原。此外，地域复制（在“标准”和“高级”版中可用）和地域还原（在“基本”、“标准”和“高级”版中可用）在不同的级别提供了 地域冗余来针对较长时间的数据中心中断提供保护。根据你的具体备份需求或策略，例如，如果你希望将备份保留比时点还原所提供时间更长的时间，或者希望将数 据归档到本地 SQL Server 或启用到本地 SQL Server 的数据还原，则你可以考虑创建自己的备份。  </p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question19" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 对于保留尚未承载用户创建的数据库的 SQL 数据库服务器，是否存在时间限制？ 		 </a>
+                                        <div class="answer">
+                                            <p> 我们将会自动删除在 90 天内尚未承载用户创建的数据库的所有 SQL 数据库服务器。存储在已删除服务器中的所有用户创建的登录名都会丢失。尽管创建和维护服务器是免费的，但每台服务器都有一个与之关联的系统数据库，该数据库会占用环境中的空间。通过删除空服务器，Windows 可以更好地保持更加高效和有序的环境。  </p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="SQL_Database_question20" onclick="javascript:toggle(this);"><span class="plus">&nbsp;</span> 具有高达备份存储的最大已设置数据库存储两倍的容量是什么意思？  	 	 </a>
+                                        <div class="answer">
+                                            <p> 备份存储是与用于时点还原和地域还原的自动数据库备份关联的存储。Windows Azure SQL 数据库提供了高达你的备份存储的最大已设置数据库存储两倍的容量，不需要支付额外的成本。例如，如果你有一个标准数据库实例并且设置的数据库大小为 250 GB，则会向你提供 500 GB 的备份存储并且不额外收费。如果数据库超过提供的备份存储，则可以选择与 <a id="pricing_sql_plans" style="color: #00a8d9;" href="/support/plans/"> Windows Azure 支持</a>联系来缩短保留期，或支付按标准读访问地域冗余存储 (RA-GRS) 费率计费的额外备份存储。有关 RA-GRS 计费的更多信息，请参阅<a id="pricing_sql_stor" style="color:#00a8d9;" href="/home/features/storage/#price">存储定价详细信息</a>。  </p>
+                                        </div>
+                                    </div>
+                                    <h3 style="margin:20px 0;">
+                                        <a class="anchor" id="home_sql-database_anchor_elastic"></a>
+                                        弹性数据库
+                                    </h3>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question1" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            什么是弹性数据库？
+                                        </a>
+                                        <div class="answer">
+                                            <p> 弹性数据库适用于具有跨大量数据库的不可预测资源需求的工作负载。它们具有特定服务级别的单个数据库所拥有的全部功能，但也可通过利用弹性数据库池的资源来灵活满足不可预测的需求。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question2" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            什么是弹性数据库吞吐量单位 (DTU)？
+                                        </a>
+                                        <div class="answer">
+                                            <p> 弹性数据库吞吐量单位 (eDTU) 是可以合并到资源池的 DTU。DTU 代表数据库引擎的性能，是一个合并了 CPU、内存以及读取和写入速率的度量单位。此度量单位帮助客户评估“基本”、“标准”和“高级”级别可用的 SQL 数据库性能级别的相对性能。如需深入了解 DTU 计算包括哪些内容，请参阅 <a id="price_elastic_azure" style="color:#00a8d9;" href="https://msdn.microsoft.com/library/azure/dn741327.aspx" target="_blank" rel="nofollow">Azure SQL 数据库基准概述</a>。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question3" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            我应在何时使用 SQL 数据库弹性数据库或单个数据库？
+                                        </a>
+                                        <div class="answer">
+                                            <p>软件型服务 (SaaS) 提供商通常会遇到处理大量数据库的挑战。SaaS 应用程序的一个体系结构模式是为每位客户创建一个数据库。购买单独的数据库并超量设置以满足每个数据库的可变和峰值需求通常不够经济高效，而且管理多个数据库也有其自身的挑战。我们设计了弹性数据库模型来满足此需求，它还可以帮助你管理具有跨大量数据库的不可预测资源需求的工作负载。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question4" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            如何设置弹性数据库池？
+                                        </a>
+                                        <div class="answer">
+                                            <p>弹性数据库池可以使用 Windows Azure 管理门户或通过 PowerShell 脚本创建。在<a id="price_elastic_pool" style="color:#00a8d9;" href="/documentation/articles/sql-database-elastic-pool" target="_blank">文档页</a>了解关于创建弹性数据库池的详细信息。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question5" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            如何确定应该购买的池的大小？
+                                        </a>
+                                        <div class="answer">
+                                            <p>你可以使用 Windows Azure 管理门户中的 DTU 大小顾问，它会推荐所需的数据库和 DTU。此顾问查看要移到弹性数据库池中的数据库的历史使用量模式。这假设数据库已在 SQL 数据库中至少运行了数周。还有帮助客户基于数据库的当前使用量模式计算弹性数据库池所需 DTU 的文档。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question6" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            如何将单个数据库移到弹性数据库池中？
+                                        </a>
+                                        <div class="answer">
+                                            <p>你可以使用 Windows Azure 管理门户将数据库移入或移出弹性数据库池。在<a id="price_elastic_articles1" style="color:#00a8d9;" href="/documentation/articles/sql-database-elastic-pool" target="_blank">文档页</a>了解关于管理弹性数据库池的详细信息。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question7" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            如何将弹性数据库移出池？
+                                        </a>
+                                        <div class="answer">
+                                            <p>你可以使用 Windows Azure 管理门户将数据库移入或移出弹性数据库池。在<a id="price_elastic_articles2" style="color:#00a8d9;" href="/documentation/articles/sql-database-elastic-pool" target="_blank">文档页</a>了解关于管理弹性数据库池的详细信息。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question8" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            将数据库从单个数据库模型移到弹性数据库池需要多长时间？
+                                        </a>
+                                        <div class="answer">
+                                            <p>将数据库从弹性数据库池移出所需的时间取决于数据库的大小。可能需要几分钟至几小时的时间，具体取决于数据库的大小。数据库在移动期间保持完全在线和可用。</p>
+                                        </div>
+                                    </div>
+                                    <div class="question">
+                                        <a id="home_sql-database_elastic_question9" onclick="javascript:toggle(this);">
+                                            <span class="plus">&nbsp;</span>
+                                            可以按何种频率调整分配给数据库池的弹性 DTU 的数量？
+                                        </a>
+                                        <div class="answer">
+                                            <p>分配给数据库池的弹性 DTU 的数量每天可以调整一次。</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="wa-content" style="margin-top: 50px;">
+                                <h3><a class="anchor" id="sql-database-market_area"></a>上市地区</h3>
+                                <p>SQL 数据库在以下区域中提供：</p>
+                            </div>
+                            <div class="price_section" style="background-color: white; margin-bottom: 0;">
+                                <table style="margin-bottom: 30px; width: 60%;" border="0">
+                                    <thead>
+                                        <tr><th class="left_align">地域</th><th class="left_align">区域</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="left_align">中国大陆</td>
+                                            <td class="left_align">中国东部数据中心 , 中国北部数据中心</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="wa-content">
+                                <h3><a class="anchor" id="sql-database-support_service"></a>支持和服务级别协议</h3>
+                                <p>Windows Azure 支持功能：</p>
+                                <p>我们免费向用户提供以下支持服务：</p>
+                            </div>
+                            <div class="price_section" style="background-color: white; margin-bottom: 0;">
+                                <table id="cloud_SI" style="margin-bottom: 30px; width: 60%;" border="0">
+                                    <thead>
+                                        <tr><th>&nbsp;</th><th class="left_align">是否支持</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="left_align">计费和订阅管理</td>
+                                            <td class="left_align">√</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">服务仪表板</td>
+                                            <td class="left_align">√</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">Web事件提交</td>
+                                            <td class="left_align">√</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">中断/修复不受限制</td>
+                                            <td class="left_align">√</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">电话支持</td>
+                                            <td class="left_align">√</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">ICP备案支持</td>
+                                            <td class="left_align">√</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>您可以 <a id="sql-sla-sup" style="color: #00a8d9;" href="/zh-cn/support/support-ticket-form/?l=zh-cn">在线申请支持</a> ，也可以通过服务热线联系我们。</p>
+                                <p>服务热线：</p>
+                                <ul style="margin-left: 90px;">
+                                    <li>400-089-0365<a id="icon_phone1" style="display: inline-block;height: 20px;width: 20px;background-image: url(http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/icons/phone.png);background-repeat: no-repeat;background-position: 2px 5px;background-size: 80%;margin-top: 0px;margin-left: 2px;" href="/zh-cn/support/contact/"></a></li>
+                                    <li>010-84563652<a id="icon_phone2" style="display: inline-block;height: 20px;width: 20px;background-image: url(http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/icons/phone.png);background-repeat: no-repeat;background-position: 2px 5px;background-size: 80%;margin-top: 0px;" href="/zh-cn/support/contact/"> </a></li>
+                                </ul>
+                                <p>社区帮助：<a id="pricing_SQL_help" style="color: #00a8d9;" href="http://social.msdn.microsoft.com/Forums/zh-cn/windowsazurezhchs/threads" rel="nofollow">访问MSDN </a></p>
+                                <p>更多支持信息，请点击：<a id="sql-sla-more" style="color: #00a8d9;" href="/zh-cn/support/plans/">http://www.windowsazure.cn/zh-cn/support/plans/</a></p>
+                                <p>对于 SQL 数据库 Web 版和商业版（它们已公开上市并具有确定的运行时间服务级别协议），我们保证至少在 99.9% 的时间内客户将能够在 SQL 数据库与我们的 Internet 网关之间建立连接。服务级别协议计算基于每月计费周期内的平均数（时间间隔为 5 分钟）。如果客户尝试连接到数据库而被 SQL 数据库网关拒绝，则时间间隔标记为不可用。若要了解有关 Web 和商业版服务级别协议的更多信息，请访问 <a id="sql-sla-page" style="color: #00a8d9;" href="/zh-cn/support/legal/sla/">服务级别协议</a> 页。</p>
+                                <p>对于“基本”、“标准”和“高级”级别，在公开上市时， 我们保证至少99.99％的时间内，客户将拥有自己的基本、标准或高级版Windows Azure SQL数据库和我们的互联网网关之间的连接。</p>
+                            </div>
+                        </div>
+                        <div class="banner_content">
+                            <div class="price_content_dis">
+                                <span style="font-size:12px;">
+                                    从试用转为购买购买意味着什么？
+                                </span>
+                                <div style="font-size:16px;">
+                                    即刻使用 最高<span class="Item_span">99.99%</span>的服务级别协议包含财务保障
+                                    <span>每月<span class="Item_span">1T</span>的免费数据流量</span>
+                                </div>
+                            </div>
+                            <div style="float: left; padding-top:24px;">
+                                <a class="banner_content_link" id="hd_pia2" style="margin-left:10px;" href="/pricing/pia/" target="_blank">
+                                    <span style="color:white;">我要购买</span>
+                                </a>
+                            </div>
+                            <a class="banner_close" id="home_hd_pia2" style="margin-top:0px;" href="javascript:void(0)">
+                                <img style=" margin-bottom: 0px;" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/close_white.png" />
+                            </a>
+                        </div>
+                    </section>
+                </div>
+                <!--case 案例-->
+                <div class="right_content_senction">
+                    <section class="content_hide" style="padding-top: 45px; clear: none; max-width: 1050px;" data-value="case">
+                        <div>
+                            <ul class="case-list">
+                                <li class="single-case">
+                                    <a id="img_pptv" href="/zh-cn/partnerancasestudy/case-studies/pptv/" target="_blank">
+                                        <img class="logo" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/13-pptv.png" />
+                                    </a>
+                                    <div class="info">
+                                        <a id="partner_casestudy_pptv" href="http://www.pptv.com" target="case" rel="nofollow">www.pptv.com</a><br />
+                                        <label>所属行业&nbsp;:&nbsp;</label><span class="industry">多媒体</span><br />
+                                        <label>机构规模&nbsp;:&nbsp;</label><span class="scale">5000 人</span>
+                                    </div>
+                                    <p class="disp">
+                                        PPTV 是一家服务于全球华人的最大的网络电视平台，我们现在已经接入了5000多路的直播、点播信号源。通过互联网，通过多种终端向用户提供包括综艺、娱乐包括影视、体育等多种丰富的节目。<br />亚洲电视网的整个开发过程全部在 Windows Azure 云端完成。其视频点播、分发平台的技术基本沿用 PPTV 自己在国内的私有云平台 PPCloud。这个平台拥有一套 P2P+CDN 的内容分发系统，在视频处理上有自己的编码、转码方式、支持多码率的流媒体。
+                                    </p>
+                                    <div class="services">
+                                        <label>所用服务&nbsp;:&nbsp;</label>
+                                        <ul class="services-list">
+                                            <li><a id="pptv_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                                            <li><a id="pptv_Blob" href="/home/features/storage/">存储</a>、</li>
+                                            <li><a id="pptv_sql" href="/home/features/sql-database/">SQL数据库</a>、</li>
+                                            <li><a id="pptv_cach" href="/home/features/caching/">CDN</a>、</li>
+                                            <li><a id="pptv_blance" href="/zh-cn/documentation/articles/load-balance-virtual-machines">负载平衡</a></li>
+                                        </ul>
+                                    </div>
+                                    <input type="hidden" value="全球部署,支持开源技术,开发和测试" />
+                                    <a class="detail" id="partner_casestudy_pp" href="/zh-cn/partnerancasestudy/case-studies/pptv/" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+                                </li>
+                                <li class="single-case" style="float:right;">
+                                    <a id="img_qorosqloud" href="/zh-cn/partnerancasestudy/case-studies/qorosqloud/" target="_blank">
+                                        <img class="logo" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/img/14qores.png" />
+                                    </a>
+                                    <div class="info">
+                                        <a id="partner_casestudy_qs" href="http://www.qorosauto.com" target="case" rel="nofollow">www.qorosauto.com</a><br />
+                                        <label>所属行业&nbsp;:&nbsp;</label><span class="industry">车联网</span><br />
+                                        <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&gt;1000 人</span>
+                                    </div>
+                                    <p class="disp">观致汽车为消费者提供超过 30 种创新服务，同时支持车内 8 英寸触控设备、移动手机客户端，以及 PC 之间的同步，用户可以通过车载设备实现发微博、签到、导航、车况管理、餐馆预订等功能。通过以 Windows Azure 为基础打造的车联网服务，观致汽车在汽车和数字世界之间建立了一座桥梁。Windows Azure 通过企业级服务等级协议和高可扩展性，帮助观致提供了创新、可靠的车联网服务。</p>
+                                    <div class="services">
+                                        <label>所用服务&nbsp;:&nbsp;</label>
+                                        <ul class="services-list">
+                                            <li><a id="qs_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                                            <li><a id="qs_vm" href="/home/features/sql-database/">SQL数据库</a>、</li>
+                                            <li><a id="qs_stor" href="/home/features/storage/">存储</a>、</li>
+                                            <li><a id="qs_mess" href="/home/features/messaging/">服务总线</a></li>
+                                        </ul>
+                                    </div>
+                                    <input type="hidden" value="云端开发测试,全球部署" />
+                                    <a class="detail" id="partner_casestudy_qorosqloud" href="/zh-cn/partnerancasestudy/case-studies/qorosqloud/" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="banner_content">
+                            <div>
+                                <div class="banner_content_distance">
+                                    <span>想立即试用 SQL 数据库服务？</span>
+                                    <span class="large_span">1</span>元
+                                    <span class="large_span">1</span>个月
+                                    <span style="padding-left:20px;"> 先体验后购买</span>
+                                </div>
+                                <div style="padding-top: 22px;">
+                                    <a class="banner_content_link" id="sql_1rmb" href="/pricing/1rmb-trial/" target="_blank"><span style="color:white;">我要试用</span></a>
+                                </div>
+                            </div>
+                            <a class="banner_close" id="home_sql_case" href="javascript:void(0)">
+                                <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/close_white.png" />
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+                </div>
+        <script>
+    function onload() {
+        var strUrl = window.location.href;
+        $(".left_ul_content>li>a").each(function () {
+            var strID = $(this).attr("id").split('_')[3];
+            if (strUrl.indexOf(strID) >= 0) {
+                $(this).addClass("nav_select");
+            }
+        });
+        if (strUrl.indexOf("#") > 0) {
+            var secID = strUrl.split("#")[1].toString();
+            $(".content_title").each(function () {
+                var strhref = $(this).attr('href');
+                if (strhref.indexOf(secID) > 0) {
+                    fetchdata(secID);
+                    $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
+                    $(this).parent().removeClass("grey_content").addClass("blue_content");
+
+                }
+            });
+            $("section").each(function () {
+                if ($(this).attr('data-value') == secID) {
+                    $("#page_body section").removeClass("content_show").addClass("content_hide");
+                    $(this).removeClass("content_hide").addClass("content_show");
+                }
+            });
+        };
+    }
+    onload();
+        </script>
+
+            </div>
+
+</body>
+</html>

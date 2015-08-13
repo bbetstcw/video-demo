@@ -10,16 +10,14 @@ REV.01      Steven Liang    2015-08-12
     <script type="text/javascript">
         function show(c_Str)
         {   
-            // Names of all the id
-            var ids=new Array("description","start","auto","plan","create","manage","workload","debug","reference");
-
-            // Change the background color when selected and grey others
-            for(var i = 0; i < ids.length; i++)
-            {
-                if(ids[i] == c_Str)
-                    document.getElementById(c_Str+"_header").className = "active";
-                else
-                    document.getElementById(ids[i]+"_header").className = "";
+            ul = document.getElementById("nav_list");
+            for (var i = 0; i < ul.childNodes.length; i++) {
+                if (c_Str + "_header" == ul.childNodes[i].id) {
+                    ul.childNodes[i].className = "active";
+                }
+                else {
+                    ul.childNodes[i].className = "";
+                }
             }
 
             if(document.all(c_Str).style.display=='none')
@@ -910,7 +908,7 @@ REV.01      Steven Liang    2015-08-12
         <div class='white-background'></div>
         <!--left 左侧导航-->
         <div id="" class="left_content">
-            <ul style="border:none;" class="left_ul_content">
+            <ul id="nav_list" style="border:none;" class="left_ul_content">
                    <a id="side_nav_services_virtual-machines" style="margin-top:35px;margin-bottom:10px; font-size:20px;">
                     虚拟机</a>
                 <!-- REV.01 MOD START -->
@@ -2186,7 +2184,8 @@ REV.01      Steven Liang    2015-08-12
         }
         onload();
     </script>
-</div>     
+</div>
+
 </body>
 
 </html>
