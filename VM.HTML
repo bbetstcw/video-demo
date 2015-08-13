@@ -83,34 +83,6 @@ REV.01      Steven Liang    2015-08-12
                     'width': width,
                 })
             });
-            function onscroll(evt) {
-                var scrollTop = $(this).scrollTop();
-                var scrollHeight = $(document).height();
-                var windowHeight = $(this).height();
-                var top = $(window).scrollTop();
-                var leftHeigth = $('.left_content').height();
-                if (Math.abs(top - previousScrollTop) < 20) return; // ie
-                var width = 0.16 * $('.content').width();
-                //(top > $('footer').offset().top - $(window).height())
-                if ((scrollTop + leftHeigth + $("footer").height() + $(".banner_content").height()) >= (scrollHeight)) {
-                    // footer show up
-                    $('.left_content').css({
-                        'position': 'absolute',
-                        'bottom': 0,
-                        'top': 'auto',
-                    })
-                }
-                else {
-                    // scroll up-->
-                    $('.left_content').css({
-                        'position': 'fixed',
-                        'top': '108px',
-                        'bottom': 'auto',
-                        'width': width,
-                    })
-                }
-                previousScrollTop = top;
-            }
         });
         //数据抓取
         function fetchdata(vel) {
