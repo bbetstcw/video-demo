@@ -142,7 +142,6 @@ REV.01      Steven Liang    2015-08-12
             width: 84%;
             display: inline-block;
             vertical-align: top;
-            margin-top: 369px;
             position: relative;
             background-color: #ffffff;
         }
@@ -154,10 +153,6 @@ REV.01      Steven Liang    2015-08-12
             top: 0;
             left: 16%;
             right: calc(50% - 50vw + 9px);
-            height: 369px;
-            background-repeat: no-repeat;
-            background-color: #E3F4ff;
-            background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/virtual_machine.png);
             overflow: hidden;
         }
 
@@ -254,8 +249,41 @@ REV.01      Steven Liang    2015-08-12
             }
         /*header-ul 方块*/
         .right_content_select {
-            height: 175px;
-            width: 100%;
+            background-color: red;
+            display: inline-block;
+            margin-left: 16%;
+            margin-top: 15%;
+        }
+        
+        .video-item {
+            margin-bottom: 50px;
+        }
+        
+        .video-image {
+            display: inline-block;
+        }
+
+        .video-image > a{
+            width: 226px;
+            height: 127px;
+            display: inline-block;
+            position: relative;
+            background-size: auto;
+            margin-left: 20px;
+        }
+        
+        .play-btn {
+            border-radius: 5;
+            left: 93px;
+            top: 44px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            vertical-align: middle;
+            position: absolute;
+            opacity: 0.8;
+            background-color: grey;
         }
 
         .select_space {
@@ -1031,32 +1059,33 @@ REV.01      Steven Liang    2015-08-12
                         </div>
                     </div>
                 </div>
-                <div class="right_content_select">
+              
+            </div>
+            <div class="right_content_select">
                     <div class="video-field">
                         <div class="video-item">
                             <div class="video-image">
-                                <a class="_storage-video-popup" style="float:left; margin-left:5px;"
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/Azure%E9%AB%98%E7%BA%A7%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D.png') no-repeat;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/45bd1a47-7e9b-4ec0-9867-46dfb17b5c9d/Azure%E9%AB%98%E7%BA%A7%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D.ism/Manifest">
                                     <div class="play-btn">
-                                        <img class="image" style="width:300px;height:170px" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/Azure%E9%AB%98%E7%BA%A7%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D.png" />
+                                        <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
-                                <a class="_storage-video-popup" style="float:left; margin-left:5px;"
+<a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E6%9C%BA.png') no-repeat;"
+                                   href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/a841607b-0f35-4eb1-95fa-6be7fdfbfd60/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E6%9C%BA.ism/Manifest">
+                                    <div class="play-btn">
+                                        <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
+                                    </div>
+                                </a>
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/1.%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8.png') no-repeat;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/b7f68031-2f21-40c1-a0aa-e65f2deb2f1c/1.%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8.ism/Manifest">
                                     <div class="play-btn">
-                                        <img class="image" style="width:300px;height:170px" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/1.%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8.png" />
-                                    </div>
-                                </a>
-                                <a class="_storage-video-popup" style="float:left; margin-left:5px;"
-                                   href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/200c5543-b88e-4949-8855-b5a979046619/Azure%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.ism/Manifest">
-                                    <div class="play-btn">
-                                        <img class="image" style="width:300px;height:170px" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/Azure%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.png" />
+                                        <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             <script src="C:/Users/Administrator/Documents/video-center_files/videocenter.js"></script>
             <div class="right_content" id="page_body">
