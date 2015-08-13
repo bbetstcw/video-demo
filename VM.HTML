@@ -1207,58 +1207,10 @@ REV.01      Steven Liang    2015-08-12
                             }
                         </style>
                         <div id="calculator"></div>
-                        <script>
-                            CalculatorUIRenderer.AddService("virtual-machines-windows");
-                            CalculatorUIRenderer.AddService("virtual-machines-linux");
-                            CalculatorUIRenderer.AddService("sql-server-standard");
-                            CalculatorUIRenderer.AddService("data-transfer");
-                            CalculatorUIRenderer.AddService("support");
-                            // related services
-                            var relatedServices = ['website', 'cloud-services'];
-                            $("#calculator").append('<div class="related-service active">' +
-                              '<a class="icon" href="#"></a>' +
-                              '<a class="hint" href="#">显示您可能会用到的相关服务推荐</a>' +
-                                    '</div>');
-                            CalculatorUIRenderer.AddService("website"),
-                            CalculatorUIRenderer.AddService("cloud-services"),
-                            CalculatorUIRenderer.PostProcess();
-
-                            $("#calculator .service").each(function () {
-                                if (_(relatedServices).indexOf($(this).data('service')) != -1) {
-                                    $(this).addClass('related hide');
-                                }
-                            })
-
-                            $("#calculator .related-service a").on('click', function (evt) {
-                                evt.preventDefault();
-                                $('#calculator .related').toggleClass('hide');
-                                $('#calculator .related-service').toggleClass('active');
-                                if ($('#calculator .related-service').hasClass('active')) {
-                                    $('#calculator .related-service .hint').text("显示所有推荐的相关服务");
-                                } else {
-                                    $('#calculator .related-service .hint').text("隐藏所有推荐的相关服务");
-                                }
-                            })
-                        </script>
 
                         <div class="right_content_pricing">
 
-                            <script>
-                                $(".right_content_pricing").show();
-                                $("#calculator").hide();
-                                $(".calculator-detail-selector .selector").click(function () {
-                                    $(".calculator-detail-selector .selector").removeClass("active-selector");
-                                    $(this).addClass("active-selector");
-                                });
-                                $(".calculator-detail-selector .calculator-tab").click(function () {
-                                    $(".right_content_pricing").hide();
-                                    $("#calculator").show();
-                                });
-                                $(".calculator-detail-selector .detail-tab").click(function () {
-                                    $(".right_content_pricing").show();
-                                    $("#calculator").hide();
-                                });
-                            </script>
+
                             <div class="pricingpage">
                                 <p>您可以利用 Windows Azure 虚拟机将 Windows Server、Linux 或第三方软件映像部署到 Windows Azure，而且可以选择库中的映像或使用自己的自定义映像。</p>
                                 <p>我们按分钟对虚拟机收费，按小时费率列出价格，并且当您的 VM 的运行时间不足 1 小时，我们将按总分钟数计费。</p>
