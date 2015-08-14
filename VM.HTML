@@ -21,6 +21,7 @@ REV.01      Steven Liang    2015-08-12
         amp.options.silverlightSS.xap = "http://amp.azure.net/libs/amp/1.1.1/techs/SmoothStreamingPlayer.xap"
     </script>
     <!-- Video use end -->
+
     <script type="text/javascript">
         function show(c_Str)
         {   
@@ -80,34 +81,6 @@ REV.01      Steven Liang    2015-08-12
                     'width': width,
                 })
             });
-            function onscroll(evt) {
-                var scrollTop = $(this).scrollTop();
-                var scrollHeight = $(document).height();
-                var windowHeight = $(this).height();
-                var top = $(window).scrollTop();
-                var leftHeigth = $('.left_content').height();
-                if (Math.abs(top - previousScrollTop) < 20) return; // ie
-                var width = 0.16 * $('.content').width();
-                //(top > $('footer').offset().top - $(window).height())
-                if ((scrollTop + leftHeigth + $("footer").height() + $(".banner_content").height()) >= (scrollHeight)) {
-                    // footer show up
-                    $('.left_content').css({
-                        'position': 'absolute',
-                        'bottom': 0,
-                        'top': 'auto',
-                    })
-                }
-                else {
-                    // scroll up-->
-                    $('.left_content').css({
-                        'position': 'fixed',
-                        'top': '108px',
-                        'bottom': 'auto',
-                        'width': width,
-                    })
-                }
-                previousScrollTop = top;
-            }
         });
         //数据抓取
         function fetchdata(vel) {
@@ -312,7 +285,7 @@ REV.01      Steven Liang    2015-08-12
             opacity: 0.8;
             background-color: grey;
         }
-        
+
         .select_space {
             margin-left: 1.2%;
         }
@@ -1090,7 +1063,7 @@ REV.01      Steven Liang    2015-08-12
                         </div>
                     </div>
             </div>
-            <script src="C:/Users/Administrator/Documents/video-center_files/videocenter.js"></script>
+            <script src="./video-center_files/videocenter.js"></script>
             <!--content 右侧-->
             <div id="page_body" class="right_content">
                 <!--功能-->
@@ -1970,6 +1943,20 @@ REV.01      Steven Liang    2015-08-12
                                         <tr>
                                             <td class="left_align">中国大陆</td>
                                             <td class="left_align">中国东部数据中心 , 中国北部数据中心</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="wa-content">高级存储服务在以下区域中提供：</p>
+                            <div class="price_section" style="background-color: white; margin-bottom: 0;">
+                                <table style="margin-bottom: 30px; width: 60%;" border="0">
+                                    <thead>
+                                        <tr><th width="114" class="left_align">地域</th><th width="419" class="left_align">区域</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="114" class="left_align">中国大陆</td>
+                                            <td width="419" class="left_align">中国东部数据中心</td>
                                         </tr>
                                     </tbody>
                                 </table>
