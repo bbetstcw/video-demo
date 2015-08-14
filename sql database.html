@@ -92,6 +92,62 @@ REV.01      Steven Liang    2015-08-12
         }
     </script>
     <style>
+        .wa-dropdown-container {
+            line-height:1.5em;
+            height:50px;
+            border:2px solid #dedede;
+	    padding-top:5px;
+	    padding-bottom:2px;
+        }
+        .wa_dropdown_menu{
+            background:transparent;
+            border:none;
+            font-size:14px;
+            height:25px;
+            padding:0px;
+            z-index:10;
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+            -moz-box-sizing:border-box;
+             box-sizing:border-box;
+             font-weight:400;
+             color:#3e3d4d;
+             line-height:1.2;
+             outline:none;
+             margin:0px;
+             vertical-align:baseline;
+        }
+
+        .wa_dropdown_menu option {
+            height:50px;
+        }
+
+        .redirect_button {
+            line-height:1.8;
+            min-height:25px;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+            margin-bottom:0px;
+            margin-top:15px;
+            padding-right:30px;
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+            font-weight:400;
+            font-size:14px;
+            color:#fff;
+            padding:1px 8px 3px;
+            display:inline-block;
+            background-color:#89c402;
+            border:0;
+            text-align:center;
+            vertical-align:bottom;
+            position:relative;
+            text-decoration:none;
+            -webkit-transition:all .1s ease-in-out;
+            -moz-transition:all .1s ease-in-out;
+            -o-transition:all .1s ease-in-out;
+            -transition:all .1s ease-in-out;
+            margin-left:10px;
+        }
+
         .right_content_center h2 {
             font-weight: 600;
             font-size: 24px;
@@ -251,8 +307,8 @@ REV.01      Steven Liang    2015-08-12
         .right_content_select {
             background-color: red;
             display: inline-block;
-            margin-left: 16%;
-            margin-top: 15%;
+            margin-left: 20%;
+            margin-top: 20%;
         }
         
         .video-item {
@@ -1063,11 +1119,16 @@ REV.01      Steven Liang    2015-08-12
                         <span class="rigth_content_subtitle"></span>
                     </h1>
                     <div style="margin-top:20px;">
-                        <div style="float: left;">
-                            <a class="btn_style" id="home_sql_trial" style="color:white;" href="/pricing/1rmb-trial/" target="_blank">我要试用</a>
-                        </div>
                         <div class="header_content">
-                            可以存储大量的数据、可以在云端 SQL 数据库与本地 SQL Server 或其他 SQL 数据库实例之间创建和安排定期同步。
+                            可以存储大量的数据、可以在云端 SQL 数据库与本地 SQL Server 或其他 SQL 数据库实例之间创建和安排定期同步
+                        </div>
+                        <div style="float: left;">
+                            <span class="wa-dropdown-container wa-dropdown-medium">
+                                <select class="wa_dropdown_menu" id="dropdown-cta">
+                                    <option value="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-get-started/">sql数据库教程</option>
+                                </select>
+                            </span>
+                            <a class="redirect_button" onclick="window.location.replace(document.getElementById('dropdown-cta').value);">入门教程</a>
                         </div>
                     </div>
                 </div>
@@ -1100,6 +1161,9 @@ REV.01      Steven Liang    2015-08-12
 
             </div>
             <script src="./video-center_files/videocenter.js"></script>
+            <div style="margin-left:22%;margin-top:-40px" class="right_content">
+                <a href="http://www.windowsazure.cn/video-center/">观看更多视频▶</a>
+            </div>
             <!--content 右侧-->
             <div id="page_body" class="right_content">
                 <!--功能-->
