@@ -1127,11 +1127,11 @@ REV.01      Steven Liang    2015-08-12
                         </div>
                         <div style="float: left;">
                             <span class="wa-dropdown-container wa-dropdown-medium">
-                                <select class="wa_dropdown_menu" id="dropdown-cta">
+                                <select class="wa_dropdown_menu" id="dropdown-cta" onchange="document.getElementById('redirect_button').focus();">
                                     <option value="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-get-started/">sql数据库教程</option>
                                 </select>
                             </span>
-                            <a class="redirect_button" onclick="window.location.replace(document.getElementById('dropdown-cta').value);">入门教程</a>
+                            <button id="redirect_button" class="redirect_button" onclick="window.location.replace(document.getElementById('dropdown-cta').value);">入门教程</button>
                         </div>
                     </div>
                 </div>
