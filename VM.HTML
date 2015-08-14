@@ -92,6 +92,60 @@ REV.01      Steven Liang    2015-08-12
         }
     </script>
     <style>
+        .wa-dropdown-container {
+            line-height:1.5em;
+            height:50px;
+            border:2px solid #dedede;
+        }
+        .wa_dropdown_menu{
+            background:transparent;
+            border:none;
+            font-size:14px;
+            height:25px;
+            padding:0px;
+            z-index:10;
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+            -moz-box-sizing:border-box;
+             box-sizing:border-box;
+             font-weight:400;
+             color:#3e3d4d;
+             line-height:1.2;
+             outline:none;
+             margin:0px;
+             vertical-align:baseline;
+        }
+
+        .wa_dropdown_menu option {
+            height:50px;
+        }
+
+        .redirect_button {
+            line-height:1.8;
+            min-height:25px;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+            margin-bottom:0px;
+            margin-top:15px;
+            padding-right:30px;
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+            font-weight:400;
+            font-size:14px;
+            color:#fff;
+            padding:1px 8px 3px;
+            display:inline-block;
+            background-color:#89c402;
+            border:0;
+            text-align:center;
+            vertical-align:bottom;
+            position:relative;
+            text-decoration:none;
+            -webkit-transition:all .1s ease-in-out;
+            -moz-transition:all .1s ease-in-out;
+            -o-transition:all .1s ease-in-out;
+            -transition:all .1s ease-in-out;
+
+        }
+
         .right_content_center h2 {
             font-weight: 600;
             font-size: 24px;
@@ -251,8 +305,8 @@ REV.01      Steven Liang    2015-08-12
         .right_content_select {
             background-color: red;
             display: inline-block;
-            margin-left: 16%;
-            margin-top: 15%;
+            margin-left: 20%;
+            margin-top: 20%;
         }
         
         .video-item {
@@ -1027,11 +1081,19 @@ REV.01      Steven Liang    2015-08-12
                         </span>
                     </h1>
                     <div style="margin-top:20px;">
-                        <div style="float: left;">
-                            <a id="home_vm_trial" class="btn_style" href="/pricing/1rmb-trial/" style="color:white;" target="_blank">我要试用</a>
-                        </div>
                         <div class="header_content">
-                            只需几分钟即可启动 Windows Server 和 Linux Server，可以在云中完全控制服务器，并根据业务需求进行维护。
+                            了解如何设置、迁移和管理虚拟机，创建运行以下系统的 VM：
+                        </div>
+                        <div style="float: left;">
+                            <span class="wa-dropdown-container wa-dropdown-medium">
+                                <select class="wa_dropdown_menu" id="dropdown-cta">
+                                    <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-windows-tutorial/">Windows Server</option>
+                                    <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-linux-tutorial/">Linux</option>
+                                    <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-workload-template-sql-alwayson/">SQL Server</option>
+                                    <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-workload-template-sharepoint/">SharePoint</option>
+                                </select>
+                            </span>
+                            <a class="redirect_button" onclick="window.location.replace(document.getElementById('dropdown-cta').value);">入门教程</a>
                         </div>
                     </div>
                 </div>
