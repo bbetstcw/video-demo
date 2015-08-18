@@ -1454,7 +1454,7 @@ a.casemain:active {
 	cursor: pointer; opacity: 0.7;
 }
 .table {
-	color: rgb(0, 0, 0); line-height: 22px; font-family: "Microsoft yahei","Î¢ÈíÑÅºÚ","SimHei","SimSun",sans-serif; font-size: 13px; border-top-color: rgb(153, 153, 153); border-top-width: 2px; border-top-style: solid; border-collapse: collapse;
+	color: rgb(0, 0, 0); line-height: 22px; font-family: "Microsoft yahei","Î¢ï¿½ï¿½ï¿½Åºï¿½","SimHei","SimSun",sans-serif; font-size: 13px; border-top-color: rgb(153, 153, 153); border-top-width: 2px; border-top-style: solid; border-collapse: collapse;
 }
 .table td.casetd {
 	padding: 4px 15px; border: 1px currentColor; border-image: none; font-size: 13px; background-color: rgb(246, 246, 246);
@@ -3419,7 +3419,7 @@ table.azure-standard.white td {
 	background: url("http://wacnstoragestaging.blob.core.chinacloudapi.cn/marketing-resource/css/images/icons/small/close.png") no-repeat 0px 0px; top: 0px; width: 23px; height: 23px; right: -30px; position: absolute; cursor: pointer;
 }
 .popup-sina-logo {
-	background: url("//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/share_video_icon_28.png") 0% 0% / contain; width: 16px; height: 16px; right: 97px; bottom: 6px; position: absolute; cursor: pointer;
+	background: url("http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/share_video_icon_28.png") 0% 0% / contain; width: 16px; height: 16px; right: 97px; bottom: 6px; position: absolute; cursor: pointer;
 }
 .page-case-studies-archive h2 {
 	padding-bottom: 12px; margin-top: 50px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
@@ -10373,10 +10373,10 @@ header {
 	right: 137px;
 }
 .zh-cn body {
-	font-family: "Microsoft yahei","Î¢ÈíÑÅºÚ","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
+	font-family: "Microsoft yahei","Î¢ï¿½ï¿½ï¿½Åºï¿½","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
 }
 .zh-cn .light-font {
-	font-family: "Microsoft yahei","Î¢ÈíÑÅºÚ","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
+	font-family: "Microsoft yahei","Î¢ï¿½ï¿½ï¿½Åºï¿½","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
 }
 .zh-cn p {
 	line-height: 145%; font-size: 13px;
@@ -10661,10 +10661,10 @@ header {
 	font-family: "Malgun Gothic",Gulim,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
 }
 .zh-cn h1 {
-	font-family: "Microsoft yahei","Î¢ÈíÑÅºÚ","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
+	font-family: "Microsoft yahei","Î¢ï¿½ï¿½ï¿½Åºï¿½","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
 }
 .zh-cn h2 {
-	font-family: "Microsoft yahei","Î¢ÈíÑÅºÚ","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
+	font-family: "Microsoft yahei","Î¢ï¿½ï¿½ï¿½Åºï¿½","SimHei","SimSun","Segoe UI","Helvetica",Arial,sans-serif !important;
 }
 .zh-tw h1 {
 	font-family: "Microsoft JhengHei",PMingLiU,MingLiu,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
