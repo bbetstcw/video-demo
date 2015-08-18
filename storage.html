@@ -1109,12 +1109,14 @@ REV.01      Steven Liang    2015-08-12
                 <div class="right_content_dis">
                     <h1 style="line-height:27px;margin-bottom:0px;font-weight:400;">
                         <a class="anchor" id="storage-trial"></a>
-                        <span class="rigth_content_title">存储</span>
-                        <span class="rigth_content_subtitle">   Storage</span>
+                        <span class="rigth_content_title">存储文档</span>
                     </h1>
                     <div style="margin-top:20px;">
                         <div class="header_content">
-                            了解 Azure 存储以及如何使用 Azure Blob、表、队列和文件创建应用程序，开始使用：
+                            了解 Azure 存储以及如何使用 Azure Blob、表、队列和文件创建应用程序
+                        </div>
+                        <div>
+                            开始使用：
                         </div>
                         <div style="float: left;">
                             <span class="wa-dropdown-container wa-dropdown-medium">
@@ -1158,69 +1160,37 @@ REV.01      Steven Liang    2015-08-12
                     </div>
             </div>
             <script src="./video-center_files/videocenter.js"></script>
-            <div style="margin-left:22%;margin-top:-40px" class="right_content">
+            <div style="margin-left:20%;margin-top:-40px; float:left" class="right_content">
+                <div style="width:226px; display:inline-block; margin-left:20px">主要介绍了什么是Azure高级存储，高级存储的功能</div>
+                <div style="width:226px; display:inline-block; margin-left:20px">如何在Azure中创建存储，统一云存储，异地灾备，RESTful API</div>
+                <div style="width:226px; display:inline-block; margin-left:20px">使用Visual Studio远程管理Azure存储文件</div>
+            </div>
+            <div style="margin-left:22%;margin-top:10px" class="right_content">
                 <a href="http://www.windowsazure.cn/video-center/">观看更多视频▶</a>
             </div>
             <!--content 右侧-->
             <div id="page_body" class="right_content">
                 <!--功能-->
                 <div class="right_content_senction">
-                    <section class="content_show" style="padding-top:60px; clear:none; max-width:1050px;" data-value="features">
+                    <section data-value="features" style="padding-top:60px; clear:none; max-width:1050px;" class="content_show">
                         <div class="right_content_center">
                             <div>
-                                <h2><a class="anchor" id="storage-economic_reliable"></a>适合不同规模数据，经济可靠的云存储</h2>
-                                <ul class="ul-style">
-                                    <li>
-                                        <p align="left">管理 PB 级别的存储</p>
-                                    </li>
-                                    <li>
-                                        <p align="left">跨越数百公里的地域冗余存储</p>
-                                    </li>
-                                    <li>
-                                        <p align="left">业界最高性能</p>
-                                    </li>
-                                    <li>
-                                        <p align="left">符合行业标准的跨虚拟机 SMB 文件共享</p>
-                                    </li>
-                                    <li>
-                                        <p align="left">有竞争力的价格，按用量付费</p>
-                                    </li>
-                                    <li>
-                                        <p align="left">支持 REST、.NET、Java、C++、node.js、PowerShell 等</p>
-                                    </li>
-                                </ul>
-                                <h3><a class="anchor" id="storage-economic_blob"></a>Blob、表、队列和文件</h3>
-                                <p>Azure 存储服务在数据存储和检索方面具有较高灵活性，可以用于存储大量非结构化数据方面，例如使用 Azure Blob 存储文档和媒体文件；或者使用 Azure 表存储结构化 nosql 数据；或者使用 Azure 队列存储可靠消息；以及使用基于 SMB 的 Azure 文件服务将本地应用程序迁移到云中。</p>
-                                <h3><a class="anchor" id="storage-economic_highStorage"></a>高级存储</h3>
-                                <p>Windows Azure 高级存储为在 Windows Azure 虚拟机上运行的 I/O 密集型工作负荷提供高性能、低延迟的磁盘支持。你可以向虚拟机 (VM) 附加几个高级存储磁盘。借助高级存储，应用程序对于每个 VM 可以具有多达 32 TB 的存储，对于每个 VM 可以实现 50,000 IOPS（每秒输入/输出操作数），并且读取操作的延迟非常低。高级存储目前仅可用于在 Windows Azure 虚拟机所使用的磁盘上存储数据。</p>
-                                <p><a id="home_advanceStoMore" href="/home/features/xio-storage/" target="_blank">了解更多</a></p>
-                                <h3><a class="anchor" id="storage-highScalability"></a>高伸缩性</h3>
-                                <p>Azure 存储服务可随时满足你不断提高的数据需求，最多可为每个帐户提供 200 TB 存储。一个订阅最多支持 50 个存储帐户，因此可提供 PB 级别的存储，您可将其用于实现最大规模的部署方案。无论构建消费产品网站，或是 TB 级的大数据应用程序，Azure 都能应付自如。</p>
-                                <h3><a class="anchor" id="storage-durable"></a>耐久且高度可用</h3>
-                                <p>Azure 存储服务会自动复制你的数据，帮助防范意外硬件故障，确保数据随时可用。我们将在一个区域中保留 3 个副本。地域冗余选项可在数百公里外的区域额外创建 3 个副本，进一步提高可靠性并实现灾难恢复。地域冗余备份可读访问选项，可将数据可用性进一步提高至99.99%。</p>
-                                <h3><a class="anchor" id="storage-for_develop"></a>专为开发人员设计</h3>
-                                <p>借助对 .NET、Java、Android、C++ 和 Node.js 等常见客户端库的支持，自由构建应用程序。Azure 存储服务中的数据还可以通过 REST API 访问，任何能够发起 HTTP/HTTPS 请求的语言都可调用该 API。Azure 存储服务提供可靠的一致性保障，简化了云应用程序的开发，使构建在 Azure 之上的应用程序具备可预测的体验。</p>
-                                <h3><a class="anchor" id="storage-global"></a>全球覆盖</h3>
-                                <p>Azure 存储服务已在全球建立19个数据中心，其中包括中国东部以及中国北部。你可以将文件放置在对业务最有利的区域，还可以根据需要扩展存储服务或跨数据中心部署，并将数据保留在靠近客户的地理位置，让用户实现快速高性能访问。</p>
-                                <h3><a class="anchor" id="storage-highBenefit"></a>成本效益高</h3>
-                                <p>只需为使用的服务付费，并且价格低于本地自建存储方案。我们有竞争力的定价匹配策略意味着你能借助云存储获得巨大的收益。</p>
+                                <h2><a id="virtual-machine-quickBoot" class="anchor"></a>最新存储更新</h2>
+                                <h4>日本东部的Azure高级存储</h4>
+                                <p>2015/8/6</p>
+                                <p>Azure高级存储是以固态硬盘为基础的存储方案，是为密集输入/输出设计的</p>
+                                <a href="http://azure.microsoft.com/en-us/updates/general-availability-azure-premium-storage-in-japan-east/">了解更多▶ </a>
+                                <p />
+                                <h4>日本东部的Azure高级存储</h4>
+                                <p>2015/8/6</p>
+                                <p>Azure高级存储是以固态硬盘为基础的存储方案，是为密集输入/输出设计的</p>
+                                <a href="http://azure.microsoft.com/en-us/updates/general-availability-azure-premium-storage-in-japan-east/">了解更多▶ </a>
+                                <p />
+                                <h4>日本东部的Azure高级存储</h4>
+                                <p>2015/8/6</p>
+                                <p>Azure高级存储是以固态硬盘为基础的存储方案，是为密集输入/输出设计的</p>
+                                <a href="http://azure.microsoft.com/en-us/updates/general-availability-azure-premium-storage-in-japan-east/">了解更多▶ </a>
                             </div>
-                        </div>
-                        <div class="banner_content">
-                            <div>
-                                <div class="banner_content_distance">
-                                    <span>想立即试用存储服务？</span>
-                                    <span class="large_span">1</span>元
-                                    <span class="large_span">1</span>个月
-                                    <span style="padding-left:20px;"> 先体验后购买</span>
-                                </div>
-                                <div style="padding-top: 22px;">
-                                    <a class="banner_content_link" id="home_storage_1rmb" href="/pricing/1rmb-trial/" target="_blank"><span style="color:white;">我要试用</span></a>
-                                </div>
-                            </div>
-                            <a class="banner_close" id="home_stor_banner" href="javascript:void(0)">
-                                <img style="margin-top:5px;" src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/css/images/close_white.png" />
-                            </a>
                         </div>
                     </section>
                 </div>
