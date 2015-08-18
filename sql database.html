@@ -92,6 +92,58 @@ REV.01      Steven Liang    2015-08-12
         }
     </script>
     <style>
+        /* REV.01 ADD START */
+        /* Make chinese font-family same as global page */
+        .zh-cn * {
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+        }
+        
+        .zh-cn h2 {
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+        }
+        
+        /* Change right content title(虚拟机文档) font */
+        .rigth_content_title {
+            margin: 0 0 12px;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.2em;
+            color: #505050;
+        }
+        
+        .header_content {
+            margin: 0 0 8px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.2em;
+            color: #505050;
+        }
+        
+        .right_content_divided {
+            border-top: 3px solid #dedede;
+            margin-top: 0px;
+            margin-left: 75px;
+            padding-top: 15px;
+        }
+        
+        .right_content_more {
+            margin-left:22%;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .right_content_more > a {
+            color: #505050;
+        }
+        
+        .right_content_more > a:hover {
+            color: #969696;
+        }
+        
+        /* REV.01 ADD END */
+        
+        
+        
         .image{
             margin-top:11px;
         }
@@ -152,13 +204,34 @@ REV.01      Steven Liang    2015-08-12
         }
 
         .right_content_center h2 {
-            font-weight: 600;
-            font-size: 24px;
+            font-weight: 400;
+            font-size: 30px;
+            margin:0 0 12px;
+            line-height:1.2em;
+            color:#505050;
         }
 
-        .right_content_center h3 {
+        .right_content_center h4 {
             margin-top: 45px;
             font-weight: 600;
+        }
+
+        .article-date{
+            color:#969696;
+            font-size:14px;
+            margin-bottom:9px;
+            margin-top:9px;
+            font-weight:400;
+            line-height:1.5em;
+        }
+
+        .article-description{
+            color:#505050;
+            font-size:14px;
+            margin-bottom:9px;
+            margin-top:9px;
+            font-weight:400;
+            line-height:1.5em;
         }
 
         .ul-style p {
@@ -208,7 +281,7 @@ REV.01      Steven Liang    2015-08-12
 
         #serviceCenter .right_content_header {
             position: absolute;
-            min-width: 805px;
+            width: 1030px;
             top: 0;
             left: 16%;
             right: calc(50% - 50vw + 9px);
@@ -221,6 +294,7 @@ REV.01      Steven Liang    2015-08-12
             background-color: white;
         }
 
+        /* REV.01 DEL START 
         .header_content {
             font-size: 14px;
             color: #404040;
@@ -228,6 +302,7 @@ REV.01      Steven Liang    2015-08-12
             width: 730px;
             height: 42px;
         }
+           REV.01 DEL END */
         /*div 白色背景*/
         .white-background {
             position: absolute;
@@ -266,24 +341,27 @@ REV.01      Steven Liang    2015-08-12
         .nav_li_submenu {
             font-size: 20px;
             color: #5c5c5c;
-            <!-- padding-left: 30px; -->
+            /* padding-left: 30px; */
             margin-top: 10px;
             margin-bottom: 15px;
             /* height: 28px; */
             line-height: 28px;
         }
 
-        /*header  文字部分*/
+        /* REV.01 DEL START */
+        /*header  文字部分
         .right_content_dis {
             padding-top: 50px;
             margin-left: 6.4%;
-            margin-bottom: 45px;
-        }
+            margin-bottom: 65px;
+        } */
 
-        .rigth_content_title {
+        
+        /* .rigth_content_title {
             font-size: 40px;
             color: #404040;
-        }
+        } */
+        /* REV.01 DEL END */
 
         .rigth_content_subtitle {
             font-size: 24px;
@@ -308,33 +386,56 @@ REV.01      Steven Liang    2015-08-12
             }
         /*header-ul 方块*/
         .right_content_select {
-            background-color: red;
             display: inline-block;
             margin-left: 20%;
-            margin-top: 20%;
+            margin-top: 22%;
         }
         
         .video-item {
-            margin-bottom: 50px;
+            margin-top: 45px;
         }
         
         .video-image {
             display: inline-block;
         }
+        
+        .space {
+            float: left;
+            display: inline-block;
+        }
+        
+        .space > p {
+            font-size: 14px;
+            position: relative;
+            padding-left: 20px;
+            width: 307px;
+        }
+        
+        .space > a {
+            width: 307px;
+            height: 173px;
+            display: inline-block;
+            position: relative;
+            background-size: auto;
+            margin-left: 20px;
+            margin-right: 0px;
+        }
 
-        .video-image > a{
+/*
+        .video-image > space > a{
             width: 226px;
             height: 127px;
             display: inline-block;
             position: relative;
             background-size: auto;
             margin-left: 20px;
-        }
+            margin-right: 80px;
+        } */
         
         .play-btn {
             border-radius: 5;
-            left: 93px;
-            top: 44px;
+            left: 133px;
+            top: 66px;
             width: 40px;
             height: 40px;
             text-align: center;
@@ -825,14 +926,14 @@ REV.01      Steven Liang    2015-08-12
             .right_content_dis {
                 padding-top: 50px;
                 margin-left: 75px;
-                margin-bottom: 45px;
+                margin-bottom: 60px;
             }
             /*header-ul 部分*/
             .header_content {
             }
 
             .right_content_select {
-                height: 175px;
+                min-height: 175px;
                 width: 1050px;
             }
 
@@ -968,7 +1069,10 @@ REV.01      Steven Liang    2015-08-12
             }
 
             .right_content_select {
+                margin: 0px auto;
                 min-width: 805px;
+                max-width: 1200px;
+                width: 100%;
             }
 
             .banner_content {
@@ -1116,7 +1220,8 @@ REV.01      Steven Liang    2015-08-12
             <!--header 右侧-->
             <div class="right_content_header">
                 <div class="right_content_dis">
-                    <h1 style="line-height:27px;margin-bottom:0px;font-weight:400;">
+				
+                    <h1><!-- REV.01 MOD START -->
                         <a class="anchor" id="sql-database-trial"></a>
                         <span class="rigth_content_title">SQL数据库文档</span>
                     </h1>
@@ -1137,64 +1242,77 @@ REV.01      Steven Liang    2015-08-12
                         </div>
                     </div>
                 </div>
+                <!-- REV.01 ADD START -->
+                <div class="right_content_divided">
+                    <h2>SQL数据库视频</h2>
+                </div>
+                <!-- REV.01 ADD END -->
             </div>
                 <div class="right_content_select" >
                     <div class="video-field">
                         <div class="video-item">
                             <div class="video-image">
-                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/SOL%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB%E5%88%B0%E4%BA%91%E7%AB%AF.png') no-repeat;"
+								<div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/SOL%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB%E5%88%B0%E4%BA%91%E7%AB%AF.png') no-repeat;background-size:100%;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/0149e2c4-f790-4a4b-89cb-e6d3b7b45ebb/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB%E5%88%B0%E4%BA%91%E7%AB%AF.ism/Manifest">
                                     <div class="play-btn">
                                         <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
-                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/SOL%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E9%98%B2%E7%81%AB%E5%A2%99%E8%A7%84%E5%88%99%E4%BB%8B%E7%BB%8D.png') no-repeat;"
+								<p>使用Azure管理门户中的SQL数据库导入和导出服务</p>
+								</div>
+								<div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/SOL%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E9%98%B2%E7%81%AB%E5%A2%99%E8%A7%84%E5%88%99%E4%BB%8B%E7%BB%8D.png') no-repeat;background-size:100%;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/f2d2e6c4-430f-4f35-a617-6e711af08848/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E9%98%B2%E7%81%AB%E5%A2%99%E8%A7%84%E5%88%99%E4%BB%8B%E7%BB%8D.ism/Manifest">
                                     <div class="play-btn">
                                         <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
-                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/SOL%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86SQL%E6%95%B0%E6%8D%AE%E5%BA%93.png') no-repeat;"
+								<p>SQL数据库防火墙规则介绍， 演示管理防火墙规则</p>
+								</div>
+                                <div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/SOL%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86SQL%E6%95%B0%E6%8D%AE%E5%BA%93.png') no-repeat;background-size:100%;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/b59202d9-0101-4eca-a143-44d4e09b8e22/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86SQL%E6%95%B0%E6%8D%AE%E5%BA%93.ism/Manifest">
                                     <div class="play-btn">
                                         <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
+                                <p>Azure SQL数据库介绍，创建数据库，修改数据库服务层和性能级别</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
             </div>
             <script src="./video-center_files/videocenter.js"></script>
-            <div style="margin-left:20%;margin-top:-40px; float:left" class="right_content">
-                <div style="width:226px; display:inline-block; margin-left:20px">使用Azure管理门户中的SQL数据库导入和导出服务</div>
-                <div style="width:226px; display:inline-block; margin-left:20px">SQL数据库防火墙规则介绍， 演示管理防火墙规则</div>
-                <div style="width:226px; display:inline-block; margin-left:20px">Azure SQL数据库介绍，创建数据库，修改数据库服务层和性能级别</div>
-            </div>
-            <div style="margin-left:22%;margin-top:10px" class="right_content">
+            <div class="right_content_more">
                 <a href="http://www.windowsazure.cn/video-center/">观看更多视频▶</a>
+                
+                <hr style="margin-top:30px" />
             </div>
+            
             <!--content 右侧-->
             <div id="page_body" class="right_content">
                 <!--功能-->
                 <div class="right_content_senction">
-                    <section data-value="features" style="padding-top:60px; clear:none; max-width:1050px;" class="content_show">
+                    <section data-value="features" style="padding-top:20px; clear:none; max-width:1050px;" class="content_show">
                         <div class="right_content_center">
                             <div>
                                 <h2><a id="virtual-machine-quickBoot" class="anchor"></a>最新sql数据库更新</h2>
                                 <h4>Azure sql数据库为SAAS供应商提供大数量数据库支持</h4>
-                                <p>2015/4/29</p>
-                                <p>新弹性价格模型，给一组不可预测的数据库以可预测的价格。</p>
+                                <p class="article-date">2015/4/29</p>
+                                <p class="article-description">新弹性价格模型，给一组不可预测的数据库以可预测的价格。</p>
                                 <a href="http://azure.microsoft.com/en-us/updates/azure-sql-database-supports-large-numbers-of-databases-for-saas-providers/">了解更多▶ </a>
                                 <p />
                                 <h4>Azure sql数据库为SAAS供应商提供大数量数据库支持</h4>
-                                <p>2015/4/29</p>
-                                <p>新弹性价格模型，给一组不可预测的数据库以可预测的价格。</p>
+                                <p class="article-date">2015/4/29</p>
+                                <p class="article-description">新弹性价格模型，给一组不可预测的数据库以可预测的价格。</p>
                                 <a href="http://azure.microsoft.com/en-us/updates/azure-sql-database-supports-large-numbers-of-databases-for-saas-providers/">了解更多▶ </a>
                                 <p />
                                 <h4>Azure sql数据库为SAAS供应商提供大数量数据库支持</h4>
-                                <p>2015/4/29</p>
-                                <p>新弹性价格模型，给一组不可预测的数据库以可预测的价格。</p>
+                                <p class="article-date">2015/4/29</p>
+                                <p class="article-description">新弹性价格模型，给一组不可预测的数据库以可预测的价格。</p>
                                 <a href="http://azure.microsoft.com/en-us/updates/azure-sql-database-supports-large-numbers-of-databases-for-saas-providers/">了解更多▶ </a>
                             </div>
                         </div>
@@ -1202,8 +1320,7 @@ REV.01      Steven Liang    2015-08-12
                 </div>
 
             </div>
-                </div>
-        
+        </div>
     </div>
 </body>
 </html>
