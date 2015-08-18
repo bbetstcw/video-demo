@@ -92,6 +92,58 @@ REV.01      Steven Liang    2015-08-12
         }
     </script>
     <style>
+        /* REV.01 ADD START */
+        /* Make chinese font-family same as global page */
+        .zh-cn * {
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+        }
+        
+        .zh-cn h2 {
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+        }
+        
+        /* Change right content title(虚拟机文档) font */
+        .rigth_content_title {
+            margin: 0 0 12px;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.2em;
+            color: #505050;
+        }
+        
+        .header_content {
+            margin: 0 0 8px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.2em;
+            color: #505050;
+        }
+        
+        .right_content_divided {
+            border-top: 3px solid #dedede;
+            margin-top: 0px;
+            margin-left: 75px;
+            padding-top: 15px;
+        }
+        
+        .right_content_more {
+            margin-left:22%;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .right_content_more > a {
+            color: #505050;
+        }
+        
+        .right_content_more > a:hover {
+            color: #969696;
+        }
+        
+        /* REV.01 ADD END */
+        
+        
+        
         .image{
             margin-top:11px;
         }
@@ -152,13 +204,34 @@ REV.01      Steven Liang    2015-08-12
         }
 
         .right_content_center h2 {
-            font-weight: 600;
-            font-size: 24px;
+            font-weight: 400;
+            font-size: 30px;
+            margin:0 0 12px;
+            line-height:1.2em;
+            color:#505050;
         }
 
-        .right_content_center h3 {
+        .right_content_center h4 {
             margin-top: 45px;
             font-weight: 600;
+        }
+
+        .article-date{
+            color:#969696;
+            font-size:14px;
+            margin-bottom:9px;
+            margin-top:9px;
+            font-weight:400;
+            line-height:1.5em;
+        }
+
+        .article-description{
+            color:#505050;
+            font-size:14px;
+            margin-bottom:9px;
+            margin-top:9px;
+            font-weight:400;
+            line-height:1.5em;
         }
 
         .ul-style p {
@@ -208,7 +281,7 @@ REV.01      Steven Liang    2015-08-12
 
         #serviceCenter .right_content_header {
             position: absolute;
-            min-width: 805px;
+            width: 1030px;
             top: 0;
             left: 16%;
             right: calc(50% - 50vw + 9px);
@@ -221,6 +294,7 @@ REV.01      Steven Liang    2015-08-12
             background-color: white;
         }
 
+        /* REV.01 DEL START 
         .header_content {
             font-size: 14px;
             color: #404040;
@@ -228,6 +302,7 @@ REV.01      Steven Liang    2015-08-12
             width: 730px;
             height: 42px;
         }
+           REV.01 DEL END */
         /*div 白色背景*/
         .white-background {
             position: absolute;
@@ -266,24 +341,27 @@ REV.01      Steven Liang    2015-08-12
         .nav_li_submenu {
             font-size: 20px;
             color: #5c5c5c;
-            <!-- padding-left: 30px; -->
+            /* padding-left: 30px; */
             margin-top: 10px;
             margin-bottom: 15px;
             /* height: 28px; */
             line-height: 28px;
         }
 
-        /*header  文字部分*/
+        /* REV.01 DEL START */
+        /*header  文字部分
         .right_content_dis {
             padding-top: 50px;
             margin-left: 6.4%;
-            margin-bottom: 45px;
-        }
+            margin-bottom: 65px;
+        } */
 
-        .rigth_content_title {
+        
+        /* .rigth_content_title {
             font-size: 40px;
             color: #404040;
-        }
+        } */
+        /* REV.01 DEL END */
 
         .rigth_content_subtitle {
             font-size: 24px;
@@ -308,33 +386,56 @@ REV.01      Steven Liang    2015-08-12
             }
         /*header-ul 方块*/
         .right_content_select {
-            background-color: red;
             display: inline-block;
             margin-left: 20%;
-            margin-top: 20%;
+            margin-top: 22%;
         }
         
         .video-item {
-            margin-bottom: 50px;
+            margin-top: 45px;
         }
         
         .video-image {
             display: inline-block;
         }
+        
+        .space {
+            float: left;
+            display: inline-block;
+        }
+        
+        .space > p {
+            font-size: 14px;
+            position: relative;
+            padding-left: 20px;
+            width: 307px;
+        }
+        
+        .space > a {
+            width: 307px;
+            height: 173px;
+            display: inline-block;
+            position: relative;
+            background-size: auto;
+            margin-left: 20px;
+            margin-right: 0px;
+        }
 
-        .video-image > a{
+/*
+        .video-image > space > a{
             width: 226px;
             height: 127px;
             display: inline-block;
             position: relative;
             background-size: auto;
             margin-left: 20px;
-        }
+            margin-right: 80px;
+        } */
         
         .play-btn {
             border-radius: 5;
-            left: 93px;
-            top: 44px;
+            left: 133px;
+            top: 66px;
             width: 40px;
             height: 40px;
             text-align: center;
@@ -825,14 +926,14 @@ REV.01      Steven Liang    2015-08-12
             .right_content_dis {
                 padding-top: 50px;
                 margin-left: 75px;
-                margin-bottom: 45px;
+                margin-bottom: 60px;
             }
             /*header-ul 部分*/
             .header_content {
             }
 
             .right_content_select {
-                height: 175px;
+                min-height: 175px;
                 width: 1050px;
             }
 
@@ -1131,48 +1232,59 @@ REV.01      Steven Liang    2015-08-12
                         </div>
                     </div>
                 </div>
-              
+                <!-- REV.01 ADD START -->
+                <div class="right_content_divided">
+                    <h2>存储视频</h2>
+                </div>
+                <!-- REV.01 ADD END -->
             </div>
             <div class="right_content_select">
                     <div class="video-field">
                         <div class="video-item">
                             <div class="video-image">
-                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/Azure%E9%AB%98%E7%BA%A7%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D.png') no-repeat;"
+								<div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/Azure%E9%AB%98%E7%BA%A7%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D.png') no-repeat;background-size:100%;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/45bd1a47-7e9b-4ec0-9867-46dfb17b5c9d/Azure%E9%AB%98%E7%BA%A7%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D.ism/Manifest">
                                     <div class="play-btn">
                                         <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
-                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/Azure%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.png') no-repeat;"
+								<p>主要介绍了什么是Azure高级存储，高级存储的功能</p>
+                                </div>
+                                <div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/Azure%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.png') no-repeat;background-size:100%;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/200c5543-b88e-4949-8855-b5a979046619/Azure%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.ism/Manifest">
                                     <div class="play-btn">
                                         <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
-                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/1.%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8.png') no-repeat;"
+ 								<p>如何在Azure中创建存储，统一云存储，异地灾备，RESTful API</p>
+                                </div>
+                                <div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E5%AD%98%E5%82%A8/1.%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8.png') no-repeat;background-size:100%;"
                                    href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/b7f68031-2f21-40c1-a0aa-e65f2deb2f1c/1.%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E7%AE%A1%E7%90%86%E5%AD%98%E5%82%A8.ism/Manifest">
                                     <div class="play-btn">
                                         <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
                                     </div>
                                 </a>
+								<p>使用Visual Studio远程管理Azure存储文件</p>
+                                </div>
                             </div>
                         </div>
                     </div>
             </div>
             <script src="./video-center_files/videocenter.js"></script>
-            <div style="margin-left:20%;margin-top:-40px; float:left" class="right_content">
-                <div style="width:226px; display:inline-block; margin-left:20px">主要介绍了什么是Azure高级存储，高级存储的功能</div>
-                <div style="width:226px; display:inline-block; margin-left:20px">如何在Azure中创建存储，统一云存储，异地灾备，RESTful API</div>
-                <div style="width:226px; display:inline-block; margin-left:20px">使用Visual Studio远程管理Azure存储文件</div>
-            </div>
-            <div style="margin-left:22%;margin-top:10px" class="right_content">
+
+            <div class="right_content_more">
                 <a href="http://www.windowsazure.cn/video-center/">观看更多视频▶</a>
+                
+                <hr style="margin-top:30px" />
             </div>
             <!--content 右侧-->
             <div id="page_body" class="right_content">
                 <!--功能-->
                 <div class="right_content_senction">
-                    <section data-value="features" style="padding-top:60px; clear:none; max-width:1050px;" class="content_show">
+                    <section data-value="features" style="padding-top:20px; clear:none; max-width:1050px;" class="content_show">
                         <div class="right_content_center">
                             <div>
                                 <h2><a id="virtual-machine-quickBoot" class="anchor"></a>最新存储更新</h2>
