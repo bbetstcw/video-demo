@@ -26,6 +26,7 @@ REV.01      Steven Liang    2015-08-12
         function dropdownSelectChange() {
             dropdownSelect = document.getElementById('dropdown-cta');
             contentSelected = document.getElementById('wa-dropdown-value');
+            document.getElementById('wa-button-link').href = dropdownSelect.value;
             contentSelected.innerHTML = dropdownSelect.options[dropdownSelect.selectedIndex].innerHTML;
         }
         function show(c_Str)
@@ -1667,7 +1668,13 @@ REV.01      Steven Liang    2015-08-12
                                     <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-workload-template-sharepoint/">SharePoint</option>
                                 </select> <span id="wa-dropdown-value" class="wa-dropdown-value">Windows Server</span> <span class="wa-dropdown-arrow"></span>
                             </div>
-                            <a class="wa-button wa-button-primary wa-button-mini" data-linker="cta" href="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-windows-tutorial/" style="padding-top: 3px; padding-bottom: 1px;">入门教程</a>
+                        <script>
+                            dropdownSelect = document.getElementById('dropdown-cta');
+                            if (dropdownSelect.options.length <= 1) {
+                                dropdownSelect.disabled = "disabled";
+                            }
+                        </script>
+                        <a id="wa-button-link" class="wa-button wa-button-primary wa-button-mini" href="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-windows-tutorial/" style="padding-top: 3px; padding-bottom: 1px;">入门教程</a>
                             </div>
                 </div>
 				<div class="right_content_divided">
