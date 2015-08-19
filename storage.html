@@ -23,6 +23,11 @@ REV.01      Steven Liang    2015-08-12
     <!-- Video use end -->
 
     <script type="text/javascript">
+        function dropdownSelectChange() {
+            dropdownSelect = document.getElementById('dropdown-cta');
+            contentSelected = document.getElementById('wa-dropdown-value');
+            contentSelected.innerHTML = dropdownSelect.options[dropdownSelect.selectedIndex].innerHTML;
+        }
         function show(c_Str)
         {   
             ul = document.getElementById("nav_list");
@@ -150,9 +155,9 @@ REV.01      Steven Liang    2015-08-12
         }
         .wa-dropdown-container {
             line-height:1.5em;
-            height:50px;
+            height:25px;
             border:2px solid #dedede;
-            padding-top:7px;
+            padding-top:0px;
 	        padding-bottom:0px;
         }
         .wa_dropdown_menu{
@@ -927,7 +932,7 @@ REV.01      Steven Liang    2015-08-12
             .right_content_dis {
                 padding-top: 50px;
                 margin-left: 25px;
-                margin-bottom: 60px;
+                margin-bottom: 20px;
             }
             /*header-ul 部分*/
             .header_content {
@@ -1080,6 +1085,467 @@ REV.01      Steven Liang    2015-08-12
                 min-width: 805px;
             }
         }
+        
+        .wa-dropdown-container {
+            background: #fff;
+            border: 2px solid #dedede;
+            display: block;
+            padding-right: 30px;
+            position: relative;
+            vertical-align: middle
+        }
+        .wa-dropdown-container .wa-dropdown {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  filter: alpha(opacity=0);
+  height: 25px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 10
+}
+        .wa-dropdown-container .wa-dropdown option.fake-disabled {
+  color: rgba(0,0,0,.3)
+}
+        .wa-dropdown-container .wa-dropdown-value {
+  display: inline-block;
+  line-height: 25px;
+  padding-left: 10px;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+        .wa-dropdown-container .wa-dropdown-arrow {
+  display: block;
+  font-size: 0;
+  height: 25px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25px;
+  zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"
+}
+        .wa-dropdown-container .wa-dropdown-arrow:before {
+  border-color: #dedede;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  width: 7px;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -5px
+}
+        .wa-dropdown-container+.wa-button {
+  margin-top: 15px
+}
+        .wa-dropdown-container:hover .wa-dropdown-arrow:before {
+  border-color: #00abec
+}
+        .wa-dropdown-container.wa-dropdown-container-dark {
+  background: #6a6a6a;
+  border: 2px solid #525252;
+  color: #fff
+}
+
+.wa-dropdown-container.wa-dropdown-container-dark option {
+  background: #fff
+}
+
+.wa-dropdown-container.wa-dropdown-disabled {
+  background: #eee
+}
+
+.wa-dropdown-container.wa-dropdown-disabled .wa-dropdown-arrow:before {
+  border-color: #dedede
+}
+
+.wa-dropdown-container.wa-dropdown-focus {
+  border: 2px solid #00abec
+}
+.wa-dropdown-container.wa-dropdown-focus .wa-dropdown-arrow:before {
+  border-color: #00abec
+}
+
+.wa-dropdown-container-icon {
+  border: 0;
+  padding: 0
+}
+
+.wa-dropdown-container-icon.wa-dropdown-focus {
+  border: 0
+}
+
+.wa-dropdown-container-icon .wa-dropdown {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: auto
+}
+
+.wa-dropdownList {
+  display: block
+}
+
+.wa-dropdownList:after {
+  clear: both;
+  content: "";
+  display: table
+}
+
+.wa-dropdownList>div {
+  display: block;
+  margin-top: 4%
+}
+
+.wa-dropdownList>div:first-child {
+  margin-top: 0
+}
+
+.wa-dropdownList label {
+  font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2em;
+  color: #505050;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 3px
+}
+
+@media only screen and (min-width:61.25em){
+  .wa-dropdown-container {
+    display: inline-block
+  }
+
+  .wa-dropdown-container.wa-dropdown-small .wa-dropdown-value {
+    width: 105px
+  }
+
+  .wa-dropdown-container.wa-dropdown-medium .wa-dropdown-value {
+    width: auto
+  }
+
+  .wa-dropdown-container.wa-dropdown-large .wa-dropdown-value {
+    width: 180px
+  }
+
+  .wa-dropdownList {
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    padding: 8px 0;
+    margin: 8px 0
+  }
+
+  .wa-dropdownList>div {
+    float: left;
+    margin-right: 26px;
+    margin-top: 0;
+    position: relative
+  }
+
+  .wa-dropdownList.wa-dropdownList-noLines {
+    border: none
+  }
+
+}
+.wa-button {
+  font-family: wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2em;
+  color: #fff;
+  border: 0;
+  display: block;
+  line-height: 25px;
+  text-align: center;
+  vertical-align: bottom;
+  background-color: #89c402;
+  padding: 6px 20px 9px;
+  height:25px;
+}
+.wa-button:hover {
+  background-color: #a5ce00;
+  color: #fff;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out
+}
+
+.wa-button .wa-icon {
+  margin-left: 8px
+}
+
+.wa-button .wa-icon:first-child {
+  margin-left: 0;
+  margin-right: 8px
+}
+
+.wa-button.wa-button-baseline {
+  vertical-align: baseline
+}
+
+.wa-button-primary {
+  font-family: wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2em;
+  color: #fff;
+  background-color: #89c402;
+  border: 0;
+  display: block;
+  line-height: 25.2px;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 1px 30px 3px 8px;
+  position: relative
+}
+
+.wa-button-primary:hover {
+  background-color: #a5ce00;
+  color: #fff;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out
+}
+
+.wa-button-primary:after {
+  content: "";
+  display: inline-block;
+  height: 28px;
+  margin-top: -14px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 16px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAbCAYAAAB1NA+iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuM4zml1AAAABRSURBVDhPY/j//78AEDcAsQEDuQCoOQGI348aggCjhmCCUUMwAVAzKPOBDFGAChEPQDZDNc+HChEPRjWTCEY1kwgo1QyqmdYDcT9UiATAwAAA8wwclpvxEbIAAAAASUVORK5CYII=');
+  background-repeat: no-repeat
+}
+
+.wa-button-primary.wa-button-mini {
+  padding-right: 30px;
+  color:white;
+}
+
+.wa-button-primary.wa-button-mini:after {
+  display: block;
+  content: "";
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 10px;
+  height: 10px;
+  background-image: none;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0px 1px 1px 0;
+  margin: 0;
+  padding: 0;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 18px
+}
+
+.wa-button-primaryMega {
+  font-family: wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.2em;
+  color: #fff;
+  padding: 6px 60px 9px 20px
+}
+
+.wa-button-primaryMega:after {
+  content: "";
+  display: inline-block;
+  height: 38px;
+  margin-top: -19px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 21px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAmCAYAAAAr+dCVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANZJREFUeNqs14kNwjAMBdDABNmAEVgFNshojMII3Si4JRFVyGH7f0uumrR6dY9Yasg5B8mHZCz7cO6blL+xseBr+MVd8i0ZAxpFr9VSKj4PaHA7QYF7kzA8OgDBs4NueHWCC9Zc2Qxrn5MJtrxVNWz9BlWwZ8UsYe/6nsJIixvCaO/swoxO/wdfDhmLvalvkrcyfqJVxlJdjYTefhdE0CHoRaegB12CVlQFWlA1qEVNoAY1gyvUBc5QNzhCIbCHwmCLUsAzSgMrSgUr+mKCbaWJ9SPxEWAASN9HmPLNZtoAAAAASUVORK5CYII=');
+  background-repeat: no-repeat
+}
+
+.wa-button-secondary {
+  font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2em;
+  color: #fff;
+  background-color: rgba(255,255,255,.2);
+  padding: 6px 25px 9px 20px;
+  position: relative
+}
+
+.wa-button-secondary:hover {
+  background-color: rgba(255,255,255,.3)
+}
+
+.wa-button-secondary:after {
+  content: "";
+  display: inline-block;
+  height: 8px;
+  margin-top: -4px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 4px;
+  background-image: url(data:image/png;
+  base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAICAYAAADeM14FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAvSURBVBhXY/j//z8KBhHrgZgfWQAE7gKxMRDDBUDgJxDn4BRA0bIGiFEMRcL/GQDtGmv+Iolm2QAAAABJRU5ErkJggg==);background-repeat: no-repeat
+}
+
+.wa-button-rss {
+  background-color: #ff8c00
+}
+
+.wa-button-rss:hover {
+  background-color: #dd5900;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out
+}
+
+.wa-button-slate {
+  background-color: #969696
+}
+
+.wa-button-slate:hover {
+  background-color: #6a6a6a;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out
+}
+
+.wa-button-alt {
+  background-color: #00abec
+}
+
+.wa-button-alt:hover {
+  background-color: #0072c6
+}
+
+.wa-button-W01,.wa-button-W01:hover {
+  background-color: #fff;
+  color: #00abec
+}
+
+.wa-button-row {
+  margin: 15px 0 0 -15px
+}
+
+.wa-button-row:after {
+  clear: both;
+  content: "";
+  display: table
+}
+
+.wa-button-row a {
+  float: left;
+  margin-left: 15px;
+  margin-bottom: 15px
+}
+
+  header .wa-button-primary {
+    background-color: #1a1a1a;
+    width: 136px;
+    display: table-cell;
+    height: 28px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    padding: 0 35px 0 0;
+    font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2em;
+    color: #a5ce00
+  }
+
+  header .wa-button-primary:hover {
+    background-color: #1a1a1a;
+    color: #89c402
+  }
+
+  header .wa-button-primary:hover:after {
+    border-color: #89c402
+  }
+
+  header .wa-button-primary:after {
+    border-color: #a5ce00;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: 10px;
+    margin: 0;
+    padding: 0;
+    width: 10px;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    background-image: none;
+    top: 20px
+  }
+
+@media only screen and (min-width:45em){
+  .wa-button {
+    display: inline-block
+     
+  }
+
+  .wa-button-mini {
+    font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5em;
+    color: #fff;
+    padding: 2px 20px 2px
+    
+  }
+
+  .wa-button-primary.wa-button-mini:after {
+    top: 8px
+  }
+
+  .feedback-fancy .wa-button-mini {
+    color: #00abec
+  }
+
+}
     </style>
 </head>
 <body id="top">
@@ -1220,18 +1686,16 @@ REV.01      Steven Liang    2015-08-12
                         <div>
                             开始使用：
                         </div>
-                        <div style="float: left;">
-                            <span class="wa-dropdown-container wa-dropdown-medium">
-                                <select class="wa_dropdown_menu" id="dropdown-cta" onchange="document.getElementById('redirect_button').focus();">
+                        <div class="wa-dropdown-container wa-dropdown-medium">
+								<select class="wa-dropdown" id="dropdown-cta" onchange="dropdownSelectChange()">
                                     <option value="http://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob 存储</option>
                                     <option value="http://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-files/">文件存储</option>
                                     <option value="http://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-tables/">表存储</option>
                                     <option value="http://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-queues/">队列存储</option>
-                                </select>
-                            </span>
-                            <button id="redirect_button" class="redirect_button" onclick="window.location.replace(document.getElementById('dropdown-cta').value);">入门教程</button>
-                        </div>
-                    </div>
+                                </select><span id="wa-dropdown-value" class="wa-dropdown-value">Blob 存储</span> <span class="wa-dropdown-arrow"></span>
+                            </div>
+                        <a class="wa-button wa-button-primary wa-button-mini" data-linker="cta" href="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-windows-tutorial/" style="padding-top: 3px; padding-bottom: 1px;">入门教程</a>
+                            </div>
                 </div>
                 <!-- REV.01 ADD START -->
                 <div class="right_content_divided">
