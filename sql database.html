@@ -321,19 +321,13 @@ REV.01      Steven Liang    2015-08-12
                 }
             ],
             "id": "side_nav_services_virtual-machines"
-        }
+        };
 
-        var navigationTemplate = ' <ul id="nav_list" style="border:none;" class="left_ul_content">' +
-                    '<a id="side_nav_services_virtual-machines" style="margin-top:35px;margin-bottom:10px; font-size:20px;">SQL数据库</a>' +
-                    '<li id="overview_header" class="active" onclick="show(\'overview\')">' +
-                        '<a>概述</a>' +
-                        '<ul id="overview" style="display: block">' +
-                            '<li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-technical-overview/">什么是 SQL 数据库？</a></li>' +
-                        '</ul>' +
-                    '</li>' +
-                    '</ul>';
+        var activeActicleJson = {
 
-        function renderNavigation(navigationJsonStr) {
+        };
+
+        function renderNavigation(navigationJsonStr, activeActicleJsonStr) {
 
             mainUl = document.getElementById("nav_list");
             
@@ -361,6 +355,11 @@ REV.01      Steven Liang    2015-08-12
                     articleLi.appendChild(articleLink);
                 }
             }
+            if (activeActicleJsonStr == null) {
+                document.getElementById(navigationJson.navigation[0].id + "_header").className = "active open";
+                document.getElementById(navigationJson.navigation[0].id).style.display = "block";
+                var pageId = navigationJson.navigation[0].id + "_header";
+            }
         }
 
         function dropdownSelectChange() {
@@ -371,22 +370,23 @@ REV.01      Steven Liang    2015-08-12
         }
         function show(c_Str)
         {   
-            ul = document.getElementById("nav_list");
-            for (var i = 0; i < ul.childNodes.length; i++) {
-                if (c_Str + "_header" == ul.childNodes[i].id) {
-                    ul.childNodes[i].className = "active";
-                }
-                else {
-                    ul.childNodes[i].className = "";
-                }
-            }
-
-            if (document.all(c_Str).style.display == 'none') {
-                document.all(c_Str).style.display = 'block';
+            // Get current pageID, currently use static word
+            
+            
+            if (document.getElementById(c_Str).style.display == 'none') {
+                document.getElementById(c_Str).style.display = 'block';
+                document.getElementById(c_Str + "_header").className = "open";
+                if (c_Str + "_header" == pageId)
+                    document.getElementById(pageId).className = "active open";
+                else
+                    document.getElementById(c_Str + "_header").className = "open";
             }
             else {
-                document.all(c_Str).style.display = 'none';
-                document.getElementById(c_Str + "_header").className = "";
+                document.getElementById(c_Str).style.display = 'none';
+                if (c_Str + "_header" == pageId)
+                    document.getElementById(pageId).className = "active";
+                else
+                    document.getElementById(c_Str + "_header").className = "";
             }
 
         }
@@ -1261,7 +1261,7 @@ REV.01      Steven Liang    2015-08-12
                     }
 
                     /* rotate background image after click */
-                    .left_ul_content > li.active > a:before {
+                    .left_ul_content > li.open > a:before {
                         -webkit-transform: rotate(90deg);
                         -moz-transform: rotate(90deg);
                         -ms-transform: rotate(90deg);
