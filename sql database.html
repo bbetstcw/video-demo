@@ -22,6 +22,347 @@ REV.01      Steven Liang    2015-08-12
     </script>
     <!-- Video use end -->
     <script type="text/javascript">
+        
+
+        var navigationJson = {
+            "service": "SQL数据库",
+            "navigation": [
+                {
+                    "group": "概述",
+                    "articles": [
+                        {
+                            "title": "什么是数据库？",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-technical-overview/"
+                        },
+                        {
+                            "title": "在 VM 中比较 SQL 数据库 和 SQL",
+                            "link": "http://www.windowsazure.cn/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas/"
+                        },
+                        {
+                            "title": "服务层",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-service-tiers/"
+                        },
+                        {
+                            "title": "V12 中有哪些新增功能？",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-v12-whats-new/"
+                        }
+                    ],
+                    "id": "overview"
+                },
+                {
+                    "group": "入门",
+                    "articles": [
+                        {
+                            "title": "创建你的第一个云数据库",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-get-started/"
+                        },
+                        {
+                            "title": "创建弹性数据库",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-pool-portal/"
+                        },
+                        {
+                            "title": "连接 SSMS",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-connect-to-database/"
+                        },
+                        {
+                            "title": "连接和查询 C#",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-connect-query/"
+                        }
+                        ,
+                        {
+                            "title": "连接到 Excel",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-connect-excel/"
+                        }
+                    ],
+                    "id": "get_start"
+                },
+                {
+                    "group": "SaaS 开发人员解决方案",
+                    "articles": [
+                        {
+                            "title": "借助弹性数据库应对爆炸性增长",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-pool/"
+                        },
+                        {
+                            "title": "定价和性能考虑",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-pool-guidance/"
+                        },
+                        {
+                            "title": "创建弹性池以开始使用",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-pool-portal/"
+                        },
+                        {
+                            "title": "借助弹性作业简化管理",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-jobs-overview/"
+                        }
+                        ,
+                        {
+                            "title": "弹性数据库池参考",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-pool-reference/"
+                        },
+                        {
+                            "title": "弹性数据库工具",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-scale/"
+                        }
+                    ],
+                    "id": "saas_solution"
+                },
+                {
+                    "group": "管理",
+                    "articles": [
+                        {
+                            "title": "概述",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-manage-overview/"
+                        },
+                        {
+                            "title": "使用 Azure 管理门户",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-manage-portal/"
+                        },
+                        {
+                            "title": "使用 SSMS 和 SSDT",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-manage-azure-ssms/"
+                        },
+                        {
+                            "title": "使用 Powershell",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-command-line-tools/"
+                        }
+                        ,
+                        {
+                            "title": "使用 Azure 自动化",
+                            "link": "http://www.windowsazure.cn/documentation/articles/automation-manage-sql-database/"
+                        }
+                    ],
+                    "id": "management"
+                },
+                {
+                    "group": "开发",
+                    "articles": [
+                        {
+                            "title": "概述",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-connect-central-recommendations/"
+                        },
+                        {
+                            "title": "快速启动代码示例索引",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-develop-quick-start-client-code-samples/"
+                        },
+                        {
+                            "title": "连接性库",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-libraries/"
+                        },
+                        {
+                            "title": ".NET",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-develop-dotnet-simple/"
+                        }
+                        ,
+                        {
+                            "title": "Java",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-develop-java-simple-windows/"
+                        },
+                        {
+                            "title": "Node.js",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-develop-nodejs-simple-windows/"
+                        },
+                        {
+                            "title": "PHP",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-develop-php-retry-windows/"
+                        },
+                        {
+                            "title": "Python",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-develop-python-simple-windows/"
+                        },
+                        {
+                            "title": "Ruby",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-develop-ruby-simple-linux/"
+                        }
+                    ],
+                    "id": "development"
+                },
+                {
+                    "group": "迁移",
+                    "articles": [
+                        {
+                            "title": "概述",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-cloud-migrate/"
+                        },
+                        {
+                            "title": "使用 SSMS",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-migrate-ssms/"
+                        },
+                        {
+                            "title": "使用 Azure 迁移向导",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-migration-wizard/"
+                        },
+                        {
+                            "title": "使用 Visual Studio",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-migrate-visualstudio-ssdt/"
+                        }
+                    ],
+                    "id": "move"
+                },
+                {
+                    "group": "性能和扩展",
+                    "articles": [
+                        {
+                            "title": "概述：性能指南",
+                            "link": "https://msdn.microsoft.com/library/azure/dn369873.aspx"
+                        },
+                        {
+                            "title": "扩展和缩减",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-scale-up/"
+                        },
+                        {
+                            "title": "向外扩展和向内扩展",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-elastic-scale-get-started/"
+                        }
+                    ],
+                    "id": "functionality"
+                },
+                {
+                    "group": "安全性",
+                    "articles": [
+                        {
+                            "title": "概述",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-security/"
+                        },
+                        {
+                            "title": "连接安全性",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-security#connection-security"
+                        },
+                        {
+                            "title": "身份验证",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-security#authentication"
+                        },
+                        {
+                            "title": "授权",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-security#authorization"
+                        }
+                        ,
+                        {
+                            "title": "加密",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-security#encryption"
+                        },
+                        {
+                            "title": "审核",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-auditing-get-started/"
+                        },
+                        {
+                            "title": "合规",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-security#compliance"
+                        }
+                    ],
+                    "id": "security"
+                },
+                {
+                    "group": "业务连续性",
+                    "articles": [
+                        {
+                            "title": "概述",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-business-continuity/"
+                        },
+                        {
+                            "title": "设计注意事项",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-business-continuity-design/"
+                        },
+                        {
+                            "title": "在中断期间恢复",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-disaster-recovery/"
+                        },
+                        {
+                            "title": "从用户错误中恢复",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-user-error-recovery/"
+                        }
+                        ,
+                        {
+                            "title": "灾难恢复练习",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-disaster-recovery-drills/"
+                        },
+                        {
+                            "title": "常见问题",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-bcdr-faq/"
+                        }
+                    ],
+                    "id": "continous"
+                },
+                {
+                    "group": "监视和故障排除",
+                    "articles": [
+                        {
+                            "title": "连接性问题",
+                            "link": "http://www.windowsazure.cn/documentation/articles/sql-database-connectivity-issues/"
+                        },
+                        {
+                            "title": "资源问题",
+                            "link": "https://msdn.microsoft.com/library/azure/dn338081.aspx"
+                        },
+                        {
+                            "title": "监视服务器和数据库实例",
+                            "link": "https://msdn.microsoft.com/library/azure/ff394114.aspx"
+                        }
+                    ],
+                    "id": "troubleshoot"
+                },
+                {
+                    "group": "参考",
+                    "articles": [
+                        {
+                            "title": "处理 SQL",
+                            "link": "https://msdn.microsoft.com/library/azure/ee336281.aspx"
+                        },
+                        {
+                            "title": "Powershell cmdlet",
+                            "link": "https://msdn.microsoft.com/library/azure/dn546726.aspx"
+                        },
+                        {
+                            "title": "REST API",
+                            "link": "https://msdn.microsoft.com/library/azure/dn505719.aspx"
+                        }
+                    ],
+                    "id": "references"
+                }
+            ],
+            "id": "side_nav_services_virtual-machines"
+        }
+
+        var navigationTemplate = ' <ul id="nav_list" style="border:none;" class="left_ul_content">' +
+                    '<a id="side_nav_services_virtual-machines" style="margin-top:35px;margin-bottom:10px; font-size:20px;">SQL数据库</a>' +
+                    '<li id="overview_header" class="active" onclick="show(\'overview\')">' +
+                        '<a>概述</a>' +
+                        '<ul id="overview" style="display: block">' +
+                            '<li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-technical-overview/">什么是 SQL 数据库？</a></li>' +
+                        '</ul>' +
+                    '</li>' +
+                    '</ul>';
+
+        function renderNavigation(navigationJsonStr) {
+
+            mainUl = document.getElementById("nav_list");
+            
+            serviceTitle = document.getElementsByClassName("nav_list_title")[0];
+            serviceTitle.id = navigationJson.id;
+            serviceTitle.innerHTML = navigationJson.service;
+            for (var i = 0; i < navigationJson.navigation.length; i++){
+                groupLi = document.createElement("li");
+                groupLi.id = navigationJson.navigation[i].id+"_header";
+                groupLi.setAttribute("onclick", "show('" + navigationJson.navigation[i].id + "')");
+                mainUl.appendChild(groupLi);
+                groupTitle = document.createElement("a");
+                groupTitle.innerHTML = navigationJson.navigation[i].group;
+                groupLi.appendChild(groupTitle);
+                groupUl = document.createElement("ul");
+                groupUl.id = navigationJson.navigation[i].id;
+                groupUl.style.display = "none";
+                groupLi.appendChild(groupUl);
+                for (var j = 0; j < navigationJson.navigation[i].articles.length; j++) {
+                    articleLi = document.createElement("li");
+                    groupUl.appendChild(articleLi);
+                    articleLink = document.createElement("a");
+                    articleLink.href = navigationJson.navigation[i].articles[j].link;
+                    articleLink.innerHTML = navigationJson.navigation[i].articles[j].title;
+                    articleLi.appendChild(articleLink);
+                }
+            }
+        }
+
         function dropdownSelectChange() {
             dropdownSelect = document.getElementById('dropdown-cta');
             contentSelected = document.getElementById('wa-dropdown-value');
@@ -1556,135 +1897,13 @@ REV.01      Steven Liang    2015-08-12
             <!--left 左侧导航-->
             <div  id="" class="left_content">
                 <ul id="nav_list" style="border:none;" class="left_ul_content">
-                    <a id="side_nav_services_virtual-machines" style="margin-top:35px;margin-bottom:10px; font-size:20px;">SQL数据库</a>
-                    <li id="overview_header" class="active" onclick="show('overview')">
-                        <a>概述</a>
-                        <ul id="overview" style="display: block">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-technical-overview/">什么是 SQL 数据库？</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas/">在 VM 中比较 SQL 数据库 和 SQL</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-service-tiers/">服务层</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-v12-whats-new/">V12 中有哪些新增功能？</a></li>
-                        </ul>
-                    </li>
-                    <li id="get_start_header" class="" onclick="show('get_start')">
-                        <a>入门</a>
-                        <ul id="get_start" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-get-started/">创建你的第一个云数据库</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-portal/">创建弹性数据库</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-to-database/">连接 SSMS</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-query/">连接和查询 C#</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-excel/">连接到 Excel</a></li>
-                        </ul>
-                    </li>
-                    <li id="saas_solution_header" class="" onclick="show('saas_solution')">
-                        <a>SaaS 开发人员解决方案</a>
-                        <ul id="saas_solution" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool/">借助弹性数据库应对爆炸性增长</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-guidance/">定价和性能考虑</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-portal/">创建弹性池以开始使用</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-jobs-overview/">借助弹性作业简化管理</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-pool-reference/">弹性数据库池参考</a></li>
-                            <li class=""><a href="/zh-cn/documentation/learning-paths/sql-database-elastic-scale/">弹性数据库工具</a></li>
-                        </ul>
-                    </li>
-                    <li id="management_header" class="" onclick="show('management')">
-                        <a>
-                            管理
-                        </a>
-                        <ul id="management" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-manage-overview/">概述</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-manage-portal/">使用 Azure 管理门户</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-manage-azure-ssms/">使用 SSMS 和 SSDT</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-command-line-tools/">使用 Powershell</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/automation-manage-sql-database/">使用 Azure 自动化</a></li>
-                        </ul>
-                    </li>
-                    <li id="development_header" class="" onclick="show('development')">
-                        <a>开发</a>
-                        <ul id="development" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connect-central-recommendations/">概述</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-quick-start-client-code-samples/">快速启动代码示例索引</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-libraries/">连接性库</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-dotnet-simple/">.NET</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-java-simple-windows/">Java</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-nodejs-simple-windows/">Node.js</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-php-retry-windows/">PHP</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-python-simple-windows/">Python</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-develop-ruby-simple-linux/">Ruby</a></li>
-                        </ul>
-                    </li>
-                    <li id="move_header" class="" onclick="show('move')">
-                        <a>
-                            迁移
-                        </a>
-                        <ul id="move" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-cloud-migrate/">概述</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-migrate-ssms/">使用 SSMS</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-migration-wizard/">使用 Azure 迁移向导</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-migrate-visualstudio-ssdt/">使用 Visual Studio</a></li>
-                        </ul>
-                    </li>
-                    <li id="functionality_header" class="" onclick="show('functionality')">
-                        <a>
-                            性能和扩展
-                        </a>
-                        <ul id="functionality" style="display: none">
-                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn369873.aspx">概述：性能指南</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-scale-up/">扩展和缩减</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-elastic-scale-get-started/">向外扩展和向内扩展</a></li>
-                        </ul>
-                    </li>
-                    <li id="security_header" class="" onclick="show('security')">
-                        <a>
-                            安全性
-                        </a>
-                        <ul id="security" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security/">概述</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#connection-security">连接安全性</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#authentication">身份验证</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#authorization">授权</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#encryption">加密</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-auditing-get-started/">审核</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-security#compliance">合规</a></li>
-                        </ul>
-                    </li>
-                    <li id="continous_header" class="" onclick="show('continous')">
-                            <a>
-                                业务连续性
-                            </a>
-                        <ul id="continous" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-business-continuity/">概述</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-business-continuity-design/">设计注意事项</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-disaster-recovery/">在中断期间恢复</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-user-error-recovery/">从用户错误中恢复</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-disaster-recovery-drills/">灾难恢复练习</a></li>
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-bcdr-faq/">常见问题</a></li>
-                        </ul>
-                    </li>
-                    <li id="troubleshoot_header" class="" onclick="show('troubleshoot')">
-                            <a>
-                                监视和故障排除
-                            </a>
-                        <ul id="troubleshoot" style="display: none">
-                            <li class=""><a href="https://azure.microsoft.com/zh-cn/documentation/articles/sql-database-connectivity-issues/">连接性问题</a></li>
-                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn338081.aspx">资源问题</a></li>
-                            <li class=""><a href="https://msdn.microsoft.com/library/azure/ff394114.aspx">监视服务器和数据库实例</a></li>
-                        </ul>
-                    </li>
-                    <li id="references_header" class="" onclick="show('references')">
-                        <a>
-                            参考
-                        </a>
-                        <ul id="references" style="display: none">
-                            <li class=""><a href="https://msdn.microsoft.com/library/azure/ee336281.aspx">处理 SQL</a></li>
-                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn546726.aspx">Powershell cmdlet</a></li>
-                            <li class=""><a href="https://msdn.microsoft.com/library/azure/dn505719.aspx">REST API</a></li>
-                        </ul>
-                    </li>
-                    <!-- REV.01 MOD END -->
-
+                    <a class="nav_list_title" style="margin-top:35px;margin-bottom:10px; font-size:20px;">
+                    </a>
                 </ul>
             </div>
+            <script>
+                renderNavigation(null);
+            </script>
             <!--header 右侧-->
             <div class="right_content_header">
                 <div style="margin-left: 30px;"><span><a href="https://azure.microsoft.com/zh-cn/documentation">文档</a></span> &#x3009;<span><a>SQL数据库</a></span></div>
