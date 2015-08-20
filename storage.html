@@ -34,13 +34,21 @@ REV.01      Steven Liang    2015-08-12
             // Get current pageID, currently use static word
             var pageId = "description2_header";
             
-            if (document.all(c_Str).style.display == 'none') {
-                document.all(c_Str).style.display = 'block';
+            if (document.getElementById(c_Str).style.display == 'none') {
+                document.getElementById(c_Str).style.display = 'block';
+                document.getElementById(c_Str + "_header").className = "open";
+                if (c_Str + "_header" == pageId)
+                    document.getElementById(pageId).className = "active open";
+                else
+                    document.getElementById(c_Str + "_header").className = "open";
             }
             else {
-                document.all(c_Str).style.display = 'none';
+                document.getElementById(c_Str).style.display = 'none';
+                if (c_Str + "_header" == pageId)
+                    document.getElementById(pageId).className = "active";
+                else
+                    document.getElementById(c_Str + "_header").className = "";
             }
-            document.getElementById(pageId).className = "active open";
 
         }
 
