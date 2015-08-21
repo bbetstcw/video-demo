@@ -23,6 +23,49 @@ REV.01      Steven Liang    2015-08-12
     <!-- Video use end -->
 
     <script type="text/javascript">
+        var navigationJsonStr = '{"service": " \u5b58\u50a8 ", "navigation": [{"id": "area_about_storage", "articles": [{"id": "link_about_storage_introduction", "title": " \u5b58\u50a8\u5668\u7b80\u4ecb ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-introduction/"}, {"id": "link_about_get_started_storage", "title": " \u53ea\u9700 5 \u5206\u949f\u5373\u53ef\u8bd5\u7528\u5b58\u50a8\u5668 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-getting-started-guide/"}, {"id": "link_about_pricing", "title": " Azure \u5b58\u50a8\u5668\u5b9a\u4ef7 ", "link": "/zh-cn/pricing/details/storage/"}, {"id": "link_about_case_studies", "title": " Azure \u5b58\u50a8\u5668\u6848\u4f8b\u7814\u7a76 ", "link": "/zh-cn/services/storage/"}, {"id": "link_about_support", "title": " \u9488\u5bf9\u5b58\u50a8\u5668\u7684\u793e\u533a\u652f\u6301 ", "link": "http://stackoverflow.com/questions/tagged/windows-azure-storage"}], "group": "\u6982\u8ff0"}, {"id": "area_get_started", "articles": [{"id": "link_get_started_about_azure_storage_accounts", "title": " \u521b\u5efa\u5b58\u50a8\u5e10\u6237 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-create-storage-account/"}, {"id": "link_get_started_use_blob_storage_on_net", "title": " Blob \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-blobs/"}, {"id": "link_get_started_use_table_storage_on_net", "title": " \u8868\u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-tables/"}, {"id": "link_get_started_use_queue_storage_on_net", "title": " \u961f\u5217\u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-queues/"}, {"id": "link_get_started_use_file_storage", "title": " \u6587\u4ef6\u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-files/"}], "group": "\u5f00\u59cb\u4f7f\u7528"}, {"id": "area_manage", "articles": [{"id": "link_manage_powershell", "title": " \u5c06 Azure PowerShell \u4e0e\u5b58\u50a8\u5668\u914d\u5408\u4f7f\u7528 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-powershell-guide-full/"}, {"id": "link_manage_azcopy", "title": " AZCopy \u5b9e\u7528\u7a0b\u5e8f\u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-use-azcopy/"}, {"id": "link_manage_xplat", "title": " \u5c06 Azure CLI \u4e0e\u5b58\u50a8\u7a7a\u95f4\u914d\u5408\u4f7f\u7528 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-azure-cli/"}, {"id": "link_manage_automation", "title": " \u5c06 Azure \u81ea\u52a8\u5316\u4e0e\u5b58\u50a8\u7a7a\u95f4\u914d\u5408\u4f7f\u7528 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/automation-manage-storage/"}], "group": "\u7ba1\u7406\u5b58\u50a8\u5668"}, {"id": "area_design_cloud", "articles": [{"id": "link_design_cloud_scalability_targets", "title": " \u5b58\u50a8\u5668\u53ef\u4f38\u7f29\u6027\u548c\u6027\u80fd\u76ee\u6807 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-scalability-targets/"}, {"id": "link_design_cloud_performance_checklist", "title": " \u6027\u80fd\u548c\u53ef\u4f38\u7f29\u6027\u6e05\u5355 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-performance-checklist/"}, {"id": "link_design_cloud_concurrency", "title": " \u8bbe\u8ba1\u5e76\u53d1\u5e94\u7528\u7a0b\u5e8f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-concurrency/"}, {"id": "link_design_cloud_availability", "title": " \u9488\u5bf9\u9ad8\u53ef\u7528\u6027\u8fdb\u884c\u8bbe\u8ba1 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-redundancy/"}], "group": "\u9488\u5bf9\u4e91\u8fdb\u884c\u8bbe\u8ba1"}, {"id": "area_design_security", "articles": [{"id": "link_design_security_authentication", "title": " \u5bf9\u5b58\u50a8\u8bf7\u6c42\u8fdb\u884c\u9a8c\u8bc1 ", "link": "https://msdn.microsoft.com/library/azure/dd179428.aspx"}, {"id": "link_design_security_manage_access", "title": " \u7ba1\u7406\u8bbf\u95ee ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-manage-access-to-resources/"}, {"id": "link_design_security_sas_tutorial", "title": " \u4f7f\u7528\u5171\u4eab\u8bbf\u95ee\u7b7e\u540d\u59d4\u6258\u5e10\u6237\u8bbf\u95ee ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-shared-access-signature-part-1/"}, {"id": "link_design_security_client_side_encryption", "title": " \u901a\u8fc7\u5ba2\u6237\u7aef\u5e93\u52a0\u5bc6\u6570\u636e ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-client-side-encryption/"}], "group": "\u9488\u5bf9\u5b89\u5168\u6027\u8fdb\u884c\u8bbe\u8ba1"}, {"id": "area_develop_general", "articles": [{"id": "link_develop_general_connection_string", "title": " \u914d\u7f6e\u8fde\u63a5\u5b57\u7b26\u4e32 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-configure-connection-string/"}, {"id": "link_develop_general_emulator", "title": " \u4f7f\u7528\u5b58\u50a8\u6a21\u62df\u5668\u8fdb\u884c\u6d4b\u8bd5 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-use-emulator/"}, {"id": "link_develop_general_samples", "title": " Azure \u5b58\u50a8\u7a7a\u95f4\u793a\u4f8b ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-samples/"}], "group": "\u4f7f\u7528\u5b58\u50a8\u5668\u8fdb\u884c\u5f00\u53d1"}, {"id": "area_develop_blobs", "articles": [{"id": "link_develop_blobs_concepts", "title": " Blob \u5b58\u50a8\u6982\u5ff5 ", "link": "https://msdn.microsoft.com/library/azure/dd179376.aspx"}, {"id": "link_develop_blobs_managed_ref", "title": " .NET API \u53c2\u8003 ", "link": "https://msdn.microsoft.com/library/azure/dn261237.aspx"}, {"id": "link_develop_blobs_rest", "title": " Blob \u670d\u52a1 REST API ", "link": "https://msdn.microsoft.com/library/azure/dd135733.aspx"}, {"id": "link_develop_blobs_support", "title": " \u9488\u5bf9 blob \u7684\u793e\u533a\u652f\u6301 ", "link": "https://stackoverflow.com/questions/tagged/windows-azure-storage"}], "group": "\u4f7f\u7528 Blob \u8fdb\u884c\u5f00\u53d1"}, {"id": "area_develop_tables", "articles": [{"id": "link_develop_tables_design_guide", "title": " \u8868\u5b58\u50a8\u8bbe\u8ba1\u6307\u5357 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-table-design-guide/"}, {"id": "link_develop_tables_concepts", "title": " \u8868\u5b58\u50a8\u6982\u5ff5 ", "link": "https://msdn.microsoft.com/library/azure/dd179463.aspx"}, {"id": "link_develop_tables_managed_ref", "title": " .NET API \u6587\u6863 ", "link": "https://msdn.microsoft.com/library/azure/dn261237.aspx"}, {"id": "link_develop_tables_rest", "title": " \u8868\u670d\u52a1 REST API ", "link": "https://msdn.microsoft.com/library/azure/dd179423.aspx"}, {"id": "link_develop_tables_support", "title": " \u8868\u652f\u6301 ", "link": "https://stackoverflow.com/questions/tagged/azure-storage-tables"}], "group": "\u4f7f\u7528\u8868\u8fdb\u884c\u5f00\u53d1"}, {"id": "area_develop_queues", "articles": [{"id": "link_develop_queues_concepts", "title": " \u961f\u5217\u5b58\u50a8\u6982\u5ff5 ", "link": "https://msdn.microsoft.com/library/azure/dd179353.aspx"}, {"id": "link_develop_queues_managed_ref", "title": " .NET API \u6587\u6863 ", "link": "https://msdn.microsoft.com/library/azure/dn261237.aspx"}, {"id": "link_develop_queues_rest", "title": " \u961f\u5217\u670d\u52a1 REST API ", "link": "https://msdn.microsoft.com/library/azure/dd179363.aspx"}, {"id": "link_develop_queues_support", "title": " \u9488\u5bf9\u961f\u5217\u7684\u793e\u533a\u652f\u6301 ", "link": "https://stackoverflow.com/questions/tagged/azure-storage-queues"}], "group": "\u4f7f\u7528\u961f\u5217\u8fdb\u884c\u5f00\u53d1"}, {"id": "area_develop_files", "articles": [{"id": "link_develop_files_concepts", "title": " \u6587\u4ef6\u5b58\u50a8\u6982\u5ff5 ", "link": "https://msdn.microsoft.com/library/azure/dn166972.aspx"}, {"id": "link_develop_files_managed_ref", "title": " .NET API \u53c2\u8003 ", "link": "https://msdn.microsoft.com/library/azure/dn261237.aspx"}, {"id": "link_develop_files_rest", "title": " \u6587\u4ef6\u670d\u52a1 REST API ", "link": "https://msdn.microsoft.com/library/azure/dn167006.aspx"}], "group": "\u4f7f\u7528\u6587\u4ef6\u8fdb\u884c\u5f00\u53d1"}, {"id": "area_operate", "articles": [{"id": "link_operate_monitor", "title": " \u5728\u7ba1\u7406\u95e8\u6237\u4e2d\u914d\u7f6e\u76d1\u63a7 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-monitor-storage-account/"}, {"id": "link_operate_enable_metrics", "title": " \u542f\u7528\u548c\u67e5\u770b\u6307\u6807 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-enable-and-view-metrics/"}, {"id": "link_operate_analytics", "title": " \u5b58\u50a8\u5206\u6790 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-analytics/"}, {"id": "link_operate_diagnose", "title": " \u5bf9 Azure \u5b58\u50a8\u5668\u8fdb\u884c\u76d1\u89c6\u3001\u8bca\u65ad\u548c\u6545\u969c\u6392\u9664 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-monitoring-diagnosing-troubleshooting/"}, {"id": "link_operate_troubleshooting", "title": " \u6545\u969c\u8bca\u65ad\u6559\u7a0b ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-e2e-troubleshooting/"}, {"id": "link_operate_custom_domain", "title": " \u914d\u7f6e\u81ea\u5b9a\u4e49\u57df\u540d ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-custom-domain-name/"}, {"id": "link_operate_import_export", "title": " \u4f7f\u7528\u5bfc\u5165/\u5bfc\u51fa\u670d\u52a1\u5c06 blob \u6570\u636e\u4f20\u8f93\u5230 Azure ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-import-export-service/"}], "group": "\u64cd\u4f5c\u6307\u5357"}, {"id": "area_premium_storage", "articles": [{"id": "link_premium_storage_intro", "title": " \u9ad8\u7ea7\u5b58\u50a8\u5668\u7b80\u4ecb ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-premium-storage-preview-portal/"}, {"id": "link_premium_storage_migration", "title": " \u8fc1\u79fb\u5230\u9ad8\u7ea7\u5b58\u50a8\u5668 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/storage-migration-to-premium-storage/"}], "group": "Azure \u9ad8\u7ea7\u5b58\u50a8\u5668"}], "id": ""}'
+
+
+var activeActicleJson = {
+
+        };
+        var pageId = null;
+        function renderNavigation(navigationJsonStr, activeActicleJsonStr) {
+            navigationJson = JSON.parse(navigationJsonStr);
+            
+            mainUl = document.getElementById("nav_list");
+            
+            serviceTitle = document.getElementsByClassName("nav_list_title")[0];
+            serviceTitle.id = navigationJson.id;
+            serviceTitle.innerHTML = navigationJson.service;
+            for (var i = 0; i < navigationJson.navigation.length; i++){
+                groupLi = document.createElement("li");
+                groupLi.id = navigationJson.navigation[i].id+"_header";
+                groupLi.setAttribute("onclick", "show('" + navigationJson.navigation[i].id + "')");
+                mainUl.appendChild(groupLi);
+                groupTitle = document.createElement("a");
+                groupTitle.innerHTML = navigationJson.navigation[i].group;
+                groupLi.appendChild(groupTitle);
+                groupUl = document.createElement("ul");
+                groupUl.id = navigationJson.navigation[i].id;
+                groupUl.style.display = "none";
+                groupLi.appendChild(groupUl);
+                for (var j = 0; j < navigationJson.navigation[i].articles.length; j++) {
+                    articleLi = document.createElement("li");
+                    groupUl.appendChild(articleLi);
+                    articleLink = document.createElement("a");
+                    articleLink.href = navigationJson.navigation[i].articles[j].link;
+                    articleLink.innerHTML = navigationJson.navigation[i].articles[j].title;
+                    articleLi.appendChild(articleLink);
+                }
+            }
+            if (activeActicleJsonStr == null) {
+                document.getElementById(navigationJson.navigation[0].id + "_header").className = "active open";
+                document.getElementById(navigationJson.navigation[0].id).style.display = "block";
+                pageId = navigationJson.navigation[0].id + "_header";
+            }
+        }
+
         function dropdownSelectChange() {
             dropdownSelect = document.getElementById('dropdown-cta');
             contentSelected = document.getElementById('wa-dropdown-value');
@@ -32,7 +75,7 @@ REV.01      Steven Liang    2015-08-12
         function show(c_Str)
         {   
             // Get current pageID, currently use static word
-            var pageId = "description2_header";
+            
             
             if (document.getElementById(c_Str).style.display == 'none') {
                 document.getElementById(c_Str).style.display = 'block';
@@ -1556,124 +1599,14 @@ REV.01      Steven Liang    2015-08-12
             <div class='white-background'></div>
             <!--left 左侧导航-->
             <div  id="" class="left_content">
-                <ul id="nav_list" style="border:none;" class="left_ul_content">
-                    <a id="side_nav_services_virtual-machines" style="margin-top:35px;margin-bottom:10px; font-size:20px;">
-                        存储
+                <ul id="nav_list" class="left_ul_content">
+                    <a class="nav_list_title" style="margin-top:35px;margin-bottom:10px; font-size:20px;">
                     </a>
-                    <li id="description2_header" class="active open" onclick=show("description2")>
-                        <a>概述</a>
-                        <ul id="description2" style="display: block">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-introduction/"> 存储器简介 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-getting-started-guide/"> 只需 5 分钟即可试用存储器 </a> </li>
-                            <li class=""> <a href="/zh-cn/pricing/details/storage/"> Azure 存储器定价 </a> </li>
-                            <li class=""> <a href="/zh-cn/services/storage/"> Azure 存储器案例研究 </a> </li>
-                            <li class=""> <a href="http://stackoverflow.com/questions/tagged/windows-azure-storage"> 针对存储器的社区支持 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="start_header" class="" onclick=show("start")>
-                        <a>开始使用</a>
-                        <ul id="start" style="display: none">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-create-storage-account/"> 创建存储帐户 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-blobs/"> Blob 入门 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-tables/"> 表入门 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-queues/"> 队列入门 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-how-to-use-files/"> 文件入门 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="management_header" class="" onclick=show("management")>
-                        <a>管理存储器</a>
-                        <ul id="management" style="display: none">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-powershell-guide-full/"> 将 Azure PowerShell 与存储器配合使用 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-use-azcopy/"> AZCopy 实用程序入门 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-azure-cli/"> 将 Azure CLI 与存储空间配合使用 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/automation-manage-storage/"> 将 Azure 自动化与存储空间配合使用 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="design_header" class="" onclick=show("design")>
-                        <a>针对云进行设计</a>
-                        <ul id="design" style="display: none">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-scalability-targets/"> 存储器可伸缩性和性能目标 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-performance-checklist/"> 性能和可伸缩性清单 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-concurrency/"> 设计并发应用程序 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-redundancy/"> 针对高可用性进行设计 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="security_header" class="" onclick=show("security")>
-                        <a>针对安全性进行设计</a>
-                        <ul id="security" style="display: none">
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dd179428.aspx"> 对存储请求进行验证 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-manage-access-to-resources/"> 管理访问 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-dotnet-shared-access-signature-part-1/"> 使用共享访问签名委托帐户访问 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-client-side-encryption/"> 通过客户端库加密数据 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="develop_header" class="" onclick=show("develop")>
-                        <a>使用存储器进行开发</a>
-                        <ul id="develop" style="display: none">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-configure-connection-string/"> 配置连接字符串 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-use-emulator/"> 使用存储模拟器进行测试 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-samples/"> Azure 存储空间示例 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="blob_develop_header" class="" onclick=show("blob_develop")>
-                        <a>使用 Blob 进行开发</a>
-                        <ul id="blob_develop" style="display: none">
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dd179376.aspx"> Blob 存储概念 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dn261237.aspx"> .NET API 参考 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx"> Blob 服务 REST API </a> </li>
-                            <li class=""> <a href="https://stackoverflow.com/questions/tagged/windows-azure-storage"> 针对 blob 的社区支持 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="table_develop_header" class="" onclick=show("table_develop")>
-                        <a>使用表进行开发</a>
-                        <ul id="table_develop" style="display: none">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-table-design-guide/"> 表存储设计指南 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dd179463.aspx"> 表存储概念 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dn261237.aspx"> .NET API 文档 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dd179423.aspx"> 表服务 REST API </a> </li>
-                            <li class=""> <a href="https://stackoverflow.com/questions/tagged/azure-storage-tables"> 表支持 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="queue_develop_header" class="" onclick=show("queue_develop")>
-                        <a>使用队列进行开发</a>
-                        <ul id="queue_develop" style="display: none">
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dd179353.aspx"> 队列存储概念 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dn261237.aspx"> .NET API 文档 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dd179363.aspx"> 队列服务 REST API </a> </li>
-                            <li class=""> <a href="https://stackoverflow.com/questions/tagged/azure-storage-queues"> 针对队列的社区支持 </a> </li>
-                        </ul>
-                    </li>
-                    <li id="file_develop_header" class="" onclick=show("file_develop")>
-                        <a>使用文件进行开发</a>
-                        <ul id="file_develop" style="display: none">
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dn166972.aspx"> 文件存储概念 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dn261237.aspx"> .NET API 参考 </a> </li>
-                            <li class=""> <a href="https://msdn.microsoft.com/library/azure/dn167006.aspx"> 文件服务 REST API </a> </li>
-                        </ul>
-                    </li>
-                    <li id="guide_header" class="" onclick=show("guide")>
-                        <a>操作指南</a>
-                        <ul id="guide" style="display: none">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-monitor-storage-account/"> 在管理门户中配置监控 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-enable-and-view-metrics/"> 启用和查看指标 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-analytics/"> 存储分析 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-monitoring-diagnosing-troubleshooting/"> 对 Azure 存储器进行监视、诊断和故障排除 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-e2e-troubleshooting/"> 故障诊断教程 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-custom-domain-name/"> 配置自定义域名 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-import-export-service/"> 使用导入/导出服务将 blob 数据传输到 Azure </a> </li>
-                        </ul>
-                    </li>
-                    <li id="advance_header" class="" onclick=show("advance")>
-                        <a>Azure 高级存储器</a>
-                        <ul id="advance" style="display: none">
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-premium-storage-preview-portal/"> 高级存储器简介 </a> </li>
-                            <li class=""> <a href="https://azure.microsoft.com/zh-cn/documentation/articles/storage-migration-to-premium-storage/"> 迁移到高级存储器 </a> </li>
-                        </ul>
-                    </li>
-                    <!-- REV.01 MOD END -->
-
                 </ul>
             </div>
+            <script>
+                renderNavigation(navigationJsonStr, null);
+            </script>
             <!--header 右侧-->
             <div class="right_content_header">
                 <div style="margin-left: 30px;"><span><a href="https://azure.microsoft.com/zh-cn/documentation">文档</a></span> &#x3009;<span><a>存储</a></span></div>
