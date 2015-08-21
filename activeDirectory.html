@@ -1,0 +1,1737 @@
+﻿
+<!--
+Version     Author          Date
+REV.01      Steven Liang    2015-08-12
+-->
+<!DOCTYPE html>
+<html class="zh-cn currencyJPY" lang="zh">
+<head>
+    <!-- Video use end -->
+    <link href="./video-center_files/corecss.css?v=20150813043734" rel="stylesheet" type="text/css">
+    <link href="./video-center_files/corecss2.css?v=20150813043734" rel="stylesheet" type="text/css">
+    <script src="./video-center_files/corejs.js?v=20150813043734" type="text/javascript"></script>
+    <title></title>
+    <meta name="description" content="Windows Azure 视频中心，迅速掌握Windows Azure使用方法" />
+
+    <link href="./video-center_files/azuremediaplayer.min.css" rel="stylesheet">
+    <script src="./video-center_files/azuremediaplayer.min.js"></script>
+    <script>
+        amp.options.flashSS.swf = "http://amp.azure.net/libs/amp/1.1.1/techs/StrobeMediaPlayback.2.0.swf"
+        amp.options.flashSS.plugin = "http://amp.azure.net/libs/amp/1.1.1/techs/MSAdaptiveStreamingPlugin-osmf2.0.swf"
+        amp.options.silverlightSS.xap = "http://amp.azure.net/libs/amp/1.1.1/techs/SmoothStreamingPlayer.xap"
+    </script>
+    <!-- Video use end -->
+
+    <script type="text/javascript">
+        var navigationJsonStr = '{"navigation": [{"articles": [{"title": " \u4ec0\u4e48\u662f Azure Active Directory\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-whatis/", "id": "link_1_1"}, {"title": " \u4f01\u4e1a SLA ", "link": "/zh-cn/support/legal/sla/", "id": "link_1_2"}, {"title": " \u6211\u5e94\u8be5\u9009\u62e9\u54ea\u4e00\u4e2a\u7248\u672c\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-editions/", "id": "link_1_3"}], "group": "\u6982\u8ff0", "id": "area_1_overview"}, {"articles": [{"title": " \u6ce8\u518c\u514d\u8d39\u8bd5\u7528\u7248 ", "link": "/zh-cn/trial/get-started-active-directory/", "id": "link_2_1"}, {"title": " Azure Active Directory Premium \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-licensing-what-is#getting-started-with-azure-ad-licensing", "id": "link_2_2"}, {"title": " \u6211\u5e94\u5982\u4f55\u51b3\u5b9a\u8981\u4e3a\u6211\u7684\u6d4b\u8bd5\u3001\u8fc7\u6e21\u3001\u751f\u4ea7\u4f7f\u7528\u54ea\u4e00\u4e2a\u76ee\u5f55\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-administer/", "id": "link_2_3"}, {"title": " \u5df2\u6709 Office 365\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-how-subscriptions-associated-directory/#manage-the-directory-for-your-office-365-subscription-in-azure", "id": "link_2_4"}, {"title": " \u53ef\u5982\u4f55\u6dfb\u52a0\u6211\u81ea\u5df1\u7684\u6ce8\u518c\u57df\u540d\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-add-domain/", "id": "link_2_5"}, {"title": " \u53ef\u5982\u4f55\u6dfb\u52a0\u6211\u81ea\u5df1\u7684\u516c\u53f8\u54c1\u724c\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-add-company-branding/", "id": "link_2_6"}, {"title": " \u53ef\u5982\u4f55\u5c06 Azure Active Directory \u4e0e\u5176\u4ed6\u76ee\u5f55\u96c6\u6210\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-aadconnect/", "id": "link_2_7"}, {"title": " How can I monitor my on-premises infrastructure in the cloud? ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-aadconnect-health/", "id": "link_2_8"}], "group": "\u5f00\u59cb\u4f7f\u7528", "id": "area_2_get_started"}, {"articles": [{"title": " Azure Active Directory \u5982\u4f55\u652f\u6301 Office 365\u3001Microsoft Intune \u53ca\u5176\u4ed6 Microsoft \u670d\u52a1\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-administer/#what-is-an-azure-ad-tenant", "id": "link_3_1"}, {"title": " Azure Active Directory \u5982\u4f55\u652f\u6301\u7b2c\u4e09\u65b9\u5e94\u7528\u7a0b\u5e8f\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-authentication-scenarios/", "id": "link_3_2"}, {"title": " Azure Active Directory \u5982\u4f55\u652f\u6301\u4f60\u7684\u672c\u5730\u5e94\u7528\u7a0b\u5e8f\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-authentication-protocols/", "id": "link_3_3"}, {"title": " Azure Active Directory \u5982\u4f55\u5e2e\u52a9\u4f60\u7ba1\u7406\u6807\u8bc6\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-administer/", "id": "link_3_4"}, {"title": " Azure Active Directory \u5982\u4f55\u63d0\u9ad8\u4f60\u7684\u5b89\u5168\u6027\uff1f ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-privileged-identity-management-configure/", "id": "link_3_5"}], "group": "\u544a\u8bc9\u6211\u5b83\u7684\u5de5\u4f5c\u539f\u7406", "id": "area_3_tell_me_how_it_works"}, {"articles": [{"title": " \u6982\u8ff0 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-developers-guide/", "id": "link_4_1"}, {"title": " Developer\'s guide learning path ", "link": "/zh-cn/documentation/learning-paths/active-directory-developer/", "id": "link_learningpath"}, {"title": " iOS \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-devquickstarts-ios/", "id": "link_4_2_1"}, {"title": " Android \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-devquickstarts-android/", "id": "link_4_2_2"}, {"title": " .NET \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-devquickstarts-dotnet/", "id": "link_4_2_3"}, {"title": " Windows Phone \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-devquickstarts-windowsphone/", "id": "link_4_2_4"}, {"title": " Windows \u5e94\u7528\u5546\u5e97\u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-devquickstarts-windowsstore/", "id": "link_4_2_5"}, {"title": " Xamarin \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-devquickstarts-xamarin/", "id": "link_4_2_6"}, {"title": " Cordova \u5165\u95e8 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-devquickstarts-cordova/", "id": "link_4_2_7"}, {"title": " \u4f7f\u7528\u65b9\u6cd5 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-developers-guide#how-tos", "id": "link_4_3"}, {"title": " \u53c2\u8003 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-developers-guide#reference", "id": "link_4_4"}], "group": "\u5f00\u53d1\u5e94\u7528\u7a0b\u5e8f", "id": "area_4_develop_applications"}, {"articles": [{"title": " \u7ba1\u7406\u4f60\u7684\u7528\u6237 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-create-users/", "id": "link_5_1"}, {"title": " \u540c\u6b65\u548c\u7ba1\u7406\u5bc6\u7801 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-passwords/", "id": "link_5_2"}, {"title": " \u7ba1\u7406\u4f60\u7684\u7ec4 ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-manage-groups/", "id": "link_5_3"}, {"title": " \u4e3a\u79fb\u52a8\u8bbe\u5907\u5f3a\u5236\u6761\u4ef6\u8bbf\u95ee ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-conditional-access/", "id": "link_5_4"}, {"title": " \u67e5\u770b\u8bbf\u95ee\u548c\u4f7f\u7528\u60c5\u51b5\u62a5\u544a ", "link": "https://azure.microsoft.com/zh-cn/documentation/articles/active-directory-view-access-usage-reports/", "id": "link_5_5"}], "group": "\u540e\u7eed\u6b65\u9aa4", "id": "area_5_whats_next"}, {"articles": [{"title": " \u5355\u4e00\u767b\u5f55 ", "link": "https://msdn.microsoft.com/library/azure/jj151834.aspx", "id": "link_6_1"}, {"title": " SSPR \u5199\u56de ", "link": "https://msdn.microsoft.com/library/azure/dn683878.aspx", "id": "link_6_2"}, {"title": " \u5806\u6808\u6ea2\u51fa ", "link": "http://stackoverflow.com/questions/tagged/azure-active-directory", "id": "link_6_3"}, {"title": " \u5e2e\u52a9\u6211\u4eec\u6539\u8fdb ", "link": "http://feedback.azure.com/forums/169401-active-directory", "id": "link_6_4"}], "group": "\u6545\u969c\u6392\u9664", "id": "area_6_troubleshooting"}], "id": "", "service": " Azure Active Directory "}';
+        var activeActicleJson = {
+
+        };
+        var pageId = null;
+        function renderNavigation(navigationJsonStr, activeActicleJsonStr) {
+
+            navigationJson = JSON.parse(navigationJsonStr);
+
+            mainUl = document.getElementById("nav_list");
+            
+            serviceTitle = document.getElementsByClassName("nav_list_title")[0];
+            serviceTitle.id = navigationJson.id;
+            serviceTitle.innerHTML = navigationJson.service;
+            
+            for (var i = 0; i < navigationJson.navigation.length; i++){
+                groupLi = document.createElement("li");
+                groupLi.id = navigationJson.navigation[i].id+"_header";
+                groupLi.setAttribute("onclick", "show('" + navigationJson.navigation[i].id + "')");
+                mainUl.appendChild(groupLi);
+                groupTitle = document.createElement("a");
+                groupTitle.innerHTML = navigationJson.navigation[i].group;
+                groupLi.appendChild(groupTitle);
+                groupUl = document.createElement("ul");
+                groupUl.id = navigationJson.navigation[i].id;
+                groupUl.style.display = "none";
+                groupLi.appendChild(groupUl);
+                for (var j = 0; j < navigationJson.navigation[i].articles.length; j++) {
+                    articleLi = document.createElement("li");
+                    groupUl.appendChild(articleLi);
+                    articleLink = document.createElement("a");
+                    articleLink.href = navigationJson.navigation[i].articles[j].link;
+                    articleLink.innerHTML = navigationJson.navigation[i].articles[j].title;
+                    articleLi.appendChild(articleLink);
+                }
+            }
+            if (activeActicleJsonStr == null) {
+                document.getElementById(navigationJson.navigation[0].id + "_header").className = "active open";
+                document.getElementById(navigationJson.navigation[0].id).style.display = "block";
+                pageId = navigationJson.navigation[0].id + "_header";
+            }
+        }
+
+        function dropdownSelectChange() {
+            dropdownSelect = document.getElementById('dropdown-cta');
+            contentSelected = document.getElementById('wa-dropdown-value');
+            document.getElementById('wa-button-link').href = dropdownSelect.value;
+            contentSelected.innerHTML = dropdownSelect.options[dropdownSelect.selectedIndex].innerHTML;
+        }
+        function show(c_Str)
+        {
+            // Get current pageID, currently use static word
+
+
+            if (document.getElementById(c_Str).style.display == 'none') {
+                document.getElementById(c_Str).style.display = 'block';
+                document.getElementById(c_Str + "_header").className = "open";
+                if (c_Str + "_header" == pageId)
+                    document.getElementById(pageId).className = "active open";
+                else
+                    document.getElementById(c_Str + "_header").className = "open";
+            }
+            else {
+                document.getElementById(c_Str).style.display = 'none';
+                if (c_Str + "_header" == pageId)
+                    document.getElementById(pageId).className = "active";
+                else
+                    document.getElementById(c_Str + "_header").className = "";
+            }
+
+        }
+
+        $(document).ready(function () {
+            $(".banner_close").click(function () {
+                var dom = $(".banner_close").parent();
+                $(dom).removeClass("banner_content").addClass("content_hide");
+            });
+            $(".content_title").click(function () {
+
+                var dom = $(".banner_close").parent();
+                $(dom).removeClass("content_hide").addClass("banner_content");
+                $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
+                $(this).parent().removeClass("grey_content").addClass("blue_content");
+                $(".triangle-up").css("display", "none");
+                $(this).find(".triangle-up").css("display", "block");
+                var strhref = $(this).attr('href');
+                var domID = strhref.substring(1, (strhref.length));
+                fetchdata(domID);
+                var secCount = $("section").length;
+                $("#page_body section").removeClass("content_show").addClass("content_hide");
+                $("#page_body section").each(function () {
+                    if ($(this).attr('data-value') == domID) {
+                        $(this).removeClass("content_hide").addClass("content_show");
+
+                        previousScrollTop = 0;
+                        onscroll();
+                    }
+                });
+            });
+            var previousScrollTop = 0;
+            $(window).on('scroll', onscroll);
+
+            $(window).on('resize', function (evt) {
+                var width = 0.16 * $('.content').width();
+                $('.left_content').css({
+                    'width': width,
+                })
+            });
+        });
+        //数据抓取
+        function fetchdata(vel) {
+            var locaUrl = window.location.href;
+            if (locaUrl.indexOf("#") > 0)
+                locaUrl = locaUrl.split("#")[0].toString() + "?" + vel;
+            //alert(locaUrl);
+            $.get(locaUrl);
+        }
+    </script>
+    <style>
+        /* REV.01 ADD START */
+        /* Make chinese font-family same as global page */
+        .zh-cn * {
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+        }
+
+        .zh-cn h2 {
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+        }
+
+        /* Change right content title(虚拟机文档) font */
+        .rigth_content_title {
+            margin: 0 0 12px;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.2em;
+            color: #505050;
+        }
+
+        .header_content {
+            margin: 0 0 2px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.2em;
+            color: #505050;
+        }
+
+        .right_content_divided {
+            border-top: 3px solid #dedede;
+            margin-top: 0px;
+            margin-left: 25px;
+            padding-top: 15px;
+        }
+
+        .right_content_more {
+            margin-left: 18%;
+            margin-top: 30px;
+            position: relative;
+            width: 975px;
+        }
+
+            .right_content_more > a {
+                color: #505050;
+            }
+
+                .right_content_more > a:hover {
+                    color: #969696;
+                }
+
+        /* REV.01 ADD END */
+
+
+
+        .image {
+            margin-top: 11px;
+        }
+
+        .wa-dropdown-container {
+            line-height: 1.5em;
+            height: 25px;
+            border: 2px solid #dedede;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .wa_dropdown_menu {
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            height: 25px;
+            padding: 0px;
+            z-index: 10;
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-weight: 400;
+            color: #3e3d4d;
+            line-height: 1.2;
+            outline: none;
+            margin: 0px;
+            vertical-align: text-bottom;
+        }
+
+            .wa_dropdown_menu option {
+                height: 50px;
+            }
+
+        .redirect_button {
+            line-height: 1.8;
+            min-height: 25px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-bottom: 0px;
+            margin-top: 15px;
+            padding-right: 30px;
+            font-family: YaHei,Simsun,"Segoe UI","Helvetica",Garuda,Arial,sans-serif !important;
+            font-weight: 400;
+            font-size: 14px;
+            color: #fff;
+            padding: 1px 8px 3px;
+            display: inline-block;
+            background-color: #89c402;
+            border: 0;
+            text-align: center;
+            vertical-align: bottom;
+            position: relative;
+            text-decoration: none;
+            -webkit-transition: all .1s ease-in-out;
+            -moz-transition: all .1s ease-in-out;
+            -o-transition: all .1s ease-in-out;
+            -transition: all .1s ease-in-out;
+            margin-left: 10px;
+        }
+
+        .right_content_center h2 {
+            font-weight: 400;
+            font-size: 30px;
+            margin: 0 0 12px;
+            line-height: 1.2em;
+            color: #505050;
+        }
+
+        .right_content_center h4 {
+            margin-top: 45px;
+            font-weight: 600;
+        }
+
+        .article-date {
+            color: #969696;
+            font-size: 14px;
+            margin-bottom: 9px;
+            margin-top: 9px;
+            font-weight: 400;
+            line-height: 1.5em;
+        }
+
+        .article-description {
+            color: #505050;
+            font-size: 14px;
+            margin-bottom: 9px;
+            margin-top: 9px;
+            font-weight: 400;
+            line-height: 1.5em;
+        }
+
+        .ul-style p {
+            font-size: 16px;
+        }
+        /*main-content*/
+        .main-container {
+            background-color: #f8f8f8;
+        }
+
+        #serviceCenter {
+            width: 100%;
+            position: relative;
+            background-color: white;
+        }
+
+        footer {
+            Border-top: medium solid #ccc;
+        }
+
+        .content {
+            width: 100%;
+            min-width: 960px;
+            max-width: 1250px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /*left-content*/
+        .left_content {
+            position: absolute;
+            width: 16%;
+            display: inline-block;
+            vertical-align: top;
+            background-color: #f8f8f8;
+            overflow: hidden;
+        }
+        /*right-content*/
+        .right_content {
+            margin-left: 16%;
+            width: 84%;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            background-color: #ffffff;
+        }
+
+
+        #serviceCenter .right_content_header {
+            position: absolute;
+            width: 990px;
+            top: 0;
+            left: 16%;
+            right: calc(50% - 50vw + 9px);
+            overflow: hidden;
+        }
+
+
+        .right_content_senction {
+            height: 100%;
+            background-color: white;
+        }
+
+        /* REV.01 DEL START
+        .header_content {
+            font-size: 14px;
+            color: #404040;
+            line-height: 1.5;
+            width: 730px;
+            height: 42px;
+        }
+           REV.01 DEL END */
+        /*div 白色背景*/
+        .white-background {
+            position: absolute;
+            background: white;
+            top: 0;
+            left: 16%;
+            right: calc(50% - 50vw + 9px);
+            bottom: 0;
+        }
+        /*ul-导航*/
+        .left_ul_content > li > a {
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px 10px 20px;
+            text-transform: capitalize;
+            font-size: 14px;
+            line-height: 20px;
+            height: 20px;
+            color: #555555;
+            position: relative;
+        }
+
+        .left_ul_content > li > ul > li > a:hover {
+            color: #969696;
+        }
+
+        .left_ul_content {
+            list-style: none;
+            padding: 0px;
+            border: none;
+            margin: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav_li_submenu {
+            font-size: 20px;
+            color: #5c5c5c;
+            /* padding-left: 30px; */
+            margin-top: 10px;
+            margin-bottom: 15px;
+            /* height: 28px; */
+            line-height: 28px;
+        }
+
+        /* REV.01 DEL START */
+        /*header  文字部分
+        .right_content_dis {
+            padding-top: 50px;
+            margin-left: 6.4%;
+            margin-bottom: 65px;
+        } */
+
+
+        /* .rigth_content_title {
+            font-size: 40px;
+            color: #404040;
+        } */
+        /* REV.01 DEL END */
+
+        .rigth_content_subtitle {
+            font-size: 24px;
+            margin-left: 10px;
+            color: #404040;
+        }
+
+        .btn_style {
+            display: block;
+            font-size: 16px;
+            width: 155px;
+            height: 40px;
+            background-color: #ff3d00;
+            text-align: center;
+            padding: 7px;
+            box-sizing: border-box;
+            margin-right: 25px;
+        }
+
+            .btn_style:hover {
+                background-color: #fa6434;
+            }
+        /*header-ul 方块*/
+        .right_content_select {
+            display: inline-block;
+            margin-left: 18%;
+            margin-top: 22%;
+        }
+
+        .video-item {
+            margin-top: 45px;
+        }
+
+        .video-image {
+            display: inline-block;
+        }
+
+        .space {
+            float: left;
+            display: inline-block;
+        }
+
+            .space > p {
+                font-size: 14px;
+                position: relative;
+                padding-right: 20px;
+                width: 307px;
+            }
+
+            .space > a {
+                width: 307px;
+                height: 173px;
+                display: inline-block;
+                position: relative;
+                background-size: auto;
+                margin-left: 0px;
+                margin-right: 20px;
+            }
+
+        /*
+        .video-image > space > a{
+            width: 226px;
+            height: 127px;
+            display: inline-block;
+            position: relative;
+            background-size: auto;
+            margin-left: 20px;
+            margin-right: 80px;
+        } */
+
+        .play-btn {
+            border-radius: 5;
+            left: 133px;
+            top: 66px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            vertical-align: middle;
+            position: absolute;
+            opacity: 0.8;
+            background-color: grey;
+        }
+
+        .select_space {
+            margin-left: 1.2%;
+        }
+
+        .block_space {
+            margin-left: 0.8%;
+        }
+
+        .grey_content {
+            background-color: #ffffff;
+            float: left;
+            width: 23%;
+            height: 175px;
+        }
+
+            .grey_content a {
+                width: 23%;
+                height: 175px;
+                line-height: 1.5;
+                color: #4a4a4a;
+                font-size: 12px;
+            }
+
+            .grey_content:hover {
+                float: left;
+                background-color: #ccebff;
+            }
+
+                .grey_content:hover .triangle-up {
+                    Display: none;
+                }
+
+        .blue_content {
+            background-color: #b3e1ff;
+            float: left;
+            width: 23%;
+            height: 175px;
+        }
+
+            .blue_content .triangle-up {
+                display: block;
+            }
+
+
+            .blue_content a {
+                width: 23%;
+                height: 175px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: #4a4a4a;
+            }
+
+        .content_show {
+            display: block;
+        }
+
+        .nav_select {
+            color: #5c5c5c;
+            background-color: #DBDBDB;
+        }
+
+        .content_hide {
+            display: none;
+        }
+        /*header-ul 方块内部*/
+        .content_Item_title {
+            font-size: 20px;
+            color: #000000;
+            text-align: center;
+            padding-top: 25px;
+        }
+
+            .content_Item_title .left_img {
+                width: 20px;
+                height: 20px;
+                padding-top: 10px;
+            }
+
+            .content_Item_title .right_img {
+                width: 14px;
+                height: 14px;
+                margin-left: 0px;
+                padding-top: 10px;
+            }
+
+        .content_Item_content {
+            font-size: 12px;
+            color: #4a4a4a;
+            height: 15px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+            .content_Item_content .Item_strong {
+                font-size: 14px;
+                color: #000000;
+            }
+
+            .content_Item_content .Item_preview {
+                padding: 3px;
+                background-color: rgb(0,160,253);
+                color: white;
+                font-size: 12px;
+                margin-left: 3px;
+                border-radius: 3px;
+            }
+
+            .content_Item_content .Item_case {
+                width: 64px;
+                height: 20px;
+                font-size: 14px;
+                color: #000000;
+                padding: 1px 4px;
+            }
+
+        .triangle-up {
+            display: none;
+            height: 15px;
+            width: 30px;
+            margin-top: 27px;
+            margin: 0 auto;
+            background-repeat: no-repeat;
+            background-image: url('http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangule_.png');
+        }
+        /*bannner*/
+        .banner_content {
+            margin-top: 60px;
+            width: 100%;
+            max-width: 1064px;
+            height: 70px;
+            font-size: 20px;
+            color: #fff;
+            font-weight: 600;
+            background-color: #33a4fb;
+            margin-left: 8%;
+            min-width: 700px;
+            float: right;
+        }
+
+        .banner_content_distance {
+            float: left;
+            margin-left: 5.6%;
+            padding-top: 22px;
+        }
+
+        .banner_content .banner_content_link {
+            width: 66px;
+            font-size: 16px;
+            background-color: #ff3d00;
+            color: #fff;
+            padding: 8px 45px;
+            margin-left: 3.2%;
+        }
+
+            .banner_content .banner_content_link:hover {
+                Background-color: #fa6434;
+            }
+
+        .banner_content .large_span {
+            font-size: 30px;
+        }
+
+        .banner_close {
+            float: right;
+            margin-top: -40px;
+            margin-right: 10px;
+        }
+
+        .banner_content .Item_span {
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: white;
+            color: rgb(0,160,253);
+            font-size: 18px;
+            margin: 5px;
+            border-radius: 3px;
+        }
+        /*content*/
+
+        .right_content_center {
+            margin-left: 5.6%;
+            margin-right: 7.6%;
+            max-width: 910px;
+        }
+
+        .right_content_pricing {
+            margin: 0px;
+            padding-left: 5.6%;
+            padding-right: 7.6%;
+            margin-top: 50px;
+        }
+        /*pricing  价格*/
+        .pricingpage {
+            margin: 0 5%;
+        }
+
+            .pricingpage .feature_section p {
+                font-size: 14px;
+                color: #505050;
+            }
+
+        .wa-content {
+            margin: 0 5%;
+        }
+
+        .faqpage {
+            width: 100%;
+        }
+
+        .price_section {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #fff;
+            margin-bottom: 50px;
+            margin-top: 30px;
+        }
+
+            .price_section .section_title {
+                font-size: 18px;
+                line-height: 25px;
+                margin: 10px 5%;
+            }
+
+            .price_section .section_info {
+                font-size: 12px;
+                color: #969696;
+                margin-left: 5%;
+                background-color: white;
+            }
+
+        .pricingpage .price_section {
+            background-color: white;
+        }
+
+        .price_section table {
+            background-color: #fff;
+            border-top: 2px solid #c9c9c9;
+            border-bottom: 2px solid #c9c9c9;
+            border-spacing: 0;
+            border-collapse: collapse;
+            width: 90%;
+            text-align: center;
+            line-height: 1.2em;
+            color: #505050;
+            margin-left: 5%;
+            margin-bottom: 30px;
+        }
+
+        .price_section th {
+            font-size: 11px;
+            padding: 10px;
+            color: #505050;
+        }
+
+        .price_section td {
+            border-top: 1px solid #c9c9c9;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 10px;
+            color: #505050;
+        }
+
+        .left_align {
+            text-align: left;
+        }
+
+        .price_section p {
+            font-size: 14px;
+            color: #505050;
+            margin-left: 5%;
+            width: 90%;
+        }
+
+        .feature_section .section_title {
+            font-size: 30px;
+            line-height: normal;
+            font-weight: 100;
+            margin-bottom: 20px;
+        }
+
+        .price_content_dis {
+            margin-left: 4%;
+            padding-top: 10px;
+            float: left;
+        }
+
+
+        /*case  案例*/
+        .case-list {
+            padding: 0px;
+            display: block;
+            list-style: none;
+            margin-left: 60px;
+        }
+
+            .case-list .single-case {
+                display: inline-block;
+                width: 45%;
+                height: 350px;
+                background: #FDFDFD;
+                border: 1px solid #CDCDCD;
+                padding: 20px 18px;
+                box-sizing: border-box;
+                margin: 1%;
+                overflow: hidden;
+                vertical-align: top;
+                float: left;
+            }
+
+                .case-list .single-case img {
+                    width: 42%;
+                    height: 64px;
+                    margin: 0px 18px 20px 0px;
+                    float: left;
+                }
+
+                .case-list .single-case .info {
+                    display: inline-block;
+                    float: left;
+                    font-size: 13px;
+                    color: #000000;
+                    line-height: 22px;
+                }
+
+                    .case-list .single-case .info a {
+                        text-decoration: none;
+                        color: #00A0FF;
+                        font-size: 13px;
+                    }
+
+                .case-list .single-case label {
+                    font-size: 13px;
+                    line-height: 125%;
+                    color: #555555;
+                    display: inline;
+                }
+
+                .case-list .single-case .disp {
+                    margin-top: 84px;
+                    margin-bottom: 15px;
+                    font-size: 13px;
+                    line-height: 22px;
+                }
+
+                .case-list .single-case .services {
+                    font-size: 13px;
+                    margin-bottom: 10px;
+                }
+
+                    .case-list .single-case .services .services-list {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: inline;
+                    }
+
+                    .case-list .single-case .services li {
+                        display: inline;
+                    }
+
+                        .case-list .single-case .services li a {
+                            text-decoration: none;
+                            color: #00A0FF;
+                            font-size: 13px;
+                        }
+
+                .case-list .single-case .detail {
+                    font-size: 13px;
+                    line-height: 22px;
+                    color: #555;
+                }
+
+            .case-list .arrow-right {
+                display: inline-block;
+                background: url("http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/icon_link-arrow.png");
+                width: 4px;
+                height: 8px;
+                margin-left: 5px;
+                background-repeat: no-repeat;
+            }
+
+        .mysql-style {
+            display: block;
+            font-size: 14px;
+            text-transform: none;
+        }
+        /*1440 设计*/
+        @media(min-width:1250px) {
+            /*left 左侧导航*/
+            /*ul-导航*/
+            .mysql-style {
+                display: inline;
+                font-size: 10px;
+                text-transform: none;
+            }
+
+            .left_ul_content {
+                min-width: 180px;
+                margin-left: 0px;
+            }
+
+                /*.nav_li_submenu {
+            margin-left: 20px;
+        } */
+
+                .left_ul_content > a {
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 1.2em;
+                    color: #505050;
+                    display: block;
+                    padding: 14px 15px 12px;
+                }
+
+                    .left_ul_content > a:hover {
+                        color: #969696;
+                    }
+
+                /* REV.01 ADD START */
+                .left_ul_content > li.active {
+                    background-color: #e6f7fd;
+                    border-left-color: #00abec;
+                }
+
+                .left_ul_content > li {
+                    border-bottom: 1px solid #fff;
+                    border-left: 3px solid #f8f8f8;
+                }
+
+                    .left_ul_content > li:first-child {
+                        border-top: 1px solid #fff;
+                    }
+
+                .left_ul_content > li {
+                    margin: 0px;
+                }
+
+                    .left_ul_content > li > ul {
+                        list-style: none;
+                        padding: 0 15px 10px 20px;
+                    }
+                        /* the most inner link style */
+                        .left_ul_content > li > ul > li > a {
+                            font-size: 12px;
+                            line-height: 1.2em;
+                            color: #505050;
+                            display: inline-block;
+                            margin-left: 0;
+                            padding: 3px 0px 3px 20px;
+                            margin-left: -20px;
+                            text-decoration: none;
+                        }
+                    /* the initial style of class-item */
+                    .left_ul_content > li > a:before {
+                        transition: .2s;
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAHCAYAAAArkDztAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAElJREFUeNpiCAgISGDAApg1NDTOA7EDED+8cePGA5gEI1DHfySFC4C4ccOGDQ/QJUDgAxBPZGLAAVjQ+HCjYBIHoAIHYCoAAgwA+4sZshXM1Q0AAAAASUVORK5CYII=');
+                        background-repeat: no-repeat;
+                        content: "";
+                        display: block;
+                        height: 7px;
+                        left: 7px;
+                        position: absolute;
+                        top: 15px;
+                        width: 6px;
+                    }
+
+                    /* rotate background image after click */
+                    .left_ul_content > li.open > a:before {
+                        -webkit-transform: rotate(90deg);
+                        -moz-transform: rotate(90deg);
+                        -ms-transform: rotate(90deg);
+                        -o-transform: rotate(90deg);
+                        transform: rotate(90deg);
+                    }
+            /* REV.01 ADD END */
+
+            /*header-web 部分*/
+            .right_content_dis {
+                padding-top: 30px;
+                margin-left: 25px;
+                margin-bottom: 20px;
+            }
+            /*header-ul 部分*/
+            .header_content {
+            }
+
+            .right_content_select {
+                min-height: 175px;
+                width: 1050px;
+            }
+
+            .select_space {
+                margin-left: 20px;
+            }
+
+            .block_space {
+                margin-left: 10px;
+            }
+
+            .grey_content {
+                width: 250px;
+                background-color: #ffffff;
+                float: left;
+                height: 175px;
+            }
+
+                .grey_content a {
+                    display: block;
+                    width: 250px;
+                    height: 175px;
+                    line-height: 1.5;
+                    color: #4a4a4a;
+                    font-size: 12px;
+                }
+
+                .grey_content:hover {
+                    float: left;
+                    background-color: #ccebff;
+                }
+
+            .blue_content {
+                width: 250px;
+                background-color: #b3e1ff;
+                float: left;
+                height: 175px;
+            }
+
+                .blue_content a {
+                    display: block;
+                    width: 250px;
+                    height: 175px;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: #4a4a4a;
+                }
+            /*content*/
+            .right_content_center {
+                margin-left: 20px;
+                margin-right: 70px;
+            }
+
+            .right_content_pricing {
+                padding-left: 25px;
+                padding-right: 70px;
+            }
+
+            .right_content_case {
+            }
+            /*pricing 价格*/
+            .pricingpage {
+                margin: 0 50px;
+            }
+
+            .wa-content {
+                margin: 0 50px;
+            }
+
+            .price_content_dis {
+                margin-left: 100px;
+            }
+
+            .price_section .section_title {
+                margin: 10px 50px;
+            }
+
+            .price_section table {
+                width: 810px;
+                margin-left: 50px;
+            }
+
+            .price_section p {
+                margin-left: 50px;
+                width: 810px;
+            }
+
+            .price_section .section_info {
+                margin-left: 50px;
+            }
+            /*case 案例*/
+            .case-list {
+                padding: 0px;
+                display: block;
+                list-style: none;
+            }
+
+                .case-list .single-case {
+                    width: 465px;
+                    height: 350px;
+                    padding: 20px 18px;
+                    margin: 8px;
+                }
+
+                    .case-list .single-case img {
+                        width: 184px;
+                        height: 64px;
+                        margin: 0px 10px 20px 0px;
+                        float: left;
+                    }
+
+            .banner_content_distance {
+                margin-left: 100px;
+            }
+
+            .banner_content .banner_content_link {
+                margin-left: 40px;
+            }
+        }
+        /*960px 设计*/
+        @media(max-width:960px) {
+            /*content 限制*/
+            .right_content {
+                min-width: 806px;
+            }
+
+            .right_content_header {
+                min-width: 805px;
+            }
+
+            .right_content_senction {
+                min-width: 805px;
+            }
+
+            .right_content_select {
+                margin: 0px auto;
+                min-width: 805px;
+                max-width: 1200px;
+                width: 100%;
+            }
+
+            .banner_content {
+                min-width: 805px;
+            }
+        }
+
+        .wa-dropdown-container {
+            background: #fff;
+            border: 2px solid #dedede;
+            display: block;
+            padding-right: 30px;
+            position: relative;
+            vertical-align: middle;
+        }
+
+            .wa-dropdown-container .wa-dropdown {
+                background: transparent;
+                border: none;
+                font-size: 14px;
+                filter: alpha(opacity=0);
+                height: 25px;
+                opacity: 0;
+                padding: 0;
+                position: absolute;
+                width: 100%;
+                z-index: 10;
+            }
+
+                .wa-dropdown-container .wa-dropdown option.fake-disabled {
+                    color: rgba(0,0,0,.3);
+                }
+
+            .wa-dropdown-container .wa-dropdown-value {
+                display: inline-block;
+                line-height: 25px;
+                padding-left: 10px;
+                vertical-align: middle;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .wa-dropdown-container .wa-dropdown-arrow {
+                display: block;
+                font-size: 0;
+                height: 25px;
+                margin: 0;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 25px;
+                zoom: 1;
+                -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)";
+            }
+
+                .wa-dropdown-container .wa-dropdown-arrow:before {
+                    border-color: #dedede;
+                    border-style: solid;
+                    border-width: 0 2px 2px 0;
+                    box-sizing: border-box;
+                    content: "";
+                    display: block;
+                    height: 7px;
+                    margin: 0;
+                    padding: 0;
+                    width: 7px;
+                    -moz-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    -o-transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                    position: relative;
+                    top: 50%;
+                    left: 50%;
+                    margin-left: -5px;
+                    margin-top: -5px;
+                }
+
+            .wa-dropdown-container + .wa-button {
+                margin-top: 15px;
+            }
+
+            .wa-dropdown-container:hover .wa-dropdown-arrow:before {
+                border-color: #00abec;
+            }
+
+            .wa-dropdown-container.wa-dropdown-container-dark {
+                background: #6a6a6a;
+                border: 2px solid #525252;
+                color: #fff;
+            }
+
+                .wa-dropdown-container.wa-dropdown-container-dark option {
+                    background: #fff;
+                }
+
+            .wa-dropdown-container.wa-dropdown-disabled {
+                background: #eee;
+            }
+
+                .wa-dropdown-container.wa-dropdown-disabled .wa-dropdown-arrow:before {
+                    border-color: #dedede;
+                }
+
+            .wa-dropdown-container.wa-dropdown-focus {
+                border: 2px solid #00abec;
+            }
+
+                .wa-dropdown-container.wa-dropdown-focus .wa-dropdown-arrow:before {
+                    border-color: #00abec;
+                }
+
+        .wa-dropdown-container-icon {
+            border: 0;
+            padding: 0;
+        }
+
+            .wa-dropdown-container-icon.wa-dropdown-focus {
+                border: 0;
+            }
+
+            .wa-dropdown-container-icon .wa-dropdown {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: auto;
+            }
+
+        .wa-dropdownList {
+            display: block;
+        }
+
+            .wa-dropdownList:after {
+                clear: both;
+                content: "";
+                display: table;
+            }
+
+            .wa-dropdownList > div {
+                display: block;
+                margin-top: 4%;
+            }
+
+                .wa-dropdownList > div:first-child {
+                    margin-top: 0;
+                }
+
+            .wa-dropdownList label {
+                font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+                font-weight: 400;
+                font-size: 10px;
+                line-height: 1.2em;
+                color: #505050;
+                text-transform: uppercase;
+                display: block;
+                margin-bottom: 3px;
+            }
+
+        @media only screen and (min-width:61.25em) {
+            .wa-dropdown-container {
+                display: inline-block;
+            }
+
+                .wa-dropdown-container.wa-dropdown-small .wa-dropdown-value {
+                    width: 105px;
+                }
+
+                .wa-dropdown-container.wa-dropdown-medium .wa-dropdown-value {
+                    width: auto;
+                }
+
+                .wa-dropdown-container.wa-dropdown-large .wa-dropdown-value {
+                    width: 180px;
+                }
+
+            .wa-dropdownList {
+                border-top: 1px solid #dedede;
+                border-bottom: 1px solid #dedede;
+                padding: 8px 0;
+                margin: 8px 0;
+            }
+
+                .wa-dropdownList > div {
+                    float: left;
+                    margin-right: 26px;
+                    margin-top: 0;
+                    position: relative;
+                }
+
+                .wa-dropdownList.wa-dropdownList-noLines {
+                    border: none;
+                }
+        }
+
+        .wa-button {
+            font-family: wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.2em;
+            color: #fff;
+            border: 0;
+            display: block;
+            line-height: 25px;
+            text-align: center;
+            vertical-align: bottom;
+            background-color: #89c402;
+            padding: 6px 20px 9px;
+            height: 25px;
+        }
+
+            .wa-button:hover {
+                background-color: #a5ce00;
+                color: #fff;
+                -webkit-transition: all .1s ease-in-out;
+                -moz-transition: all .1s ease-in-out;
+                -o-transition: all .1s ease-in-out;
+                transition: all .1s ease-in-out;
+            }
+
+            .wa-button .wa-icon {
+                margin-left: 8px;
+            }
+
+                .wa-button .wa-icon:first-child {
+                    margin-left: 0;
+                    margin-right: 8px;
+                }
+
+            .wa-button.wa-button-baseline {
+                vertical-align: baseline;
+            }
+
+        .wa-button-primary {
+            font-family: wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.2em;
+            color: #fff;
+            background-color: #89c402;
+            border: 0;
+            display: block;
+            line-height: 25.2px;
+            text-align: center;
+            vertical-align: bottom;
+            padding: 1px 30px 3px 8px;
+            position: relative;
+        }
+
+            .wa-button-primary:hover {
+                background-color: #a5ce00;
+                color: #fff;
+                -webkit-transition: all .1s ease-in-out;
+                -moz-transition: all .1s ease-in-out;
+                -o-transition: all .1s ease-in-out;
+                transition: all .1s ease-in-out;
+            }
+
+            .wa-button-primary:after {
+                content: "";
+                display: inline-block;
+                height: 28px;
+                margin-top: -14px;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                width: 16px;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAbCAYAAAB1NA+iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuM4zml1AAAABRSURBVDhPY/j//78AEDcAsQEDuQCoOQGI348aggCjhmCCUUMwAVAzKPOBDFGAChEPQDZDNc+HChEPRjWTCEY1kwgo1QyqmdYDcT9UiATAwAAA8wwclpvxEbIAAAAASUVORK5CYII=');
+                background-repeat: no-repeat;
+            }
+
+            .wa-button-primary.wa-button-mini {
+                padding-right: 30px;
+                color: white;
+            }
+
+                .wa-button-primary.wa-button-mini:after {
+                    display: block;
+                    content: "";
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    width: 10px;
+                    height: 10px;
+                    background-image: none;
+                    border-color: #fff;
+                    border-style: solid;
+                    border-width: 0px 1px 1px 0;
+                    margin: 0;
+                    padding: 0;
+                    -moz-transform: rotate(-45deg);
+                    -ms-transform: rotate(-45deg);
+                    -o-transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+                    top: 18px;
+                }
+
+        .wa-button-primaryMega {
+            font-family: wf_segoe-ui_light,"Segoe UI Light","Segoe WP Light","Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.2em;
+            color: #fff;
+            padding: 6px 60px 9px 20px;
+        }
+
+            .wa-button-primaryMega:after {
+                content: "";
+                display: inline-block;
+                height: 38px;
+                margin-top: -19px;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                width: 21px;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAmCAYAAAAr+dCVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANZJREFUeNqs14kNwjAMBdDABNmAEVgFNshojMII3Si4JRFVyGH7f0uumrR6dY9Yasg5B8mHZCz7cO6blL+xseBr+MVd8i0ZAxpFr9VSKj4PaHA7QYF7kzA8OgDBs4NueHWCC9Zc2Qxrn5MJtrxVNWz9BlWwZ8UsYe/6nsJIixvCaO/swoxO/wdfDhmLvalvkrcyfqJVxlJdjYTefhdE0CHoRaegB12CVlQFWlA1qEVNoAY1gyvUBc5QNzhCIbCHwmCLUsAzSgMrSgUr+mKCbaWJ9SPxEWAASN9HmPLNZtoAAAAASUVORK5CYII=');
+                background-repeat: no-repeat;
+            }
+
+        .wa-button-secondary {
+            font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.2em;
+            color: #fff;
+            background-color: rgba(255,255,255,.2);
+            padding: 6px 25px 9px 20px;
+            position: relative;
+        }
+
+            .wa-button-secondary:hover {
+                background-color: rgba(255,255,255,.3);
+            }
+
+            .wa-button-secondary:after {
+                content: "";
+                display: inline-block;
+                height: 8px;
+                margin-top: -4px;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                width: 4px;
+                background-image: url(data:image/png; base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAICAYAAADeM14FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAvSURBVBhXY/j//z8KBhHrgZgfWQAE7gKxMRDDBUDgJxDn4BRA0bIGiFEMRcL/GQDtGmv+Iolm2QAAAABJRU5ErkJggg==);
+                background-repeat: no-repeat;
+            }
+
+        .wa-button-rss {
+            background-color: #ff8c00;
+        }
+
+            .wa-button-rss:hover {
+                background-color: #dd5900;
+                -webkit-transition: all .1s ease-in-out;
+                -moz-transition: all .1s ease-in-out;
+                -o-transition: all .1s ease-in-out;
+                transition: all .1s ease-in-out;
+            }
+
+        .wa-button-slate {
+            background-color: #969696;
+        }
+
+            .wa-button-slate:hover {
+                background-color: #6a6a6a;
+                -webkit-transition: all .1s ease-in-out;
+                -moz-transition: all .1s ease-in-out;
+                -o-transition: all .1s ease-in-out;
+                transition: all .1s ease-in-out;
+            }
+
+        .wa-button-alt {
+            background-color: #00abec;
+        }
+
+            .wa-button-alt:hover {
+                background-color: #0072c6;
+            }
+
+        .wa-button-W01, .wa-button-W01:hover {
+            background-color: #fff;
+            color: #00abec;
+        }
+
+        .wa-button-row {
+            margin: 15px 0 0 -15px;
+        }
+
+            .wa-button-row:after {
+                clear: both;
+                content: "";
+                display: table;
+            }
+
+            .wa-button-row a {
+                float: left;
+                margin-left: 15px;
+                margin-bottom: 15px;
+            }
+
+        header .wa-button-primary {
+            background-color: #1a1a1a;
+            width: 136px;
+            display: table-cell;
+            height: 28px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            padding: 0 35px 0 0;
+            font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.2em;
+            color: #a5ce00;
+        }
+
+            header .wa-button-primary:hover {
+                background-color: #1a1a1a;
+                color: #89c402;
+            }
+
+                header .wa-button-primary:hover:after {
+                    border-color: #89c402;
+                }
+
+            header .wa-button-primary:after {
+                border-color: #a5ce00;
+                border-style: solid;
+                border-width: 0 1px 1px 0;
+                box-sizing: border-box;
+                content: "";
+                display: block;
+                height: 10px;
+                margin: 0;
+                padding: 0;
+                width: 10px;
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                background-image: none;
+                top: 20px;
+            }
+
+        @media only screen and (min-width:45em) {
+            .wa-button {
+                display: inline-block;
+            }
+
+            .wa-button-mini {
+                font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.5em;
+                color: #fff;
+                padding: 2px 20px 2px;
+            }
+
+            .wa-button-primary.wa-button-mini:after {
+                top: 8px;
+            }
+
+            .feedback-fancy .wa-button-mini {
+                color: #00abec;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <div class="main_content" id='serviceCenter'>
+        <div class="content">
+            <div class='white-background'></div>
+            <!--left 左侧导航-->
+            <div id="" class="left_content">
+                <ul id="nav_list" class="left_ul_content">
+                    <a class="nav_list_title" style="margin-top:35px;margin-bottom:10px; font-size:20px;">
+                    </a>
+                </ul>
+            </div>
+            <script>
+                renderNavigation(navigationJsonStr, null);
+            </script>
+            <!--header 右侧-->
+            <div class="right_content_header">
+                <div style="margin-left: 30px;"><span><a href="https://azure.microsoft.com/zh-cn/documentation">文档</a></span> &#x3009;<span><a>虚拟机</a></span></div>
+                <div class="right_content_dis">
+
+                    <h1>
+                        <!-- REV.01 MOD START -->
+                        <a id="virtual-machine-trial" class="anchor"></a>
+                        <span class="rigth_content_title">虚拟机文档 </span>
+                    </h1>
+                    <div style="margin-top:20px;">
+                        <div class="header_content">
+                            了解如何设置、迁移和管理虚拟机
+                        </div>
+                        <div style="margin-bottom:10px">
+                            创建运行以下系统的 VM：
+                        </div>
+                        <div class="wa-dropdown-container wa-dropdown-medium">
+                            <select class="wa-dropdown" id="dropdown-cta" onchange="dropdownSelectChange()">
+                                <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-windows-tutorial/">Windows Server</option>
+                                <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-linux-tutorial/">Linux</option>
+                                <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-workload-template-sql-alwayson/">SQL Server</option>
+                                <option value="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-workload-template-sharepoint/">SharePoint</option>
+                            </select> <span id="wa-dropdown-value" class="wa-dropdown-value">Windows Server</span> <span class="wa-dropdown-arrow"></span>
+                        </div>
+                        <script>
+                            dropdownSelect = document.getElementById('dropdown-cta');
+                            if (dropdownSelect.options.length <= 1) {
+                                dropdownSelect.disabled = "disabled";
+                            }
+                        </script>
+                        <a id="wa-button-link" class="wa-button wa-button-primary wa-button-mini" href="http://azure.microsoft.com/zh-cn/documentation/articles/virtual-machines-windows-tutorial/" style="padding-top: 3px; padding-bottom: 1px;">入门教程</a>
+                    </div>
+                </div>
+                <div class="right_content_divided">
+                    <h2>虚拟机视频</h2>
+                </div>
+                <!-- REV.01 ADD END -->
+            </div>
+
+
+
+            <div class="right_content_select">
+                <div class="video-field">
+                    <div class="video-item">
+                        <div class="video-image">
+                            <div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E8%99%9A%E6%8B%9F%E6%9C%BA/Azure%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.png') no-repeat;background-size:100%;"
+                                   href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/18d05657-ea33-4974-9810-c31670aa0fca/Azure%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.ism/Manifest">
+                                    <div class="play-btn">
+                                        <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
+                                    </div>
+                                </a>
+                                <p>如何配置服务器的功能和如何配置服务器端口开放</p>
+                            </div>
+                            <div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E6%9C%BA.png') no-repeat;background-size:100%;"
+                                   href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/a841607b-0f35-4eb1-95fa-6be7fdfbfd60/%E5%9C%A8Azure%E9%97%A8%E6%88%B7%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E6%9C%BA.ism/Manifest">
+                                    <div class="play-btn">
+                                        <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
+                                    </div>
+                                </a>
+                                <p>如何利用Azure门户管理虚拟机</p>
+                            </div>
+                            <div class="space">
+                                <a class="_storage-video-popup" style="background:url('http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/VideoCenter/image/%E8%99%9A%E6%8B%9F%E6%9C%BA/%E7%AE%A1%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8Azure%E8%99%9A%E6%8B%9F%E6%9C%BA.png') no-repeat;background-size:100%;"
+                                   href="http://wacnvideo.streaming.mediaservices.chinacloudapi.cn/d05c84c7-44ec-4ff3-884f-d5f28ac107e0/%E7%AE%A1%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8Azure%E8%99%9A%E6%8B%9F%E6%9C%BA.ism/Manifest">
+                                    <div class="play-btn">
+                                        <img class="image" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/video_center_play.png" />
+                                    </div>
+                                </a>
+                                <p>远程连接虚拟机，在虚拟机中部署应用</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <script src="./video-center_files/videocenter.js"></script>
+
+            <div class="right_content_more">
+                <a href="http://www.windowsazure.cn/video-center/">观看更多视频▶</a>
+
+                <hr style="margin-top:30px" />
+            </div>
+            <!--content 右侧-->
+            <div id="page_body" class="right_content">
+                <!--功能-->
+                <div class="right_content_senction">
+                    <section data-value="features" style="padding-top:20px; clear:none; max-width:990px;" class="content_show">
+                        <div class="right_content_center">
+                            <div>
+                                <h2><a id="virtual-machine-quickBoot" class="anchor"></a>最新虚拟机更新</h2>
+                                <h4>Linux的HPC包支持</h4>
+                                <p class="article-date">2015/7/9</p>
+                                <p class="article-description">使用HPC包2012 R2更新2，便能支持Linux虚拟机运行Azure</p>
+                                <a href="http://azure.microsoft.com/en-us/updates/hpc-pack-support-for-linux/">了解更多▶ </a>
+                                <p />
+                                <h4>Linux的HPC包支持</h4>
+                                <p class="article-date">2015/7/9</p>
+                                <p class="article-description">使用HPC包2012 R2更新2，便能支持Linux虚拟机运行Azure</p>
+                                <a href="http://azure.microsoft.com/en-us/updates/hpc-pack-support-for-linux/">了解更多▶ </a>
+                                <p />
+                                <h4>Linux的HPC包支持</h4>
+                                <p class="article-date">2015/7/9</p>
+                                <p class="article-description">使用HPC包2012 R2更新2，便能支持Linux虚拟机运行Azure</p>
+                                <a href="http://azure.microsoft.com/en-us/updates/hpc-pack-support-for-linux/">了解更多▶ </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
